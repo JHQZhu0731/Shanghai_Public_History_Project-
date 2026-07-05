@@ -4,6 +4,7 @@ import { MapView } from './components/MapView';
 import { DataDashboard } from './components/DataDashboard';
 import { FilmArchive } from './components/FilmArchive';
 import { ItemModal } from './components/ItemModal';
+import heroBanner from './assets/pixel-scenes/hero-banner-shanghai.webp';
 import { 
   Calendar, 
   MapPin, 
@@ -82,6 +83,25 @@ function App() {
 
         </div>
       </header>
+
+      {/* Hero Pixel Art Scene */}
+      <div className="relative w-full h-36 md:h-56 overflow-hidden border-b-4 border-[#313244] shrink-0">
+        <img
+          src={heroBanner}
+          alt="Shanghai Pixel Art Skyline"
+          className="w-full h-full object-cover"
+          style={{ imageRendering: 'pixelated' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d14] via-[#0c0d14]/10 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 gap-1">
+          <h2 className="text-xs md:text-xl font-black text-white uppercase tracking-widest [text-shadow:3px_3px_0px_rgba(0,0,0,0.85)]">
+            {isEn ? 'A Pixel Journey Through Time' : '穿越时空的像素之旅'}
+          </h2>
+          <p className="text-[9px] md:text-xs text-[#f9e2af] font-mono tracking-widest [text-shadow:2px_2px_0px_rgba(0,0,0,0.85)]">
+            1970 → 2026
+          </p>
+        </div>
+      </div>
 
       {/* Navigation Tabs */}
       <nav className="bg-[#11111b] border-b-4 border-[#313244] px-4 md:px-8 overflow-x-auto">

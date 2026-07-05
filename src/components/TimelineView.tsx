@@ -2,17 +2,32 @@ import React, { useState } from 'react';
 import { decadeSummaries } from '../data/decadeSummaries';
 import { searchItems } from '../data/db';
 import { MapPin, Tag, Heart, Film, Calendar, BookOpen, Camera, Video, ArrowRight } from 'lucide-react';
+import skyline1970s from '../assets/pixel-scenes/skyline-1970s.webp';
+import skyline1990s from '../assets/pixel-scenes/skyline-1990s.webp';
+import skyline2020s from '../assets/pixel-scenes/skyline-2020s.webp';
 
 interface TimelineViewProps {
   language: 'en' | 'zh';
   onSelectItem: (id: string) => void;
 }
 
+// Maps each decade to the closest pixel-art skyline illustration, visually
+// showing the city's growth from low-rise Puxi to the full Pudong skyline.
+const decadeSceneMap: Record<number, string> = {
+  1970: skyline1970s,
+  1980: skyline1970s,
+  1990: skyline1990s,
+  2000: skyline1990s,
+  2010: skyline2020s,
+  2020: skyline2020s,
+};
+
 export const TimelineView: React.FC<TimelineViewProps> = ({ language, onSelectItem }) => {
   const [selectedDecade, setSelectedDecade] = useState<number>(1990);
   const isEn = language === 'en';
 
   const activeSummary = decadeSummaries.find(s => s.decade === selectedDecade)!;
+  const activeScene = decadeSceneMap[selectedDecade];
   
   // Get archive items for this decade
   const decadeItems = searchItems('', 'all', selectedDecade);
@@ -91,6 +106,18 @@ export const TimelineView: React.FC<TimelineViewProps> = ({ language, onSelectIt
         <p className="title text-xs font-bold font-mono text-[#f9e2af]">
           {isEn ? `${selectedDecade}s OVERVIEW` : `${selectedDecade}年代 历史概览`}
         </p>
+
+        {/* Pixel Art Skyline Scene for this Era */}
+        <div className="relative w-full h-40 md:h-56 overflow-hidden border-4 border-[#313244] -mt-2">
+          <img
+            key={activeScene}
+            src={activeScene}
+            alt={`Shanghai skyline in the ${selectedDecade}s`}
+            className="w-full h-full object-cover"
+            style={{ imageRendering: 'pixelated' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#11111b] via-transparent to-transparent" />
+        </div>
         
         <div className="space-y-2">
           <h2 className="text-lg md:text-xl font-black text-[#f5c2e4] uppercase tracking-wider">
