@@ -14,7 +14,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     const parts = text.split(/(\*\*.*?\*\*)/g);
     return parts.map((part, idx) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={idx} className="font-bold text-amber-400">{part.slice(2, -2)}</strong>;
+        return <strong key={idx} className="font-black text-[#f9e2af]">{part.slice(2, -2)}</strong>;
       }
       // Basic italic parser: *text*
       const italicParts = part.split(/(\*.*?\*)/g);
@@ -23,7 +23,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           <React.Fragment key={idx}>
             {italicParts.map((ip, iidx) => {
               if (ip.startsWith('*') && ip.endsWith('*')) {
-                return <em key={iidx} className="italic text-gray-300">{ip.slice(1, -1)}</em>;
+                return <em key={iidx} className="italic text-[#cdd6f4]">{ip.slice(1, -1)}</em>;
               }
               return ip;
             })}
@@ -37,7 +37,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
   const flushList = (key: number) => {
     if (listItems.length > 0) {
       renderedElements.push(
-        <ul key={`list-${key}`} className="list-disc pl-6 mb-4 text-gray-300 space-y-2 text-left">
+        <ul key={`list-${key}`} className="list-disc pl-6 mb-4 text-[#cdd6f4] space-y-2 text-left text-[11px] md:text-xs">
           {listItems}
         </ul>
       );
@@ -52,21 +52,21 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     if (trimmedLine.startsWith('### ')) {
       flushList(index);
       renderedElements.push(
-        <h3 key={index} className="text-xl font-semibold text-amber-100 mt-6 mb-3 text-left border-b border-gray-800 pb-1">
+        <h3 key={index} className="text-xs md:text-sm font-black text-[#f5c2e4] mt-6 mb-3 text-left border-b-2 border-[#313244] pb-1 uppercase tracking-wider">
           {parseInlineStyles(trimmedLine.slice(4))}
         </h3>
       );
     } else if (trimmedLine.startsWith('#### ')) {
       flushList(index);
       renderedElements.push(
-        <h4 key={index} className="text-lg font-medium text-amber-200/90 mt-4 mb-2 text-left">
+        <h4 key={index} className="text-[11px] md:text-xs font-bold text-[#cba6f7] mt-4 mb-2 text-left uppercase tracking-wide">
           {parseInlineStyles(trimmedLine.slice(5))}
         </h4>
       );
     } else if (trimmedLine.startsWith('## ')) {
       flushList(index);
       renderedElements.push(
-        <h2 key={index} className="text-2xl font-bold text-amber-500 mt-8 mb-4 text-left">
+        <h2 key={index} className="text-sm md:text-base font-black text-[#f9e2af] mt-8 mb-4 text-left uppercase tracking-widest">
           {parseInlineStyles(trimmedLine.slice(3))}
         </h2>
       );
@@ -87,7 +87,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     else {
       flushList(index);
       renderedElements.push(
-        <p key={index} className="text-gray-300 leading-relaxed mb-4 text-left text-base">
+        <p key={index} className="text-[#cdd6f4] leading-relaxed mb-4 text-left text-[11px] md:text-xs">
           {parseInlineStyles(trimmedLine)}
         </p>
       );

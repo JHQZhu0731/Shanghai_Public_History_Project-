@@ -1,35 +1,100 @@
+/* Import retro pixel fonts FIRST before any other CSS rules */
+/* Press Start 2P for English retro headers */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Muzai Pixel / Fusion Pixel for Chinese and CJK characters */
+@import url('https://fonts.acghub.net/css?family=Fusion+Pixel');
+
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
+@import "nes.css/css/nes.min.css";
 
-/* Custom Leaflet Map Styles */
+/* Custom Retro Pixel Art Theme Styles */
+:root {
+  font-family: 'fusion-pixel-zh-hans', 'Press Start 2P', monospace;
+  image-rendering: pixelated;
+}
+
+body {
+  background-color: #0c0d14; /* Deep retro dark background */
+  color: #e2e8f0;
+}
+
+/* Override NES.css global font resets to support Chinese pixel font */
+html, body, pre, code, kbd, samp, input, select, button, textarea {
+  font-family: 'fusion-pixel-zh-hans', 'Press Start 2P', monospace !important;
+}
+
+/* Custom Leaflet Map Styles with Pixelated Boarders */
 .leaflet-container {
   width: 100%;
   height: 100%;
-  background-color: #111827; /* Dark background matching Tailwind gray-900 */
+  background-color: #0c0d14;
+  image-rendering: auto; /* Keep map tiles smooth, but markers pixelated */
 }
 
-/* Custom scrollbar for dark theme */
+/* Custom scrollbar for retro pixel theme */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937; /* gray-800 */
+  background: #181825;
+  border: 3px solid #313244;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4b5563; /* gray-600 */
-  border-radius: 4px;
+  background: #f5c2e4; /* Retro pink thumb */
+  border: 3px solid #181825;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af; /* gray-400 */
+  background: #f38ba8;
 }
 
-/* Smooth transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+/* Custom NES-style adjustments */
+.nes-container.is-dark {
+  background-color: #11111b !important;
+  border-image-slice: 2 !important;
+}
+
+.nes-btn {
+  border-image-slice: 2 !important;
+}
+
+/* Animation for blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.pixel-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Scanline overlay effect for retro monitor feel */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.15) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* CRT monitor flicker effect */
+@keyframes crt-flicker {
+  0% { opacity: 0.985; }
+  50% { opacity: 0.995; }
+  100% { opacity: 0.985; }
+}
+
+.crt-monitor {
+  animation: crt-flicker 0.15s infinite;
 }

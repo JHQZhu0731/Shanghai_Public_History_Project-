@@ -33,14 +33,14 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-gray-950 border border-gray-800 p-3.5 rounded-lg shadow-xl text-left">
-          <p className="text-xs font-mono font-bold text-amber-500 mb-1.5">
+        <div className="bg-[#11111b] border-4 border-[#313244] p-3 rounded-none text-left">
+          <p className="text-[10px] font-mono font-bold text-[#f9e2af] mb-1.5">
             {isEn ? `Year: ${label}` : `年份: ${label}年`}
           </p>
           <div className="space-y-1">
             {payload.map((item: any, idx: number) => (
-              <p key={idx} className="text-xs flex items-center justify-between gap-4">
-                <span className="text-gray-400">{item.name}:</span>
+              <p key={idx} className="text-[10px] flex items-center justify-between gap-4">
+                <span className="text-[#a6adc8]">{item.name}:</span>
                 <span className="font-mono font-bold" style={{ color: item.color }}>
                   {item.value} {item.unit || ''}
                 </span>
@@ -56,9 +56,9 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'demographics':
-        return <Users className="w-4 h-4 text-blue-400" />;
+        return <Users className="w-4 h-4 text-[#89b4fa]" />;
       case 'healthcare':
-        return <Heart className="w-4 h-4 text-rose-400" />;
+        return <Heart className="w-4 h-4 text-[#f38ba8]" />;
       default:
         return null;
     }
@@ -82,28 +82,24 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
     <div className="space-y-10 py-4 text-left">
       
       {/* Dashboard Selector */}
-      <div className="flex border-b border-gray-800">
+      <div className="flex gap-4 border-b-4 border-[#313244] pb-1">
         <button
           onClick={() => setActiveTab('demographics')}
-          className={`py-3 px-6 font-bold text-base md:text-lg flex items-center gap-2 border-b-2 transition-all duration-300 ${
-            activeTab === 'demographics'
-              ? 'border-blue-500 text-blue-400 bg-blue-500/5'
-              : 'border-transparent text-gray-400 hover:text-gray-200 hover:bg-gray-900/20'
-          }`}
+          className={`nes-btn text-xs font-bold ${activeTab === 'demographics' ? 'is-primary' : ''}`}
         >
-          <Users className="w-5 h-5" />
-          {isEn ? 'Demographics Dashboard' : '人口变迁数据面板'}
+          <span className="flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            {isEn ? 'DEMOGRAPHICS' : '人口数据'}
+          </span>
         </button>
         <button
           onClick={() => setActiveTab('healthcare')}
-          className={`py-3 px-6 font-bold text-base md:text-lg flex items-center gap-2 border-b-2 transition-all duration-300 ${
-            activeTab === 'healthcare'
-              ? 'border-rose-500 text-rose-400 bg-rose-500/5'
-              : 'border-transparent text-gray-400 hover:text-gray-200 hover:bg-gray-900/20'
-          }`}
+          className={`nes-btn text-xs font-bold ${activeTab === 'healthcare' ? 'is-error' : ''}`}
         >
-          <Heart className="w-5 h-5" />
-          {isEn ? 'Healthcare Dashboard' : '医疗卫生数据面板'}
+          <span className="flex items-center gap-2">
+            <Heart className="w-4 h-4" />
+            {isEn ? 'HEALTHCARE' : '医疗卫生'}
+          </span>
         </button>
       </div>
 
@@ -112,16 +108,16 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
         <div className="space-y-10">
           
           {/* Chart 1: Population Structure */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Chart Container */}
-            <div className="lg:col-span-2 bg-gray-900/30 border border-gray-800 rounded-xl p-5 shadow-xl flex flex-col h-[400px]">
-              <div className="mb-4">
-                <h3 className="font-bold text-white text-base md:text-lg">
-                  {isEn ? 'Shanghai Population Growth & Migration (1970-2026)' : '上海人口增长与流动趋势 (1970-2026)'}
+            <div className="lg:col-span-2 bg-[#11111b] border-4 border-[#313244] p-4 flex flex-col h-[400px] shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
+              <div className="mb-4 border-b border-[#313244] pb-2">
+                <h3 className="font-black text-white text-xs md:text-sm uppercase tracking-wide">
+                  {isEn ? 'Population Growth & Migration (1970-2026)' : '上海人口增长与流动趋势 (1970-2026)'}
                 </h3>
-                <p className="text-gray-400 text-xs mt-0.5">
-                  {isEn ? 'Comparing Registered Hukou and Floating (Migrant) Population in Millions' : '户籍人口与外来（流动）人口对比（单位：百万人）'}
+                <p className="text-[#a6adc8] text-[10px] mt-0.5">
+                  {isEn ? 'Registered Hukou vs. Floating Population in Millions' : '户籍人口与外来（流动）人口对比（单位：百万人）'}
                 </p>
               </div>
               <div className="flex-1 min-h-0">
@@ -132,24 +128,24 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                   >
                     <defs>
                       <linearGradient id="colorHukou" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4}/>
-                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                        <stop offset="5%" stopColor="#89b4fa" stopOpacity={0.4}/>
+                        <stop offset="95%" stopColor="#89b4fa" stopOpacity={0}/>
                       </linearGradient>
                       <linearGradient id="colorFloating" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#10b981" stopOpacity={0.4}/>
-                        <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                        <stop offset="5%" stopColor="#a6e3a1" stopOpacity={0.4}/>
+                        <stop offset="95%" stopColor="#a6e3a1" stopOpacity={0}/>
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-                    <XAxis dataKey="year" stroke="#6b7280" fontSize={11} fontFamily="monospace" />
-                    <YAxis stroke="#6b7280" fontSize={11} fontFamily="monospace" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#313244" />
+                    <XAxis dataKey="year" stroke="#9399b2" fontSize={10} fontFamily="monospace" />
+                    <YAxis stroke="#9399b2" fontSize={10} fontFamily="monospace" />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                    <Legend verticalAlign="top" height={36} iconType="square" wrapperStyle={{ fontSize: 10, fontFamily: 'monospace' }} />
                     <Area 
                       type="monotone" 
                       name={isEn ? "Registered Hukou" : "户籍人口"} 
                       dataKey="registeredHukou" 
-                      stroke="#3b82f6" 
+                      stroke="#89b4fa" 
                       fillOpacity={1} 
                       fill="url(#colorHukou)" 
                       unit="M"
@@ -158,7 +154,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                       type="monotone" 
                       name={isEn ? "Floating Population" : "外来流动人口"} 
                       dataKey="floatingPopulation" 
-                      stroke="#10b981" 
+                      stroke="#a6e3a1" 
                       fillOpacity={1} 
                       fill="url(#colorFloating)" 
                       unit="M"
@@ -169,14 +165,13 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
             </div>
 
             {/* Analysis Panel */}
-            <div className="lg:col-span-1 bg-gray-900/50 border border-gray-800 rounded-xl p-6 flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="lg:col-span-1 nes-container is-dark text-left flex flex-col justify-between shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
               <div className="space-y-4">
-                <h4 className="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
+                <h4 className="text-[10px] font-black text-[#89b4fa] uppercase tracking-widest flex items-center gap-1.5 border-b border-[#313244] pb-1.5">
                   <TrendingUp className="w-4 h-4" />
                   {isEn ? 'Demographic Analysis' : '人口学趋势分析'}
                 </h4>
-                <div className="space-y-3 text-sm leading-relaxed text-gray-300">
+                <div className="space-y-3 text-[11px] leading-relaxed text-[#cdd6f4]">
                   <p>
                     {isEn 
                       ? 'The data shows two distinct eras. From 1970 to 1990, Shanghai was a closed city. The registered Hukou population grew slowly, and the floating population was virtually non-existent due to strict household controls.' 
@@ -189,7 +184,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                   </p>
                 </div>
               </div>
-              <div className="mt-6 p-4 bg-blue-500/5 border border-blue-500/10 rounded-lg flex items-start gap-2.5 text-xs text-blue-300">
+              <div className="mt-4 p-3 bg-[#89b4fa]/5 border-2 border-[#89b4fa]/20 rounded-none flex items-start gap-2 text-[10px] text-[#89b4fa]">
                 <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <p>
                   {isEn 
@@ -202,17 +197,16 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
           </div>
 
           {/* Chart 2: Aging & Birth Rates */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Analysis Panel */}
-            <div className="lg:col-span-1 bg-gray-900/50 border border-gray-800 rounded-xl p-6 flex flex-col justify-between order-2 lg:order-1 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="lg:col-span-1 nes-container is-dark text-left flex flex-col justify-between order-2 lg:order-1 shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
               <div className="space-y-4">
-                <h4 className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+                <h4 className="text-[10px] font-black text-[#cba6f7] uppercase tracking-widest flex items-center gap-1.5 border-b border-[#313244] pb-1.5">
                   <TrendingUp className="w-4 h-4" />
                   {isEn ? 'The Demographics Squeeze' : '人口结构双重挤压'}
                 </h4>
-                <div className="space-y-3 text-sm leading-relaxed text-gray-300">
+                <div className="space-y-3 text-[11px] leading-relaxed text-[#cdd6f4]">
                   <p>
                     {isEn 
                       ? 'Shanghai is experiencing a severe demographic squeeze. The aging rate (65+) has climbed from 4.5% in 1970 to over 22% in 2026, making it China\'s oldest city.' 
@@ -225,7 +219,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                   </p>
                 </div>
               </div>
-              <div className="mt-6 p-4 bg-purple-500/5 border border-purple-500/10 rounded-lg flex items-start gap-2.5 text-xs text-purple-300">
+              <div className="mt-4 p-3 bg-[#cba6f7]/5 border-2 border-[#cba6f7]/20 rounded-none flex items-start gap-2 text-[10px] text-[#cba6f7]">
                 <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <p>
                   {isEn 
@@ -236,12 +230,12 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
             </div>
 
             {/* Chart Container */}
-            <div className="lg:col-span-2 bg-gray-900/30 border border-gray-800 rounded-xl p-5 shadow-xl flex flex-col h-[400px] order-1 lg:order-2">
-              <div className="mb-4">
-                <h3 className="font-bold text-white text-base md:text-lg">
+            <div className="lg:col-span-2 bg-[#11111b] border-4 border-[#313244] p-4 flex flex-col h-[400px] order-1 lg:order-2 shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
+              <div className="mb-4 border-b border-[#313244] pb-2">
+                <h3 className="font-black text-white text-xs md:text-sm uppercase tracking-wide">
                   {isEn ? 'Aging Rate vs. Birth Rate (1970-2026)' : '老龄化率与出生率演变趋势 (1970-2026)'}
                 </h3>
-                <p className="text-gray-400 text-xs mt-0.5">
+                <p className="text-[#a6adc8] text-[10px] mt-0.5">
                   {isEn ? 'Aging Rate (% of population aged 65+) and Birth Rate (Births per 1,000 people)' : '65岁以上老年人口比例（%）与人口出生率（‰）对比'}
                 </p>
               </div>
@@ -251,17 +245,17 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                     data={demographicsData}
                     margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-                    <XAxis dataKey="year" stroke="#6b7280" fontSize={11} fontFamily="monospace" />
-                    <YAxis stroke="#6b7280" fontSize={11} fontFamily="monospace" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#313244" />
+                    <XAxis dataKey="year" stroke="#9399b2" fontSize={10} fontFamily="monospace" />
+                    <YAxis stroke="#9399b2" fontSize={10} fontFamily="monospace" />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                    <Legend verticalAlign="top" height={36} iconType="square" wrapperStyle={{ fontSize: 10, fontFamily: 'monospace' }} />
                     <Line 
                       type="monotone" 
                       name={isEn ? "Aging Rate (65+)" : "65岁及以上老龄化率"} 
                       dataKey="agingRate65Plus" 
-                      stroke="#a855f7" 
-                      strokeWidth={2.5}
+                      stroke="#cba6f7" 
+                      strokeWidth={3}
                       activeDot={{ r: 6 }}
                       unit="%"
                     />
@@ -269,8 +263,8 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                       type="monotone" 
                       name={isEn ? "Birth Rate" : "人口出生率"} 
                       dataKey="birthRate" 
-                      stroke="#f43f5e" 
-                      strokeWidth={2.5}
+                      stroke="#f38ba8" 
+                      strokeWidth={3}
                       activeDot={{ r: 6 }}
                       unit="‰"
                     />
@@ -282,39 +276,39 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
           </div>
 
           {/* Related Demographics Archive Items */}
-          <div className="space-y-4 pt-4 border-t border-gray-800">
-            <h3 className="text-lg font-bold text-white">
+          <div className="space-y-4 pt-4 border-t-4 border-[#313244]">
+            <h3 className="text-xs md:text-sm font-black text-white uppercase tracking-wide">
               {isEn ? 'Related Demographics Archives' : '关联人口学历史档案'}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedDemoItems.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => onSelectItem(item.id)}
-                  className="p-4 bg-gray-900/40 border border-gray-800 rounded-lg cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 flex flex-col justify-between"
+                  className="p-4 bg-[#11111b] border-4 border-[#313244] cursor-pointer hover:border-[#89b4fa] hover:bg-[#89b4fa]/5 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-mono font-bold text-blue-400 uppercase flex items-center gap-1">
+                      <span className="text-[9px] font-bold text-[#89b4fa] uppercase flex items-center gap-1">
                         {getCategoryIcon(item.category)}
                         {item.category}
                       </span>
-                      <span className="text-[10px] font-mono text-gray-500">{item.exactYear}</span>
+                      <span className="text-[9px] font-mono text-[#9399b2]">{item.exactYear}</span>
                     </div>
-                    <h4 className="font-bold text-white text-sm line-clamp-1 hover:text-blue-400 transition-colors">
+                    <h4 className="font-black text-white text-xs line-clamp-1 hover:text-[#89b4fa] transition-colors">
                       {isEn ? item.titleEn : item.titleZh}
                     </h4>
-                    <p className="text-gray-400 text-xs line-clamp-2 leading-relaxed">
+                    <p className="text-[#a6adc8] text-[10px] line-clamp-2 leading-relaxed">
                       {isEn ? item.summaryEn : item.summaryZh}
                     </p>
                   </div>
-                  <div className="flex justify-between items-center mt-3 pt-2 border-t border-gray-800/40 text-[10px] text-gray-500">
+                  <div className="flex justify-between items-center mt-3 pt-2 border-t border-[#313244] text-[9px] text-[#9399b2]">
                     <span className="capitalize flex items-center gap-1">
                       {getItemTypeIcon(item.itemType)}
                       {item.itemType.replace('_', ' ')}
                     </span>
-                    <span className="text-blue-400 font-semibold flex items-center gap-0.5">
-                      {isEn ? 'Read' : '阅读'}
+                    <span className="text-[#89b4fa] font-black flex items-center gap-0.5">
+                      {isEn ? 'READ' : '阅读'}
                       <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
@@ -331,15 +325,15 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
         <div className="space-y-10">
           
           {/* Chart 1: Life Expectancy */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Chart Container */}
-            <div className="lg:col-span-2 bg-gray-900/30 border border-gray-800 rounded-xl p-5 shadow-xl flex flex-col h-[400px]">
-              <div className="mb-4">
-                <h3 className="font-bold text-white text-base md:text-lg">
-                  {isEn ? 'Shanghai Life Expectancy & Hospital Capacity (1970-2026)' : '上海人均预期寿命与医疗机构规模 (1970-2026)'}
+            <div className="lg:col-span-2 bg-[#11111b] border-4 border-[#313244] p-4 flex flex-col h-[400px] shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
+              <div className="mb-4 border-b border-[#313244] pb-2">
+                <h3 className="font-black text-white text-xs md:text-sm uppercase tracking-wide">
+                  {isEn ? 'Life Expectancy & Hospital Capacity (1970-2026)' : '上海人均预期寿命与医疗机构规模 (1970-2026)'}
                 </h3>
-                <p className="text-gray-400 text-xs mt-0.5">
+                <p className="text-[#a6adc8] text-[10px] mt-0.5">
                   {isEn ? 'Average Life Expectancy (Years) and Number of Major Hospitals' : '人均预期寿命（岁）与主要医院数量（家）对比'}
                 </p>
               </div>
@@ -349,17 +343,17 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                     data={healthcareData}
                     margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-                    <XAxis dataKey="year" stroke="#6b7280" fontSize={11} fontFamily="monospace" />
-                    <YAxis stroke="#6b7280" fontSize={11} fontFamily="monospace" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#313244" />
+                    <XAxis dataKey="year" stroke="#9399b2" fontSize={10} fontFamily="monospace" />
+                    <YAxis stroke="#9399b2" fontSize={10} fontFamily="monospace" />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                    <Legend verticalAlign="top" height={36} iconType="square" wrapperStyle={{ fontSize: 10, fontFamily: 'monospace' }} />
                     <Line 
                       type="monotone" 
                       name={isEn ? "Life Expectancy (Years)" : "人均预期寿命（岁）"} 
                       dataKey="lifeExpectancy" 
-                      stroke="#f43f5e" 
-                      strokeWidth={2.5}
+                      stroke="#f38ba8" 
+                      strokeWidth={3}
                       activeDot={{ r: 6 }}
                       unit=" yrs"
                     />
@@ -367,8 +361,8 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                       type="monotone" 
                       name={isEn ? "Major Hospitals" : "主要医院数量（家）"} 
                       dataKey="hospitalCount" 
-                      stroke="#eab308" 
-                      strokeWidth={2.5}
+                      stroke="#f9e2af" 
+                      strokeWidth={3}
                       activeDot={{ r: 6 }}
                       unit=" hospitals"
                     />
@@ -378,14 +372,13 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
             </div>
 
             {/* Analysis Panel */}
-            <div className="lg:col-span-1 bg-gray-900/50 border border-gray-800 rounded-xl p-6 flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="lg:col-span-1 nes-container is-dark text-left flex flex-col justify-between shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
               <div className="space-y-4">
-                <h4 className="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                <h4 className="text-[10px] font-black text-[#f38ba8] uppercase tracking-widest flex items-center gap-1.5 border-b border-[#313244] pb-1.5">
                   <TrendingUp className="w-4 h-4" />
                   {isEn ? 'Healthcare Transition' : '医疗卫生跨越式转型'}
                 </h4>
-                <div className="space-y-3 text-sm leading-relaxed text-gray-300">
+                <div className="space-y-3 text-[11px] leading-relaxed text-[#cdd6f4]">
                   <p>
                     {isEn 
                       ? 'Shanghai\'s healthcare indicators are among the highest in the world. Life expectancy has risen from 71.2 years in 1970 to 84.8 years in 2026, surpassing many developed Western countries.' 
@@ -394,11 +387,11 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                   <p>
                     {isEn 
                       ? 'This longevity is supported by a massive expansion of medical infrastructure. The number of major hospitals grew from 142 in 1970 to 465 in 2026, establishing world-class medical centers like Ruijin and Huashan.' 
-                      : '长寿长寿的背后是医疗基础设施的巨大扩张。主要医院数量从1970年的142家增长到2026年的465家，确立了瑞金、华山等世界级医学中心的领先地位。'}
+                      : '长寿的背后是医疗基础设施的巨大扩张。主要医院数量从1970年的142家增长到2026年的465家，确立了瑞金、华山等世界级医学中心的领先地位。'}
                   </p>
                 </div>
               </div>
-              <div className="mt-6 p-4 bg-rose-500/5 border border-rose-500/10 rounded-lg flex items-start gap-2.5 text-xs text-rose-300">
+              <div className="mt-4 p-3 bg-[#f38ba8]/5 border-2 border-[#f38ba8]/20 rounded-none flex items-start gap-2 text-[10px] text-[#f38ba8]">
                 <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <p>
                   {isEn 
@@ -411,17 +404,16 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
           </div>
 
           {/* Chart 2: Mortality Rates */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Analysis Panel */}
-            <div className="lg:col-span-1 bg-gray-900/50 border border-gray-800 rounded-xl p-6 flex flex-col justify-between order-2 lg:order-1 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="lg:col-span-1 nes-container is-dark text-left flex flex-col justify-between order-2 lg:order-1 shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
               <div className="space-y-4">
-                <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <h4 className="text-[10px] font-black text-[#a6e3a1] uppercase tracking-widest flex items-center gap-1.5 border-b border-[#313244] pb-1.5">
                   <TrendingUp className="w-4 h-4" />
                   {isEn ? 'Eradicating Mortality Risks' : '孕产妇与婴儿死亡率骤降'}
                 </h4>
-                <div className="space-y-3 text-sm leading-relaxed text-gray-300">
+                <div className="space-y-3 text-[11px] leading-relaxed text-[#cdd6f4]">
                   <p>
                     {isEn 
                       ? 'Infant and maternal mortality rates are the gold standards of public health. In Shanghai, infant mortality dropped from 26.5 per 1,000 in 1970 to an extremely low 1.5 per 1,000 in 2026.' 
@@ -434,7 +426,7 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                   </p>
                 </div>
               </div>
-              <div className="mt-6 p-4 bg-emerald-500/5 border border-emerald-500/10 rounded-lg flex items-start gap-2.5 text-xs text-emerald-300">
+              <div className="mt-4 p-3 bg-[#a6e3a1]/5 border-2 border-[#a6e3a1]/20 rounded-none flex items-start gap-2 text-[10px] text-[#a6e3a1]">
                 <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <p>
                   {isEn 
@@ -445,12 +437,12 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
             </div>
 
             {/* Chart Container */}
-            <div className="lg:col-span-2 bg-gray-900/30 border border-gray-800 rounded-xl p-5 shadow-xl flex flex-col h-[400px] order-1 lg:order-2">
-              <div className="mb-4">
-                <h3 className="font-bold text-white text-base md:text-lg">
+            <div className="lg:col-span-2 bg-[#11111b] border-4 border-[#313244] p-4 flex flex-col h-[400px] order-1 lg:order-2 shadow-[6px_6px_0px_0px_rgba(49,50,68,1)]">
+              <div className="mb-4 border-b border-[#313244] pb-2">
+                <h3 className="font-black text-white text-xs md:text-sm uppercase tracking-wide">
                   {isEn ? 'Maternal & Infant Mortality Rates (1970-2026)' : '孕产妇与婴儿死亡率下降趋势 (1970-2026)'}
                 </h3>
-                <p className="text-gray-400 text-xs mt-0.5">
+                <p className="text-[#a6adc8] text-[10px] mt-0.5">
                   {isEn ? 'Infant Mortality (per 1,000 live births) and Maternal Mortality (per 100,000 live births)' : '婴儿死亡率（‰）与孕产妇死亡率（1/10万）对比'}
                 </p>
               </div>
@@ -460,17 +452,17 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                     data={healthcareData}
                     margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-                    <XAxis dataKey="year" stroke="#6b7280" fontSize={11} fontFamily="monospace" />
-                    <YAxis stroke="#6b7280" fontSize={11} fontFamily="monospace" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#313244" />
+                    <XAxis dataKey="year" stroke="#9399b2" fontSize={10} fontFamily="monospace" />
+                    <YAxis stroke="#9399b2" fontSize={10} fontFamily="monospace" />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                    <Legend verticalAlign="top" height={36} iconType="square" wrapperStyle={{ fontSize: 10, fontFamily: 'monospace' }} />
                     <Line 
                       type="monotone" 
                       name={isEn ? "Infant Mortality Rate" : "婴儿死亡率"} 
                       dataKey="infantMortalityRate" 
-                      stroke="#10b981" 
-                      strokeWidth={2.5}
+                      stroke="#a6e3a1" 
+                      strokeWidth={3}
                       activeDot={{ r: 6 }}
                       unit="‰"
                     />
@@ -478,8 +470,8 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
                       type="monotone" 
                       name={isEn ? "Maternal Mortality Rate" : "孕产妇死亡率"} 
                       dataKey="maternalMortalityRate" 
-                      stroke="#f43f5e" 
-                      strokeWidth={2.5}
+                      stroke="#f38ba8" 
+                      strokeWidth={3}
                       activeDot={{ r: 6 }}
                       unit="/100k"
                     />
@@ -491,39 +483,39 @@ export const DataDashboard: React.FC<DataDashboardProps> = ({ language, onSelect
           </div>
 
           {/* Related Healthcare Archive Items */}
-          <div className="space-y-4 pt-4 border-t border-gray-800">
-            <h3 className="text-lg font-bold text-white">
+          <div className="space-y-4 pt-4 border-t-4 border-[#313244]">
+            <h3 className="text-xs md:text-sm font-black text-white uppercase tracking-wide">
               {isEn ? 'Related Healthcare Archives' : '关联医疗卫生历史档案'}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedHealthItems.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => onSelectItem(item.id)}
-                  className="p-4 bg-gray-900/40 border border-gray-800 rounded-lg cursor-pointer hover:border-rose-500/40 hover:bg-rose-500/5 transition-all duration-300 flex flex-col justify-between"
+                  className="p-4 bg-[#11111b] border-4 border-[#313244] cursor-pointer hover:border-[#f38ba8] hover:bg-[#f38ba8]/5 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-mono font-bold text-rose-400 uppercase flex items-center gap-1">
+                      <span className="text-[9px] font-bold text-[#f38ba8] uppercase flex items-center gap-1">
                         {getCategoryIcon(item.category)}
                         {item.category}
                       </span>
-                      <span className="text-[10px] font-mono text-gray-500">{item.exactYear}</span>
+                      <span className="text-[9px] font-mono text-[#9399b2]">{item.exactYear}</span>
                     </div>
-                    <h4 className="font-bold text-white text-sm line-clamp-1 hover:text-rose-400 transition-colors">
+                    <h4 className="font-black text-white text-xs line-clamp-1 hover:text-[#f38ba8] transition-colors">
                       {isEn ? item.titleEn : item.titleZh}
                     </h4>
-                    <p className="text-gray-400 text-xs line-clamp-2 leading-relaxed">
+                    <p className="text-[#a6adc8] text-[10px] line-clamp-2 leading-relaxed">
                       {isEn ? item.summaryEn : item.summaryZh}
                     </p>
                   </div>
-                  <div className="flex justify-between items-center mt-3 pt-2 border-t border-gray-800/40 text-[10px] text-gray-500">
+                  <div className="flex justify-between items-center mt-3 pt-2 border-t border-[#313244] text-[9px] text-[#9399b2]">
                     <span className="capitalize flex items-center gap-1">
                       {getItemTypeIcon(item.itemType)}
                       {item.itemType.replace('_', ' ')}
                     </span>
-                    <span className="text-rose-400 font-semibold flex items-center gap-0.5">
-                      {isEn ? 'Read' : '阅读'}
+                    <span className="text-[#f38ba8] font-black flex items-center gap-0.5">
+                      {isEn ? 'READ' : '阅读'}
                       <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>

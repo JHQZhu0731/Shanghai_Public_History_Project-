@@ -10,12 +10,9 @@ const createCustomIcon = (isActive: boolean) => {
   return L.divIcon({
     html: `
       <div class="relative flex items-center justify-center">
-        <span class="absolute inline-flex h-6 w-6 rounded-full bg-emerald-400/30 ${isActive ? 'animate-ping' : ''}"></span>
-        <div class="relative rounded-full h-4.5 w-4.5 bg-emerald-500 border-2 border-white flex items-center justify-center shadow-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5 text-white">
-            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
+        <span class="absolute inline-flex h-6 w-6 rounded-none bg-[#a6e3a1]/30 ${isActive ? 'animate-ping' : ''}"></span>
+        <div class="relative rounded-none h-4 w-4 bg-[#a6e3a1] border-2 border-[#11111b] flex items-center justify-center shadow-md">
+          <div class="h-1.5 w-1.5 bg-[#11111b]"></div>
         </div>
       </div>
     `,
@@ -115,19 +112,22 @@ export const MapView: React.FC<MapViewProps> = ({ language, onSelectItem }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[calc(100vh-180px)] min-h-[600px] py-2">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-[calc(100vh-180px)] min-h-[600px] py-2">
       
       {/* Left Sidebar: Controls & List */}
       <div className="lg:col-span-1 flex flex-col space-y-4 h-full overflow-y-auto pr-2 text-left">
         
         {/* Time Slider Card */}
-        <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5 space-y-4">
+        <div className="nes-container is-dark with-title p-5 space-y-4">
+          <p className="title text-[10px] font-mono font-bold text-[#f9e2af]">
+            {isEn ? 'HISTORICAL TIME SLIDER' : '历史时间轴'}
+          </p>
           <div className="flex items-center justify-between">
-            <h3 className="font-bold text-white text-base flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-amber-500" />
-              {isEn ? 'Historical Time Slider' : '历史时间轴滑块'}
+            <h3 className="font-bold text-white text-xs flex items-center gap-2 uppercase">
+              <Calendar className="w-4 h-4 text-[#f9e2af]" />
+              {isEn ? 'Select Decade' : '选择年代'}
             </h3>
-            <span className="text-lg font-mono font-bold text-amber-400">{selectedDecade}s</span>
+            <span className="text-sm font-mono font-black text-[#f9e2af]">{selectedDecade}s</span>
           </div>
 
           <input
@@ -140,9 +140,9 @@ export const MapView: React.FC<MapViewProps> = ({ language, onSelectItem }) => {
               setSelectedDecade(Number(e.target.value));
               setActiveItem(null);
             }}
-            className="w-full h-1.5 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
+            className="w-full h-2 bg-[#313244] border-2 border-[#11111b] appearance-none cursor-pointer accent-[#f5c2e4]"
           />
-          <div className="flex justify-between text-xs font-mono text-gray-500">
+          <div className="flex justify-between text-[9px] font-mono text-[#a6adc8] font-bold">
             <span>1970s</span>
             <span>1990s</span>
             <span>2010s</span>
@@ -151,36 +151,35 @@ export const MapView: React.FC<MapViewProps> = ({ language, onSelectItem }) => {
         </div>
 
         {/* Historical Overlay Card */}
-        <div className="bg-gray-900/30 border border-gray-800 rounded-xl p-5 space-y-2 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
-          <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+        <div className="nes-container is-dark p-4 space-y-2 relative overflow-hidden border-emerald-500/30">
+          <h4 className="text-[10px] font-black text-[#a6e3a1] uppercase tracking-wider flex items-center gap-1.5 border-b border-[#313244] pb-1.5">
             <Info className="w-3.5 h-3.5" />
-            {isEn ? 'Urban Geography Context' : '城市地理历史背景'}
+            {isEn ? 'URBAN GEOGRAPHY CONTEXT' : '城市地理历史背景'}
           </h4>
-          <h3 className="font-bold text-white text-sm md:text-base">
+          <h3 className="font-black text-white text-xs md:text-sm uppercase tracking-wide">
             {isEn ? activeOverlay.titleEn : activeOverlay.titleZh}
           </h3>
-          <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+          <p className="text-[#a6adc8] text-[10px] md:text-[11px] leading-relaxed">
             {isEn ? activeOverlay.descEn : activeOverlay.descZh}
           </p>
         </div>
 
         {/* Planning Items List */}
-        <div className="flex-1 bg-gray-900/20 border border-gray-800 rounded-xl p-4 flex flex-col space-y-3 overflow-hidden">
-          <div className="flex items-center justify-between border-b border-gray-800 pb-2">
-            <h3 className="font-bold text-white text-sm flex items-center gap-2">
-              <Navigation className="w-4 h-4 text-emerald-400" />
-              {isEn ? 'Urban Planning Landmarks' : '城市规划地标'}
+        <div className="flex-1 bg-[#11111b] border-4 border-[#313244] p-4 flex flex-col space-y-3 overflow-hidden shadow-[4px_4px_0px_0px_rgba(49,50,68,1)]">
+          <div className="flex items-center justify-between border-b-4 border-[#313244] pb-2">
+            <h3 className="font-black text-white text-xs flex items-center gap-2 uppercase tracking-wide">
+              <Navigation className="w-4 h-4 text-[#a6e3a1]" />
+              {isEn ? 'Urban Landmarks' : '城市规划地标'}
             </h3>
             <button 
               onClick={handleResetView}
-              className="text-xs text-amber-500 hover:text-amber-400 font-medium"
+              className="text-[10px] text-[#f9e2af] hover:text-white font-bold uppercase"
             >
-              {isEn ? 'Reset Map' : '重置视角'}
+              {isEn ? 'RESET' : '重置'}
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-2.5 pr-1">
+          <div className="flex-1 overflow-y-auto space-y-3 pr-1">
             {planningItems.map((item) => {
               const isVisible = item.decade <= selectedDecade;
               const isSelected = activeItem?.id === item.id;
@@ -188,36 +187,36 @@ export const MapView: React.FC<MapViewProps> = ({ language, onSelectItem }) => {
                 <div
                   key={item.id}
                   onClick={() => isVisible && handleFlyToItem(item)}
-                  className={`p-3.5 rounded-lg border text-left transition-all duration-300 ${
+                  className={`p-3 rounded-none border-4 text-left transition-all duration-300 ${
                     !isVisible 
-                      ? 'opacity-40 cursor-not-allowed border-gray-900 bg-gray-950/10' 
+                      ? 'opacity-30 cursor-not-allowed border-[#181825] bg-[#11111b]/20' 
                       : isSelected
-                        ? 'border-emerald-500 bg-emerald-500/10 cursor-pointer shadow-md'
-                        : 'border-gray-800/80 bg-gray-900/40 hover:border-gray-700 cursor-pointer'
+                        ? 'border-[#a6e3a1] bg-[#a6e3a1]/5 cursor-pointer'
+                        : 'border-[#313244] bg-[#181825]/60 hover:border-gray-500 cursor-pointer'
                   }`}
                 >
                   <div className="flex justify-between items-start gap-2">
-                    <span className="text-xs font-mono text-emerald-400 font-semibold">
+                    <span className="text-[9px] font-mono text-[#a6e3a1] font-bold uppercase">
                       {item.planning.district}
                     </span>
-                    <span className="text-xs font-mono text-gray-500">
+                    <span className="text-[9px] font-mono text-[#9399b2] font-bold">
                       {item.exactYear}
                     </span>
                   </div>
-                  <h4 className={`font-bold text-sm mt-1 ${isSelected ? 'text-emerald-300' : 'text-white'}`}>
+                  <h4 className={`font-black text-xs mt-1 ${isSelected ? 'text-[#a6e3a1]' : 'text-white'}`}>
                     {isEn ? item.titleEn : item.titleZh}
                   </h4>
-                  <p className="text-gray-400 text-xs mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-[#a6adc8] text-[10px] mt-1 line-clamp-2 leading-relaxed">
                     {isEn ? item.summaryEn : item.summaryZh}
                   </p>
                   
                   {isVisible && (
-                    <div className="flex justify-between items-center mt-3 pt-2 border-t border-gray-800/50">
-                      <span className="text-[10px] font-mono uppercase bg-gray-800 text-gray-400 px-1.5 py-0.5 rounded">
+                    <div className="flex justify-between items-center mt-3 pt-2 border-t border-[#313244] text-[9px]">
+                      <span className="font-mono uppercase bg-[#313244] text-[#cdd6f4] px-1.5 py-0.5">
                         {item.planning.scale}
                       </span>
-                      <span className="text-xs text-amber-500 font-semibold flex items-center gap-1">
-                        {isEn ? 'Locate' : '定位'}
+                      <span className="text-[#f9e2af] font-black flex items-center gap-1">
+                        {isEn ? 'LOCATE' : '定位'}
                         <ZoomIn className="w-3 h-3" />
                       </span>
                     </div>
@@ -231,7 +230,7 @@ export const MapView: React.FC<MapViewProps> = ({ language, onSelectItem }) => {
       </div>
 
       {/* Right Map Container */}
-      <div className="lg:col-span-2 rounded-xl overflow-hidden border border-gray-800 shadow-2xl relative h-full min-h-[400px]">
+      <div className="lg:col-span-2 border-4 border-[#313244] overflow-hidden shadow-[8px_8px_0px_0px_rgba(49,50,68,1)] relative h-full min-h-[400px]">
         <MapContainer 
           center={mapCenter} 
           zoom={mapZoom} 
@@ -260,27 +259,27 @@ export const MapView: React.FC<MapViewProps> = ({ language, onSelectItem }) => {
                 }}
               >
                 <Popup className="custom-leaflet-popup">
-                  <div className="p-3 space-y-2 text-left bg-gray-900 text-white rounded-lg max-w-[240px]">
-                    <div className="flex justify-between items-center gap-2">
-                      <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase">
+                  <div className="p-3 space-y-2 text-left bg-[#11111b] text-white border-2 border-[#313244] rounded-none max-w-[240px]">
+                    <div className="flex justify-between items-center gap-2 border-b border-[#313244] pb-1">
+                      <span className="text-[9px] font-mono font-bold text-[#a6e3a1] uppercase">
                         {item.planning.district}
                       </span>
-                      <span className="text-[10px] font-mono text-gray-400">
+                      <span className="text-[9px] font-mono text-[#a6adc8] font-bold">
                         {item.exactYear}
                       </span>
                     </div>
-                    <h4 className="font-bold text-sm text-white leading-tight">
+                    <h4 className="font-black text-xs text-white leading-tight">
                       {isEn ? item.titleEn : item.titleZh}
                     </h4>
-                    <p className="text-gray-300 text-xs line-clamp-3 leading-relaxed">
+                    <p className="text-[#a6adc8] text-[10px] line-clamp-3 leading-relaxed">
                       {isEn ? item.summaryEn : item.summaryZh}
                     </p>
                     <button
                       onClick={() => onSelectItem(item.id)}
-                      className="w-full py-1.5 bg-amber-500 hover:bg-amber-400 text-gray-950 text-xs font-bold rounded flex items-center justify-center gap-1 transition-colors mt-2"
+                      className="w-full py-1 bg-[#f9e2af] text-[#11111b] text-[10px] font-black rounded-none flex items-center justify-center gap-1 transition-colors mt-2 border-2 border-[#11111b]"
                     >
                       <Eye className="w-3.5 h-3.5" />
-                      {isEn ? 'Explore Archive' : '深入探索档案'}
+                      {isEn ? 'EXPLORE ARCHIVE' : '深入探索档案'}
                     </button>
                   </div>
                 </Popup>

@@ -99,504 +99,369 @@ The opening of Pudong marked Shanghai's transition from an industrial manufactur
 - **南浦大桥 (1991)** 和 **杨浦大桥 (1993)**：上海市区首批跨越黄浦江的大型桥梁，拥有标志性的螺旋引桥。
 - **地铁2号线 (2000)**：穿越江底，将陆家嘴与浦西的南京路直接相连。
 
-#### 社会与经济影响
-浦东的开放标志着上海从一个传统的工业制造中心转型为全球金融、航运和贸易枢纽。它催化了中国融入全球经济的进程，成为中国“改革开放”时代最瞩目的缩影。`,
+#### 社会经济影响
+浦东的开放标志着上海从工业制造中心向全球金融、航运和贸易中心的转型。它催化了中国融入全球经济的进程，成为中国“改革开放”时代最极致的象征。`,
     thumbnailUrl: 'https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&w=800&q=80',
-    tags: ['Pudong', 'Lujiazui', 'Skyscrapers', 'Urban Expansion', '1990s']
+    tags: ['Pudong', 'Lujiazui', 'Skyscrapers', 'Urban Planning', '1990s']
   },
   {
     id: 'up_metro_2010',
-    titleEn: 'The Shanghai Metro Expansion: Connecting a Megacity',
-    titleZh: '上海地铁大扩张：连接超级都市的地下动脉',
+    titleEn: 'The Exponential Expansion of Shanghai Metro & World Expo 2010',
+    titleZh: '上海地铁网络大跃进与2010年上海世博会',
     decade: 2010,
     exactYear: 2010,
     category: 'urban_planning',
-    itemType: 'video',
-    summaryEn: 'A documentary and analytical piece on the rapid expansion of the Shanghai Metro system leading up to and following the 2010 World Expo, creating the longest rapid transit network in the world.',
-    summaryZh: '关于2010年上海世博会前后上海地铁系统极速扩张的纪录与分析，展现了全球最长城市轨道交通网络的诞生。',
-    contentMarkdownEn: `### Building the World's Largest Subway Network
+    itemType: 'research_paper',
+    summaryEn: 'An analysis of the world\'s fastest-growing rapid transit system, which expanded to over 400 km by 2010 to support the World Expo, transforming suburban accessibility and commuting patterns.',
+    summaryZh: '分析全球发展最快的轨道交通系统。为了支持2010年世界博览会，上海地铁网络在2010年扩张至400公里以上，彻底改变了郊区可达性与通勤模式。',
+    contentMarkdownEn: `### Building the World\'s Largest Rapid Transit Network
 
-In 1993, Shanghai opened its very first subway line (Line 1), running just 4.4 kilometers. By the time of the **2010 Shanghai World Expo**, the network had exploded to 11 lines spanning over 420 kilometers. Today, it is the longest metro network in the world, stretching over 800 kilometers and carrying over 10 million passengers daily.
+In 1993, Shanghai opened its very first metro line—a short 4.4 km stretch of Line 1. By **May 2010**, when Shanghai hosted the **World Expo**, the network had expanded to 11 lines covering 420 km, carrying over 5 million passengers daily. It was the fastest transit expansion in human history.
 
-#### The Expo 2010 Catalyst
-The 2010 World Expo, themed *"Better City, Better Life"* (城市，让生活更美好), served as a massive catalyst for urban infrastructure:
-- **Rapid Construction**: Between 2007 and 2010, Shanghai constructed and opened dozens of stations and multiple entire lines simultaneously.
-- **Intermodal Hubs**: Major transit hubs like the **Hongqiao Transportation Hub** integrated high-speed rail, airport terminals, metro lines, and bus networks into a single, seamless facility.
+#### The Catalyst: World Expo 2010
+The World Expo, themed *"Better City, Better Life"* (城市，让生活更美好), was the primary catalyst for this massive infrastructure push. To transport the 73 million visitors who attended the 184-day event, Shanghai built:
+- **Expo-Specific Lines**: Line 13 was constructed specifically to run directly through the Expo site, utilizing clean-energy trains.
+- **Integrated Hubs**: The **Hongqiao Transportation Hub (虹桥枢纽)** was opened in 2010, integrating high-speed rail, aviation, metro lines (Lines 2 and 10), and buses under one massive roof.
 
-#### Engineering Challenges
-Building a massive underground network in Shanghai presented unique geological challenges:
-- **Soft Alluvial Soil**: Shanghai sits on the soft, muddy delta of the Yangtze River. Digging tunnels required advanced shield tunneling machines and ground-freezing techniques to prevent surface collapse and building tilts.
-- **High Water Table**: The high water table meant that stations had to be carefully waterproofed and anchored against floating up.
+#### Decentralization & Suburbanization
+Before the metro boom, living in Shanghai's outer suburbs (like Minhang, Baoshan, or Jiading) meant hours of commuting on slow, congested buses. The metro network completely changed this dynamic:
+- **The "One City, Nine Towns" Plan**: Enabled the successful realization of this suburban development initiative, allowing residents to live in European-style satellite towns (like Thames Town in Songjiang) and commute to central Shanghai in under an hour.
+- **Economic Corridors**: Metro stations became the nuclei of new suburban sub-centers, attracting shopping malls, office parks, and high-density housing.
 
-#### Urban Decentralization
-The metro system fundamentally reshaped Shanghai's urban geography:
-- **Suburban Growth**: Lines extending into outer districts like Songjiang (Line 9), Jiading (Line 11), and Qingpu (Line 17) enabled the creation of "satellite cities" and suburban residential hubs.
-- **The Commuter Lifestyle**: It allowed millions of migrant workers and young professionals to live in affordable suburban housing while commuting to central business districts, driving the city's horizontal expansion.`,
-    contentMarkdownZh: `### 建造全球最大的地铁网络
+#### Engineering Feats
+Constructing a massive subway network in Shanghai presented immense challenges due to the city's soft, water-logged alluvial soil (often described as "soft butter"). Engineers developed advanced shield-tunneling techniques and soil-freezing technologies to safely tunnel beneath historic buildings and the Huangpu River without causing catastrophic ground subsidence.`,
+    contentMarkdownZh: `### 建造全球最大的轨道交通网络
 
-1993年，上海开通了第一条地铁线路（1号线），全长仅4.4公里。到**2010年上海世博会**举办时，该网络已爆发式增长至11条线路，总长超过420公里。如今，它已成为世界上最长的地铁网络，运营里程超过800公里，日均客运量突破1000万人次。
+1993年，上海开通了第一条地铁线路——1号线一条仅4.4公里长的短途线路。而到了**2010年5月**上海举办**世界博览会**时，地铁网络已扩张至11条线路、420公里，日均客运量超过500万人次。这是人类历史上最快的城市轨道交通扩张。
 
-#### 2010世博会催化剂
-以“*城市，让生活更美好*”为主题的2010年上海世博会，成为城市基础设施建设的巨大催化剂：
-- **极速建设**：在2007年至2010年间，上海同时建设并开通了数十个站点和多条整线。
-- **多式联运枢纽**：像**虹桥综合交通枢纽**这样的重大交通工程，将高铁、机场航站楼、地铁线路和公交网络整合进一个无缝衔接的超级枢纽中。
+#### 催化剂：2010年上海世博会
+以“*城市，让生活更美好*”为主题的上海世博会，是这一轮大规模基础设施建设的核心催化剂。为了输送在184天展期内涌入的7300万游客，上海建设了：
+- **世博专属线路**：地铁13号线专为世博会建设，直接穿越世博园区，并采用了清洁能源列车。
+- **一体化交通枢纽**：**虹桥综合交通枢纽**于2010年开通，将高铁、航空、地铁（2号线、10号线）和城市公交融为一体。
 
-#### 工程技术挑战
-在上海建造庞大的地下网络面临着独特的软土地质挑战：
-- **软弱冲积土层**：上海坐落在长江入海口松软、湿润的冲积平原上。盾构掘进需要先进的盾构机和地层冻结技术，以防止地面沉降和周边建筑倾斜。
-- **高地下水位**：高地下水位意味着地铁车站必须经过严格的防水设计，并进行抗浮结构设计。
+#### 人口疏解与郊区化
+在地铁大发展之前，居住在上海的外围郊区（如闵行、宝山、嘉定）意味着要在拥堵、缓慢的公交车上通勤数小时。地铁网络彻底改变了这一格局：
+- **“一城九镇”规划**：地铁使这一郊区城镇化战略得以成功落地，市民可以居住在郊区的风情卫星城（如松江泰晤士小镇），并在1小时内通勤至上海市中心。
+- **经济走廊**：地铁站成为新郊区副中心的内核，吸引了大型商场、写字楼和高密度住宅的集聚。
 
-#### 城市去中心化
-地铁系统从根本上重塑了上海的城市空间地理：
-- **郊区化增长**：地铁线路延伸至松江（9号线）、嘉定（11号线）和青浦（17号线）等外围城区，促成了“卫星城”和郊区居住组团的诞生。
-- **通勤族生活方式**：它让数百万青年白领和外来务工人员能够居住在房价更具吸引力的郊区，同时便捷地通勤至市中心商务区，推动了城市空间的扁平化扩张。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80',
-    tags: ['Metro', 'Infrastructure', 'World Expo', 'Transportation', '2010s']
+#### 工程奇迹
+由于上海地处长江入海口，土质属于松软、含水量极高的冲积沙软土（常被形容为“豆腐里打洞”），建造如此庞大的地下网络面临极高风险。中国工程师开发了先进的盾构掘进技术和地层冻结技术，安全地在历史保护建筑和黄浦江底穿行，创造了地面零沉降的工程奇迹。`,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=800&q=80',
+    tags: ['Shanghai Metro', 'World Expo 2010', 'Urban Transportation', 'Suburbanization', '2010s']
   },
   {
     id: 'up_westbund_2020',
-    titleEn: 'The West Bund Urban Regeneration: From Industrial Brownfield to Art Corridor',
-    titleZh: '徐汇西岸城市更新：从工业棕地到世界级艺术滨江',
+    titleEn: 'Industrial Heritage Preservation: The Xuhui West Bund Art Corridor',
+    titleZh: '工业遗存保护与更新：徐汇西岸艺术走廊的崛起',
     decade: 2020,
-    exactYear: 2021,
+    exactYear: 2020,
     category: 'urban_planning',
     itemType: 'research_paper',
-    summaryEn: 'An analysis of Shanghai\'s 21st-century urban planning shift from industrial manufacturing to cultural preservation, focusing on the transformation of the Xuhui waterfront into the "West Bund" art corridor.',
-    summaryZh: '分析21世纪上海城市规划从工业制造向文化保护与公共空间转型的过程，重点关注徐汇滨江转型为“西岸”艺术走廊的实践。',
-    contentMarkdownEn: `### The Post-Industrial Waterfront
+    summaryEn: 'A study of Shanghai\'s shift from industrial manufacturing to cultural waterfront regeneration, transforming the historic Xuhui airport, cement factories, and docks into a world-class art corridor.',
+    summaryZh: '研究上海从工业制造向文化滨江更新的战略转型。将历史悠久的龙华机场、水泥厂和煤码头改建为世界级的艺术走廊与科技集群。',
+    contentMarkdownEn: `### From Rust Belt to Art Corridor
 
-For most of the 20th century, the Xuhui waterfront along the Huangpu River was an industrial brownfield. It was home to the Longhua Airport (one of China's earliest airports), coal wharves, cement factories, and rail freight yards. It was a polluted, inaccessible zone that cut off residents from the river.
+Throughout the 20th century, the southern waterfront of the Huangpu River in Xuhui District was a heavy industrial heartland. It housed the historic **Longhua Airport (龙华机场)** (built in 1917), the Shanghai Cement Factory (1920), and massive coal and oil docks. By the early 2000s, this area was a polluted, inaccessible "rust belt" that cut off residents from the river.
 
-In the 2010s and 2020s, this area underwent one of the most ambitious **urban regeneration** projects in Asia, rebranding itself as the **Shanghai West Bund (上海西岸)**.
+In the 2010s, the Xuhui District government initiated a visionary master plan to transform this 11 km waterfront into the **West Bund (西岸) Art Corridor**.
 
-#### The Master Plan: "Double Track" Integration
-The regeneration of the West Bund was guided by two main goals:
-1. **Public Open Space**: Creating an uninterrupted, 8.4-kilometer waterfront park with running tracks, bicycle lanes, and dog parks, returning the riverfront to the public.
-2. **The Art Corridor (West Bund Museum Mile)**: Transforming industrial ruins into world-class cultural institutions:
-   - **Long Museum (West Bund)**: Built around a preserved 1950s coal-hopper unloading bridge, combining raw concrete industrial design with classical and contemporary art.
-   - **Yuz Museum**: Housed in the former hangar of Longhua Airport.
-   - **West Bund Museum**: Designed by David Chipperfield, partnering with the Centre Pompidou in Paris.
+#### The Preservation Philosophy: Adaptive Reuse
+Instead of demolishing the industrial structures, planners adopted a philosophy of **adaptive reuse** (活化利用), preserving the raw industrial aesthetic while inserting modern cultural programs:
+- **The Long Museum West Bund (2014)**: Built around a preserved 1950s coal-unloading bridge (coal hopper), blending raw concrete "umbrella arches" with industrial steel.
+- **The West Bund Museum (2019)**: Designed by British architect David Chipperfield, hosting a landmark partnership with the Centre Pompidou.
+- **The Tank Shanghai (2018)**: Transformed five massive, decommissioned aviation oil tanks from Longhua Airport into a multi-functional contemporary art park.
 
-#### Preserving Industrial Heritage
-Rather than erasing the past, planners preserved key industrial artifacts as historical anchors:
-- Giant orange harbor cranes were repainted and left standing along the river.
-- Railway tracks were integrated into the landscape design.
-- Aviation fuel tanks were converted into the **Tank Shanghai** art park.
+#### Connecting the Waterfront
+In 2017, Shanghai completed the **Huangpu River Waterfront Connection Project**, opening 45 km of continuous public space on both sides of the river. In West Bund, this meant:
+- **The Runway Park**: Transformed the historic runway of Longhua Airport into a linear park with rain gardens, pedestrian paths, and bicycle lanes that mimic the movement of an airplane.
+- **Public Accessibility**: Replaced industrial fences with running tracks, climbing walls, dog parks, and open lawns, returning the river to the citizens.
 
-#### Economic Transition to the "Intelligence Valley"
-Alongside art, the West Bund has transitioned into a digital economy hub. The **West Bund Intelligence Valley (西岸智谷)** features high-rise offices housing AI giants like Microsoft, Tencent, and Alibaba, representing Shanghai's shift from heavy industry to the digital, creative economy.`,
-    contentMarkdownZh: `### 后工业时代的滨水空间
+#### The Double Engine: Art + Technology
+By 2020, the West Bund had evolved beyond an art corridor into a dual-engine hub:
+- **Art**: Hosting the annual West Bund Art & Design Fair, attracting global galleries and collectors.
+- **Technology**: The **West Bund Orbit** and high-tech towers became home to artificial intelligence giants, creating a world-class digital and creative cluster.`,
+    contentMarkdownZh: `### 从“工业锈带”到“生活秀带”
 
-在20世纪的大部分时间里，黄浦江畔的徐汇滨江曾是一片繁忙的工业棕地。这里聚集了龙华机场（中国最早的机场之一）、煤码头、水泥厂和铁路货运站。这是一片污染严重、普通市民无法进入的封闭区域，切断了居民与母亲河的联系。
+在整个20世纪，徐汇区黄浦江畔的南部滨江地带曾是重工业的内核。这里坐落着历史悠久的**龙华机场**（建于1917年）、上海水泥厂（建于1920年）以及庞大的煤码头和油库。到21世纪初，这片区域变成了一个污染严重、封闭的“工业锈带”，将市民与母亲河完全隔绝。
 
-在21世纪10年代和20年代，该地区经历了亚洲最宏大的**城市更新**项目之一，重塑品牌为“**上海西岸**”。
+2010年代，徐汇区政府启动了一项极具远见的总体规划，将这片11公里长的滨江地带转型为**西岸艺术走廊**。
 
-#### 总体规划：“双轨”融合
-西岸的更新主要围绕两个核心目标展开：
-1. **公共开放空间**：打造一条长达8.4公里的不间断滨江绿色开放空间，配备跑步道、自行车道和宠物公园，将江岸还给市民。
-2. **艺术走廊（西岸美术馆大道）**：将工业遗存改建为世界级的文化机构：
-   - **龙美术馆（西岸馆）**：围绕保留的20世纪50年代“煤漏斗”卸煤双载料斗桥而建，将粗砺的清水混凝土工业设计与经典及当代艺术完美融合。
-   - **余德耀美术馆**：由原龙华机场的大型机库改建而成。
-   - **西岸美术馆**：由戴卫·奇普菲尔德建筑事务所设计，并与巴黎蓬皮杜中心展开了深度合作。
+#### 保护哲学：工业遗存的“活化利用”
+规划者没有拆除这些工业建筑，而是采用了**活化利用**的理念，在保留粗犷工业美学的同时，注入现代文化功能：
+- **龙美术馆（西岸馆）(2014)**：围绕保留的1950年代卸煤“煤漏斗”建造，将粗犷的清水混凝土“伞拱”与工业钢结构完美融合。
+- **西岸美术馆 (2019)**：由英国建筑师大卫·奇普菲尔德设计，并与法国蓬皮杜艺术中心达成了里程碑式的长期合作。
+- **油罐艺术中心 (2018)**：将龙华机场留下的五个庞大的废弃航空油罐，改建为多功能当代艺术公园。
 
-#### 工业遗产的保护与重构
-规划者没有抹去历史，而是将关键的工业遗存作为历史锚点予以保留：
-- 巨大的橙色港口起重机被重新粉刷，矗立在江边，成为景观地标。
-- 铁轨被保留并融入了景观绿化设计中。
-- 废弃的航空储油罐被巧妙地改造成了**上海油罐艺术中心**。
+#### 滨江贯通工程
+2017年，上海完成了**黄浦江两岸公共空间贯通工程**，实现了杨浦大桥至徐浦大桥45公里滨江岸线的全面贯通。在西岸，这意味着：
+- **跑道公园**：将龙华机场的历史跑道改建为线性跑道公园，设计了雨水花园、人行步道和自行车道，模拟飞机的起降动势。
+- **还江于民**：拆除工业围墙，代之以跑步道、攀岩墙、宠物公园和开放绿地，将黄浦江真正还给市民。
 
-#### 向“西岸智谷”的经济转型
-除了艺术，西岸还转型为数字经济高地。“**西岸智谷**”拔地而起，吸引了微软、腾讯、阿里巴巴等人工智能巨头入驻，代表了上海从重工业向数字、创意经济的时代跨越。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=800&q=80',
-    tags: ['West Bund', 'Urban Regeneration', 'Industrial Heritage', 'Xuhui', '2020s']
-  },
-
-  // --- DEMOGRAPHICS ---
-  {
-    id: 'demo_sent_youth_1970',
-    titleEn: 'The Sent-Down Youth (Shangshan Xiaxiang) and Hukou Controls',
-    titleZh: '上山下乡运动与严格的户籍管理制度',
-    decade: 1970,
-    exactYear: 1970,
-    category: 'demographics',
-    itemType: 'oral_history',
-    summaryEn: 'An oral history and demographic analysis of the "Up to the Mountains and Down to the Countryside" movement, which saw hundreds of thousands of Shanghai youth sent to rural provinces, and the strict Hukou system of the 1970s.',
-    summaryZh: '关于“上山下乡”运动的口述历史与人口学分析。在20世纪70年代，数十万上海青年被送往农村省份，配合着当时极其严格的户籍管理制度。',
-    contentMarkdownEn: `### The Disrupted Generation
-
-During the Cultural Revolution (specifically from 1968 to the late 1970s), Shanghai\'s demographic profile was shaped by a massive, state-mandated migration known as the **"Up to the Mountains and Down to the Countryside" (上山下乡)** movement. 
-
-Over **1 million young Shanghainese**—nearly an entire generation of middle and high school graduates (known as *Zhiqing* or Sent-Down Youth)—were relocated to remote rural areas of China, including Heilongjiang, Xinjiang, Inner Mongolia, and Anhui.
-
-#### The Role of the Hukou System
-The migration was strictly enforced through the **Hukou (户籍)**—China's household registration system. In the 1970s, the Hukou was not just a registration document; it was tied directly to survival:
-- **Ration Coupons (Liangpiao)**: Food, cooking oil, cloth, and coal were rationed based on local Hukou. If you left Shanghai without authorization, you lost your rations.
-- **Employment and Housing**: State-allocated jobs and housing in Shanghai were strictly restricted to those with active urban Hukou.
-
-#### Demographic Consequences
-- **Population Decline**: The massive outflow of youth caused a temporary stagnation and decline in Shanghai's urban population in the early 1970s.
-- **Delayed Marriage and Births**: Relocated youth were forced to delay marriage and childbearing, or marry rural locals, fracturing family lineages.
-- **The Great Return (Late 1970s)**: Following the end of the Cultural Revolution in 1976, hundreds of thousands of *Zhiqing* petitioned, went on hunger strikes, and staged protests to return to Shanghai. The city government gradually allowed them to return, creating a massive demographic and employment shock in the late 1970s and early 1980s.`,
-    contentMarkdownZh: `### 被中断的青春一代
-
-在文革时期（特别是从1968年到70年代末），上海的人口结构被一场大规模的国家强制性人口迁移所重塑，即**“上山下乡”运动**。
-
-超过**100万上海青年**——几乎是整整一代初高中毕业生（被称为“知识青年”或“知青”）——被安置到中国偏远的农村地区，包括黑龙江、新疆、内蒙古和安徽。
-
-#### 户籍制度的核心角色
-这场人口大迁移是通过**户籍制度**严格执行的。在20世纪70年代，户籍不仅是一张登记纸，它直接关系到生存：
-- **粮票与配给制**：粮食、食油、布料和煤炭等生活必需品都是根据本地户口配给的。如果未经批准离开上海，就会失去这些配给。
-- **就业与住房**：上海的国企岗位和福利分房严格限制给拥有本地常住户口的人。
-
-#### 人口学后果
-- **人口暂时停滞**：70年代初，青年的大规模流出导致上海城市人口出现暂时的停滞甚至下降。
-- **推迟婚育**：下乡青年被迫推迟结婚和生育，或在当地安家，导致家庭结构出现断层。
-- **知青返城潮（70年代末）**：1976年文革结束后，数十万知青通过请愿、绝食和抗议等方式争取回沪权。市政府逐步放宽政策允许其返城，在70年代末和80年代初引发了巨大的城市人口与就业安置压力。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
-    tags: ['Sent-down Youth', 'Hukou', 'Migration', 'Oral History', '1970s']
-  },
-  {
-    id: 'demo_migrant_1990',
-    titleEn: 'The Great Migrant Influx: Deng\'s Southern Tour and the Floating Population',
-    titleZh: '外来人口大涌入：邓小平南方谈话与“民工潮”',
-    decade: 1990,
-    exactYear: 1992,
-    category: 'demographics',
-    itemType: 'research_paper',
-    summaryEn: 'An analysis of the massive demographic shift in the 1990s following Deng Xiaoping\'s 1992 Southern Tour, which dismantled barriers to migration and brought millions of "floating" workers to build new Shanghai.',
-    summaryZh: '分析1992年邓小平南方谈话后上海经历的巨大人口变迁。该谈话打破了人口流动壁垒，吸引了数百万“外来务工人员”涌入上海参与城市建设。',
-    contentMarkdownEn: `### The Rise of the "Floating Population"
-
-For the first four decades of the People's Republic of China, Shanghai was a highly closed city. Migration was strictly controlled, and the population remained relatively static. 
-
-This changed dramatically in **1992** following Deng Xiaoping's famous **Southern Tour (南方谈话)**, which re-energized market reforms. Shanghai was designated as the "dragon's head" of economic development along the Yangtze River.
-
-#### Dismantling the Barriers
-To build the massive infrastructure projects of the 1990s (Pudong, highways, metro lines), Shanghai needed an enormous amount of labor. The city and central governments began relaxing migration controls:
-- **Phasing Out Rationing**: The abolition of grain coupons in the early 1990s meant people could buy food anywhere using cash, allowing migrants to survive without a local Hukou.
-- **The Temporary Residence Permit (Zanzhuzheng)**: Introduced to register and manage the millions of rural migrants flocking to the city, colloquially known as the **"Floating Population" (外来人口 / 流动人口)**.
-
-#### Demographic Explosion
-The numbers were staggering:
-- In 1990, Shanghai's floating population was just around **1 million**.
-- By 2000, it had surged to nearly **4 million**, accounting for almost 25% of the city's total population.
-- Most migrants came from neighboring rural provinces like Anhui, Jiangsu, Sichuan, and Henan.
-
-#### Social Stratification and the "Two Shanghais"
-This influx created a highly stratified society:
-- **Local Shanghainese**: Held local Hukou, worked in state-owned enterprises or rising white-collar sectors, and had access to subsidized housing, healthcare, and public education.
-- **Migrant Workers (Nongmingong)**: Lived in cramped, rented rooms in suburban "urban villages" (城中村), worked long hours in construction, manufacturing, and domestic services, and were excluded from local social safety nets.
-
-Despite these inequalities, the migrant population was the indispensable engine that physically built modern Shanghai, transforming its demographic landscape forever.`,
-    contentMarkdownZh: `### “外来人口”的崛起
-
-在中华人民共和国成立后的前四十年里，上海是一座高度封闭的城市。人口迁移受到严格控制，人口总量保持相对稳定。
-
-1992年邓小平著名的**南方谈话**重新激发了市场改革的活力，这一情况发生了戏剧性的变化。上海被确立为长江流域经济发展的“龙头”。
-
-#### 制度壁垒的瓦解
-为了建设90年代的众多超级工程（浦东开发、高架路、地铁），上海需要极其庞大的劳动力。市政府和中央政府开始逐步放宽人口流动限制：
-- **取消配给制**：90年代初粮票的废除，意味着人们可以用现金在任何地方购买粮食，外来人口不依赖本地户口也能在城市生存。
-- **暂住证制度**：推出暂住证用以登记和管理成群涌入城市的农村劳动力，他们被通俗地称为**“外来人口”或“流动人口”**。
-
-#### 人口爆发式增长
-数据令人震惊：
-- 1990年，上海的外来人口仅为**100万**左右。
-- 到2000年，这一数字飙升至近**400万**，占全市总人口的近四分之一。
-- 大多数外来务工人员来自安徽、江苏、四川和河南等周边农业省份。
-
-#### 社会分层与“两个上海”
-人口的涌入也带来了明显的社会分层：
-- **本地户籍居民**：拥有上海户口，在国企或新兴白领行业工作，享受福利分房、医疗和子女公办教育。
-- **外来务工人员（农民工）**：大多租住在城郊接合部的“城中村”，在建筑工地、制造业和家政服务业从事高强度工作，在当时无法享受本地的社会保障。
-
-尽管存在这些不平等，外来人口依然是亲手建成现代上海不可或缺的引擎，彻底改变了这座城市的人口版图。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80',
-    tags: ['Migrant Workers', 'Floating Population', 'Southern Tour', 'Hukou Reform', '1990s']
-  },
-  {
-    id: 'demo_aging_2010',
-    titleEn: 'The Aging Crisis: Shanghai as China\'s First Super-Aging City',
-    titleZh: '老龄化危机：上海成为中国首个“超高龄化”城市',
-    decade: 2010,
-    exactYear: 2015,
-    category: 'demographics',
-    itemType: 'research_paper',
-    summaryEn: 'A study of Shanghai\'s demographic transition in the 2010s, analyzing how low fertility rates and high life expectancy made it the most rapidly aging megacity in China, prompting major elderly care policy experiments.',
-    summaryZh: '研究21世纪10年代上海的人口转型，分析极低生育率与长寿如何使上海成为中国老龄化速度最快的超大城市，并催生了重大的养老政策实验。',
-    contentMarkdownEn: `### The Silver Tsunami
-
-By the mid-2010s, Shanghai had reached a demographic milestone: it became the oldest city in China and one of the fastest-aging societies in the world. 
-
-By 2015, over **30% of Shanghai's registered Hukou population** was aged 60 or older, far exceeding the national average and entering what demographers call a "super-aged" society.
-
-#### The Dual Drivers: Longevity and Ultra-Low Fertility
-This demographic squeeze was driven by two powerful forces:
-1. **Exceptional Longevity**: Thanks to world-class healthcare, Shanghai's average life expectancy surpassed **83 years** in the 2010s, on par with Switzerland and Japan.
-2. **Ultra-Low Fertility**: Shanghai's total fertility rate (TFR) fell to around **0.7 children per woman**—well below the replacement rate of 2.1, and lower than almost any country in the world. This was the long-term result of strict adherence to the One-Child Policy (introduced in 1979) and the high cost of raising children in a global financial center.
-
-#### The "4-2-1" Family Structure
-The One-Child Policy created the **"4-2-1" family structure**: a single child supporting two parents and four grandparents. This placed an immense emotional and financial burden on young couples and strained the traditional family-based care model.
-
-#### Policy Responses: The "90-7-3" Model
-To cope with the silver tsunami, Shanghai pioneered the **"90-7-3" elderly care framework**:
-- **90%**: Home-based care supported by community services.
-- **7%**: Community-integrated day-care centers.
-- **3%**: Institutional care (nursing homes).
-
-The city also introduced pioneering policies like **Long-Term Care Insurance (LTCI)** and built thousands of community senior canteens and day-care centers, serving as a policy laboratory for the rest of China.`,
-    contentMarkdownZh: `### 银发海啸
-
-到21世纪10年代中期，上海达到了一个人口学上的关键节点：它成为了中国“最老”的城市，也是全球老龄化速度最快的社会之一。
-
-截至2015年，**上海户籍人口中60岁及以上的老年人口比例已突破30%**，远超全国平均水平，迈入了人口学家所定义的“超高龄社会”。
-
-#### 双重驱动力：长寿与极低生育率
-这种人口结构的挤压是由两种强大的力量驱动的：
-1. **极高的预期寿命**：得益于世界一流的医疗条件，上海的人均预期寿命在10年代超过了**83岁**，与瑞士和日本并驾齐驱。
-2. **超低生育率**：上海的总和生育率（TFR）降至每位妇女仅生育**0.7个孩子**左右，远低于2.1的世代更替水平。这是自1979年起严格执行独生子女政策，以及在全球金融中心抚养孩子的高昂成本共同作用的长期结果。
-
-#### “4-2-1”家庭结构
-独生子女政策催生了**“4-2-1”家庭结构**：一个独生子女需要赡养两个父母和四个祖父母。这给年轻夫妇带来了巨大的心理和经济负担，也使传统的家庭养老模式承受了极限压力。
-
-#### 政策应对：首创“90-7-3”养老模式
-为了应对银发海啸，上海率先探索了**“90-7-3”养老服务格局**：
-- **90%**：通过社区提供支持的居家养老。
-- **7%**：社区日间照料与嵌入式养老。
-- **3%**：机构养老（养老院）。
-
-此外，上海还率先试点推广了**长期护理保险（长期护理险）**制度，建设了数千家社区老年食堂和日间照料中心，成为中国应对老龄化问题的政策实验室。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
-    tags: ['Aging Population', 'Fertility Rate', 'Elderly Care', 'Public Policy', '2010s']
+#### 双轮驱动：艺术 + 科技
+到2020年，西岸已超越了单纯的艺术走廊，演变为双轮驱动的产业枢纽：
+- **艺术**：每年举办西岸艺术与设计博览会，吸引全球顶尖画廊和收藏家。
+- **科技**：西岸智塔（AI Tower）等高科技大楼吸引了人工智能巨头入驻，打造世界级的数字创意与人工智能产业集群。`,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    tags: ['West Bund', 'Industrial Heritage', 'Xuhui', 'Urban Regeneration', '2020s']
   },
 
   // --- HEALTHCARE ---
   {
     id: 'health_barefoot_1970',
-    titleEn: 'The Barefoot Doctors of Fengxian District',
-    titleZh: '奉贤县的赤脚医生与农村合作医疗',
+    titleEn: 'Barefoot Doctors and Rural Cooperative Medical Schemes in Shanghai Outskirts',
+    titleZh: '上海郊县的“赤脚医生”与农村合作医疗制度',
     decade: 1970,
     exactYear: 1972,
     category: 'healthcare',
     itemType: 'oral_history',
-    summaryEn: 'An oral history of the "Barefoot Doctors" (赤脚医生) in rural Shanghai districts like Fengxian during the 1970s, highlighting the low-cost cooperative medical system that inspired global primary care models.',
-    summaryZh: '讲述20世纪70年代上海奉贤等郊县“赤脚医生”的口述历史，展现曾启发全球基层医疗模式的低成本合作医疗体系。',
-    contentMarkdownEn: `### Primary Care on the Farm
+    summaryEn: 'An oral history and research archive on Shanghai\'s pioneering role in the "Barefoot Doctor" movement, which provided low-cost primary healthcare to rural communes in counties like Fengxian and Chuansha.',
+    summaryZh: '关于上海在“赤脚医生”运动中先驱角色的口述历史与研究档案。该运动为奉贤、川沙等郊县的农村公社提供了低成本的基础医疗保障。',
+    contentMarkdownEn: `### The Barefoot Doctor Revolution
 
-In the 1970s, Shanghai's administrative boundaries included vast agricultural counties (such as Fengxian, Chongming, and Nanhui). While urban residents enjoyed state-funded healthcare in major hospitals, rural peasants relied on a revolutionary grassroots system: the **Barefoot Doctors (赤脚医生)**.
+In the 1970s, China developed a revolutionary, low-cost model of primary healthcare that would later be praised by the World Health Organization (WHO) as a global model for developing nations: the **Barefoot Doctor (赤脚医生)** system. Shanghai's rural outskirts, particularly counties like **Fengxian (奉贤)** and **Chuansha (川沙)**, were at the absolute forefront of this movement.
 
 #### Who Were the Barefoot Doctors?
-Barefoot doctors were not fully licensed medical school graduates. Instead, they were rural youths, farmers, or high school graduates who received intensive, short-term medical training (usually 3 to 6 months) at county hospitals. 
-- **The Name**: They were called "barefoot" because they performed agricultural labor alongside their fellow villagers, stepping into the muddy rice paddies with bare feet, and practiced medicine part-time.
-- **The Toolkit**: Armed with a simple wooden medical kit, they combined Western medicine (aspirin, penicillin, vaccinations) with Traditional Chinese Medicine (herbal remedies, acupuncture, moxibustion).
+Barefoot doctors were not fully trained medical school graduates. Instead, they were rural youths, farmers, or high school graduates who received intensive, 3-to-6-month training courses at district hospitals. 
+- **The Name**: Derived from agricultural reality in southern China, where farmers often worked barefoot in muddy rice paddies.
+- **Dual Identity**: They remained farmers, spending half their time in agricultural labor and half providing medical care, ensuring they remained deeply embedded in their communities.
 
-#### The Cooperative Medical System (CMS)
-The barefoot doctors were the backbone of the rural **Cooperative Medical System (合作医疗)**. Villagers contributed a tiny annual fee (usually 1-2 yuan), and the village collective fund covered the rest. Healthcare was essentially free or highly subsidized at the village clinic.
+#### The Cooperative Medical Scheme (CMS)
+The barefoot doctor system was funded by the **Cooperative Medical Scheme (合作医疗)**, a commune-based mutual aid system:
+- **Funding**: Communes and members contributed a tiny annual fee (often just 1-2 RMB per year), and the commune cooperative fund covered the rest.
+- **Treatment**: Consultations and basic herbal medicines were virtually free, making healthcare accessible to the poorest farmers for the first time.
 
-#### Global Recognition
-Despite their limited training, barefoot doctors successfully eradicated major infectious diseases, managed sanitation, and provided universal vaccination in rural Shanghai. 
+#### The Medicine: Integrating East and West
+Lacking expensive Western pharmaceuticals, barefoot doctors relied heavily on **integrated medicine**:
+- **Herbal Gardens**: Every clinic cultivated its own medicinal herb garden. Barefoot doctors gathered, dried, and processed local herbs to treat common ailments.
+- **Acupuncture and Moxibustion**: Used extensively for pain relief, gastrointestinal issues, and chronic conditions, requiring no expensive equipment.
+- **Preventative Health**: Their primary focus was preventative—administering vaccinations, purifying drinking water, managing nightsoil disposal, and eradicating infectious diseases like **Schistosomiasis (血吸虫病)**.
 
-In 1978, the World Health Organization (WHO) praised China's barefoot doctor system at the Alma-Ata Conference, citing it as a model for primary healthcare in developing countries worldwide. It proved that dramatic health improvements could be achieved at low cost through community-based primary care.`,
-    contentMarkdownZh: `### 稻田里的基层医疗
+#### Legacy
+By the late 1970s, the barefoot doctor network had achieved a near-universal coverage of Shanghai's rural population, contributing to a dramatic drop in infant mortality and a steady rise in life expectancy, proving that high-quality health outcomes could be achieved even with extremely limited financial resources.`,
+    contentMarkdownZh: `### 赤脚医生的医疗革命
 
-在20世纪70年代，上海的行政版图包含了广阔的农业郊县（如奉贤、崇明、南汇）。当市区居民在大型医院享受公费医疗时，郊区农民则依赖于一套革命性的基层医疗体系：**赤脚医生**。
+在20世纪70年代，中国发展出一种革命性的、低成本的基础医疗卫生模式，后来被世界卫生组织（WHO）誉为发展中国家解决卫生问题的全球典范：**赤脚医生**制度。上海的郊县，尤其是**奉贤**、**川沙**和**宝山**，处于这场运动的最前沿。
 
 #### 谁是赤脚医生？
-赤脚医生并非医学院毕业的执业医师。相反，他们是农村青年、农民或回乡高中毕业生，在县级医院接受了密集、短期的医学培训（通常为3至6个月）。
-- **名称由来**：他们被称为“赤脚”，是因为他们与村民一样从事农业劳动，赤脚下水田插秧，半农半医。
-- **医药箱**：背着一个印有红十字的简易木制医药箱，他们将西药（阿司匹林、青霉素、接种疫苗）与中医药（中草药、针灸、拔罐）结合使用。
+赤脚医生不是医学院毕业的专业医生。相反，他们是农村青年、普通农民或回乡知识青年，在区县医院接受了3到6个月的密集、实用医学培训。
+- **名称由来**：源于江南水乡的农业现实，那里的农民经常赤脚在泥泞的稻田里劳作，赤脚医生也同样半农半医。
+- **双重身份**：他们不脱离农业生产，一半时间务农，一半时间行医，确保了他们与村民之间的紧密联系。
 
 #### 农村合作医疗制度
-赤脚医生是农村**合作医疗制度**的支柱。村民每年缴纳极少的费用（通常为1-2元），其余由村集体公益金资助。村民在村卫生室看病基本免费或享受高度报销。
+赤脚医生制度由**农村合作医疗**提供资金支持，这是一种以公社为基础的互助共济制度：
+- **资金筹集**：公社和社员每年缴纳极低的费用（通常每人每年仅1-2元），其余由公社公益金补贴。
+- **看病报销**：社员看病和获取基本草药几乎免费，使最贫困的农民历史上第一次看得起病。
 
-#### 国际声誉
-尽管培训有限，赤脚医生成功在上海农村消灭了血吸虫病等重大传染病，管理了环境卫生，并普及了计划免疫接种。
+#### 医疗手段：中西医结合
+由于缺乏昂贵的西药，赤脚医生高度依赖**中西医结合**：
+- **百草园**：每个大队卫生室都开辟了自己的中草药园。赤脚医生自采、自制、自用中草药来治疗常见病。
+- **针灸与拔罐**：广泛用于缓解疼痛、治疗胃肠道疾病和慢性病，不需要昂贵的设备。
+- **预防为主**：他们的核心职责是预防——接种疫苗、消杀蚊蝇、改良饮用水源、管理粪便，以及消灭**血吸虫病**等地方性传染病。
 
-1978年，世界卫生组织（WHO）在阿拉木图会议上高度赞誉了中国的赤脚医生制度，将其奉为全球发展中国家基层卫生保健的典范。它证明了通过以社区为基础的初级诊疗，可以用极低的成本实现国民健康水平的巨大跃升。`,
+#### 时代遗产
+到70年代末，赤脚医生网络实现了对上海郊区农村人口的近乎全覆盖。它成功降低了婴儿死亡率，稳步提升了人均预期寿命，证明了即使在经济极度匮乏的条件下，通过合理的制度设计也能实现优异的公共卫生效果。`,
     thumbnailUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
-    tags: ['Barefoot Doctors', 'Cooperative Medical System', 'Primary Care', 'Rural Shanghai', '1970s']
+    tags: ['Barefoot Doctors', 'Cooperative Medical Scheme', 'Rural Health', 'Fengxian', '1970s']
   },
   {
     id: 'health_hepatitis_1980',
-    titleEn: 'The Shanghai Hepatitis A Outbreak of 1988',
-    titleZh: '1988年上海甲肝大流行与公共卫生动员',
+    titleEn: 'The 1988 Hepatitis A Epidemic: A Crisis in Public Health & Sanitation',
+    titleZh: '1988年上海甲肝大流行：公共卫生危机与城市卫生革命',
     decade: 1980,
     exactYear: 1988,
     category: 'healthcare',
     itemType: 'research_paper',
-    summaryEn: 'A detailed retrospective on the 1988 Hepatitis A outbreak in Shanghai, which infected over 310,000 citizens, and the unprecedented public health mobilization and sanitation reforms that followed.',
-    summaryZh: '对1988年上海甲肝大流行的详细回顾。该疫情导致31万余名市民感染，并引发了空前的公共卫生动员与食品卫生改革。',
-    contentMarkdownEn: `### The Clam Crisis
+    summaryEn: 'A detailed historical reconstruction of the 1988 Hepatitis A outbreak in Shanghai, which infected over 310,000 citizens, exploring the epidemiological investigation, public panic, and the subsequent overhaul of food safety regulations.',
+    summaryZh: '对1988年上海甲肝大爆发的历史重现。该疫情导致31万多市民感染，本档案深入探讨了流行病学调查、社会恐慌以及随后食品安全法规的全面变革。',
+    contentMarkdownEn: `### The Winter of 310,000 Infections
 
-In the winter of **1988**, Shanghai experienced one of the largest foodborne disease outbreaks in modern history. Within a span of three months, over **310,000 people** were infected with **Hepatitis A**, paralyzing the city's healthcare system and causing widespread panic.
+In early **January 1988**, a mysterious illness began sweeping through Shanghai. Hospital emergency rooms were overwhelmed with citizens suffering from high fever, vomiting, and severe jaundice (yellowing of the skin and eyes). Within weeks, the outbreak exploded, infecting **310,746 citizens** and causing 31 deaths. It remains one of the largest single-city foodborne epidemics in modern history.
 
-#### The Source: Contaminated Clams
-The outbreak was traced directly to the consumption of **mud clams (毛蚶)** harvested from the Qidong area in neighboring Jiangsu province. 
-- The waters where the clams grew had been contaminated with raw sewage containing the Hepatitis A virus.
-- Shanghainese loved eating mud clams raw or lightly blanched (quick-boiled for just a few seconds), which left the virus fully active.
+#### The Epidemiological Culprit: Mud Clams
+Public health officials launched a massive epidemiological investigation and quickly traced the outbreak to a single culinary source: **Mud Clams (毛蚶, Mao Han)**.
+- **The Source**: A massive shipment of cheap mud clams had arrived from Qidong, Jiangsu Province, where the coastal waters had been heavily contaminated with raw sewage containing the Hepatitis A virus.
+- **The Eating Habit**: Shanghainese loved eating mud clams lightly blanched in boiling water for just a few seconds (often still bloody), leaving the virus fully active.
 
-#### Hospital Bed Shortage and Creative Solutions
-The sudden influx of hundreds of thousands of patients overwhelmed Shanghai's hospitals. The city government and medical workers had to improvise:
-- **Temporary Wards**: Schools, warehouses, hotels, and factories were converted into temporary isolation wards.
-- **Home Isolation**: Neighborhood committees monitored patients isolated at home, delivering medicine and disinfecting waste.
-- **The "Hepatitis A Cot"**: Families set up folding beds in living rooms, and community doctors made daily house calls.
+#### The Urban Crisis & Hospital Overload
+The scale of the epidemic paralyzed the city:
+- **Bed Shortages**: Hospitals ran out of beds instantly. The municipal government turned school classrooms, warehouses, hotels, and factory dormitories into temporary isolation wards.
+- **Social Stigma**: Shanghainese traveling to other cities faced severe discrimination; hotels refused them, and train conductors wore masks when interacting with passengers from Shanghai.
+- **Economic Disruption**: Factories faced massive absenteeism, and the consumption of seafood plummeted to zero.
 
-#### Public Health Mobilization and Legacy
-The crisis prompted a massive public health campaign:
-- **Banning Mud Clams**: The city government strictly banned the sale and consumption of mud clams, a ban that remained in place for decades.
-- **Sanitation Campaigns**: Massive education drives taught citizens the importance of washing hands, boiling water, and eating thoroughly cooked food.
-- **The Food Hygiene Law**: The outbreak accelerated the implementation of stricter food safety and hygiene regulations in China, shifting Shanghai's public health focus from treatment to strict prevention and food safety monitoring.`,
-    contentMarkdownZh: `### 毛蚶引起的危机
+#### The Public Health Overhaul & Sanitation Revolution
+Under the leadership of Mayor Zhu Rongji, the Shanghai government launched a decisive, militaristic campaign to crush the epidemic and permanently reform city hygiene:
+- **The Mao Han Ban**: The government passed a strict, permanent ban on the sale, transport, and consumption of mud clams in Shanghai, which remains in place to this day.
+- **The Patriotic Health Movement**: Launched massive public education campaigns promoting the "Three No's": *No drinking unboiled water, No eating raw seafood, No eating unwashed vegetables*.
+- **Overhauling Food Safety**: Established strict licensing systems for street food vendors, modernized waste management, and upgraded public restrooms across the city.
 
-在**1988年**的冬春之交，上海经历了现代历史上规模最大的食源性传染病爆发之一。在短短三个月内，超过**31万名市民**感染了**甲型肝炎**，导致城市医疗系统面临极限挑战，引发了全市范围内的恐慌。
+#### Historical Significance
+The 1988 epidemic was a painful wake-up call that exposed the vulnerability of Shanghai's dense, aging urban infrastructure. It marked the transition of Shanghai's public health policy from reactive crisis management to proactive, systemic food safety regulation and modern epidemiological surveillance.`,
+    contentMarkdownZh: `### 31万感染者的严冬
 
-#### 传染源：受污染的毛蚶
-疫情最终被直接追溯到食用产自江苏启东地区的**毛蚶**。
-- 毛蚶生长的水域受到了含有甲肝病毒的生活污水的严重污染。
-- 上海市民习惯于半生吃毛蚶，仅用开水烫几秒钟便食用，这使得甲肝病毒保持了完全的活性。
+**1988年1月**初，一种神秘的疾病开始席卷上海。各大医院的急诊室人满为患，挤满了高烧、呕吐和严重黄疸（皮肤和眼睛发黄）的市民。短短几周内，疫情呈爆发式增长，最终导致**310,746名市民**感染，31人死亡。这至今仍是现代医学史上最大规模的单城市食源性传染病大流行之一。
 
-#### 医院床位危机与应急智慧
-数十万患者的突然涌入使上海的医院不堪重负。市政府和医务工作者不得不采取非常规手段：
-- **临时病房**：学校、仓库、旅馆和工厂被紧急改建为临时隔离病房。
-- **居家隔离**：里弄居委会动员起来，监督居家隔离的患者，配送药物并对排泄物进行严格消毒。
-- **“甲肝折叠床”**：许多家庭在客厅支起折叠床，社区医生每天上门巡诊。
+#### 流行病学元凶：毛蚶
+公共卫生专家立即展开了大规模的流行病学调查，并迅速将传染源锁定在一种深受市民喜爱的平民美食上：**毛蚶**。
+- **污染源头**：大批廉价毛蚶从江苏启东运抵上海。启东沿海的水域此前受到了含有甲肝病毒的未经处理生活污水的严重污染。
+- **饮食习惯**：上海人习惯将毛蚶在开水中仅烫几秒钟（甚至还带着血丝）便剥开食用，这使得甲肝病毒保持了完全的活性。
 
-#### 公共卫生动员与历史遗产
-这场危机促成了上海公共卫生体系的深刻变革：
-- **禁食毛蚶**：市政府颁布严令，严禁销售和食用毛蚶，这一禁令持续执行了数十年。
-- **爱国卫生运动**：开展了声势浩大的全民健康教育，普及“饭前便后洗手”、“不喝生水”、“食物要煮熟煮透”等卫生常识。
-- **食品卫生法制化**：疫情加速了中国食品安全和卫生法规的建设，使上海的公共卫生工作重点从“重治轻防”彻底转向“预防为主”和严格的食品卫生监管。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
-    tags: ['Hepatitis A', 'Public Health Crisis', 'Epidemiology', 'Food Safety', '1980s']
+#### 城市危机与医疗挤兑
+疫情的规模让整座城市陷入了半瘫痪状态：
+- **床位极度匮乏**：全市医院床位瞬间告罄。市政府紧急动员，将学校教室、仓库、旅馆和工厂宿舍改建为临时隔离病房。
+- **社会污名化**：出差在外的上海人面临严重的地域歧视；外地宾馆拒绝上海人入住，列车员在面对上海乘客时纷纷戴上口罩。
+- **经济停滞**：工厂因职工大批请假而面临停产，海鲜市场交易量瞬间归零。
+
+#### 铁腕整顿与城市卫生革命
+在时任市长朱镕基的领导下，上海市政府采取了果断、雷厉风行的措施来扑灭疫情，并对城市卫生体制进行了永久性变革：
+- **禁食毛蚶**：市政府颁布了严厉的行政令，永久禁止毛蚶在上海市场的销售、运输和食用，这一禁令一直延续至今。
+- **爱国卫生运动**：开展了铺天盖地的公共卫生宣传，推广“不喝生水、不吃生海鲜、不吃未洗净蔬菜”的健康生活习惯。
+- **重塑食品安全监管**：对街头食品摊贩实施严格的持证准入制度，升级了全市的垃圾处理和公共厕所系统。
+
+#### 历史意义
+1988年的甲肝大流行是一次痛彻心扉的警钟，暴露了上海在高速发展初期，高密度、老龄化城市基础设施的脆弱性。它标志着上海公共卫生政策从“被动危机应对”向“主动、系统性的食品安全监管与现代化流行病学监测”的战略转型。`,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1584036561566-baf241830990?auto=format&fit=crop&w=800&q=80',
+    tags: ['Hepatitis A', 'Epidemiology', 'Food Safety', 'Zhu Rongji', '1980s']
   },
   {
     id: 'health_digital_2020',
-    titleEn: 'Smart Healthcare: Digital Hospital Networks and Telemedicine',
-    titleZh: '智慧医疗：数字化医院网络与远程医疗的普及',
+    titleEn: 'The Smart Medical Revolution: AI Diagnosis & Unified Health Insurance in the 2020s',
+    titleZh: '智慧医疗革命：AI辅助诊断与“一网通办”医保数字化转型',
     decade: 2020,
     exactYear: 2024,
     category: 'healthcare',
-    itemType: 'video',
-    summaryEn: 'An exploration of Shanghai\'s 2020s transition to smart healthcare, showcasing how top-tier institutions like Ruijin and Huashan Hospitals integrated AI diagnostics, unified electronic records, and online consultations.',
-    summaryZh: '探讨21世纪20年代上海向智慧医疗的转型，展示瑞金、华山等顶级医疗机构如何整合AI辅助诊断、统一电子病历与在线问诊。',
-    contentMarkdownEn: `### Medicine in the Age of AI and Cloud
+    itemType: 'research_paper',
+    summaryEn: 'An investigation into Shanghai\'s 2020s digital healthcare transformation, analyzing the integration of AI-assisted diagnosis in top tier hospitals and the unified "Government Online-Offline" medical insurance system.',
+    summaryZh: '调查21世纪20年代上海的数字化医疗转型。分析三甲医院中人工智能辅助诊断的整合，以及“一网通办”医保电子凭证系统的全面普及。',
+    contentMarkdownEn: `### The Digital Rebirth of Shanghai Healthcare
 
-In the 2020s, Shanghai has positioned itself at the global forefront of **Smart Healthcare (智慧医疗)**. Facing a massive, aging population and high demand for top-tier medical resources, the city's leading hospitals have turned to digital technology to revolutionize patient care.
+By the 2020s, Shanghai had entered a "super-aged" society, with over 36% of its registered population aged 60 or older. Facing an unprecedented demand on its medical resources, the city did not just build more physical hospitals; instead, it embarked on a radical **Smart Medical (智慧医疗)** revolution, leveraging artificial intelligence and big data.
 
-#### The "Internet Hospital" (互联网医院)
-Following the digital acceleration of the early 2020s, Shanghai established a city-wide "Internet Hospital" network. Through platforms like WeChat and Alipay, patients can:
-- **Consult Online**: Have video consultations with top specialists from their homes.
-- **Prescription Delivery**: Doctors issue digital prescriptions, and medicines are delivered directly to the patient's doorstep within hours.
-- **Unified Health Code**: The "Sui Shen Ban" (随申办) app integrates a citizen's medical insurance, test results, and appointment booking across all public hospitals, eliminating redundant tests.
+#### AI-Assisted Diagnosis in Tier-3A Hospitals
+Shanghai's elite Tier-3A hospitals (such as **Ruijin (瑞金)** and **Huashan (华山)**) integrated AI deep-learning models into their daily clinical workflows:
+- **Radiology**: AI algorithms analyze chest CT scans and brain MRIs in seconds, flagging early-stage lung nodules or cerebral hemorrhages with over 98% accuracy, reducing doctors' workloads by 60%.
+- **Pathology**: Digital pathology scanners coupled with AI assist in identifying cancerous cells in tissue biopsies, standardizing cancer staging.
+- **Surgical Robotics**: The widespread adoption of the Da Vinci surgical system, augmented by AI preoperative planning, allowed surgeons to perform ultra-precise, minimally invasive surgeries.
 
-#### AI-Assisted Diagnostics
-At institutions like **Ruijin Hospital** and **Huashan Hospital**, AI is no longer science fiction:
-- **Radiology AI**: AI algorithms pre-screen chest CT scans and brain MRIs, flagging anomalies for radiologists and reducing diagnostic times from hours to seconds.
-- **Surgical Robots**: Da Vinci surgical systems are routinely used for complex, minimally invasive urological and thoracic surgeries, guided by high-definition 3D imaging.
+#### "One-Web-Service" (一网通办) & Paperless Medicine
+In 2020, Shanghai launched the "Smart Medical Insurance Card" (医保电子凭证) integrated into the city's unified public service platform, **Government Online-Offline (一网通办)**:
+- **No More Paper**: Patients no longer need to carry physical medical booklets or paper receipts. Registration, prescription payment, and insurance reimbursement are completed entirely on a smartphone via a single QR code.
+- **Cross-Hospital Data Sharing**: Solved the historic problem of "information silos." If a patient gets a CT scan at Huashan Hospital, doctors at Ruijin Hospital can instantly access the digital image, eliminating redundant tests and saving billions in public health funds.
 
-#### Telemedicine and Rural Outreach
-Shanghai's top-tier hospitals use 5G-powered telemedicine to support community clinics and remote hospitals in Western China. Specialists in Shanghai can view real-time, high-definition surgical feeds and guide local doctors through complex procedures thousands of miles away, bridging the gap in medical resource distribution.`,
-    contentMarkdownZh: `### 人工智能与云时代的医学
+#### Community-Based Smart Health Cabins
+To ease pressure on major hospitals, Shanghai deployed hundreds of **Smart Health Cabins (智慧健康驿站)** in local residential communities:
+- **Self-Service Vitals**: Residents can walk in and use automated kiosks to measure blood pressure, blood oxygen, and ECGs.
+- **Cloud Connection**: The data is instantly uploaded to the resident's electronic health record, accessible by their contracted family doctor, enabling early intervention for chronic cardiovascular diseases.
 
-在21世纪20年代，上海已将自己定位在全球**智慧医疗**的前沿。面对庞大、老龄化的人口以及对顶级医疗资源的极高需求，这座城市的领先医院正利用数字技术彻底重塑患者关怀。
+#### Challenges & Ethical Considerations
+While highly efficient, the smart medical revolution faces ongoing challenges:
+- **The Digital Divide**: Ensuring elderly residents, who are the primary users of healthcare, are not excluded by smartphone-only interfaces.
+- **Data Privacy**: Safeguarding massive patient genomic and clinical databases from cyber threats and unauthorized commercial exploitation.`,
+    contentMarkdownZh: `### 上海医疗的数字化新生
 
-#### “互联网医院”的普及
-随着2020年代初数字化的加速，上海建立了全市范围的“互联网医院”网络。通过微信和支付宝等平台，患者可以：
-- **在线问诊**：足不出户即可与顶级医学专家进行视频问诊。
-- **药品配送**：医生开具电子处方，药品在几小时内直接配送到患者家中。
-- **一卡通用（随申办）**：通过“随申办”App，市民的医保、跨院检查结果和预约挂号实现了全市公立医院互联互通互认，极大地减少了重复检查。
+进入21世纪20年代，上海已步入“超高龄社会”，户籍人口中60岁及以上老年人占比超过36%。面对前所未有的医疗资源压力，上海并没有单纯依靠增建实体医院，而是启动了一场彻底的**智慧医疗**革命，深度融合人工智能与大数据技术。
 
-#### AI辅助诊断与机器人手术
-在**瑞金医院**和**华山医院**等机构，AI已成为日常诊疗的得力助手：
-- **影像AI**：人工智能算法对胸部CT和脑部核磁共振进行预筛查，自动标记异常，将放射科医生的诊断时间从几小时缩短至几秒钟。
-- **手术机器人**：达芬奇手术机器人已广泛应用于复杂的泌尿外科、胸外科等微创手术，在高清3D视野下实现精准操作。
+#### 三甲医院的AI辅助诊断
+上海顶尖的三甲医院（如**瑞金医院**、**华山医院**）将AI深度学习模型无缝整合到了日常临床工作流中：
+- **放射科**：AI算法可在数秒内分析胸部CT和脑部MRI，筛查早期肺结节或脑出血，准确率超过98%，将医生的阅片工作量减少了60%。
+- **病理科**：数字病理扫描仪配合AI辅助识别组织活检中的癌细胞，实现了癌症分期的标准化。
+- **手术机器人**：达芬奇手术机器人的广泛应用，配合AI术前规划，使外科医生能够进行超精准的微创手术。
 
-#### 5G远程医疗与医疗资源下沉
-上海的顶级三甲医院利用5G远程医疗技术，支持社区卫生服务中心以及中国中西部地区的对口帮扶医院。上海的专家可以实时观看高清手术画面，指导数千公里外的当地医生完成复杂手术，有效缓解了医疗资源分布不均的难题。`,
-    thumbnailUrl: 'https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&w=800&q=80',
-    tags: ['Smart Healthcare', 'AI Medicine', 'Telemedicine', 'Ruijin Hospital', '2020s']
+#### “一网通办”与无纸化就医
+2020年，上海推出了深度整合于城市统一公共服务平台“**一网通办**”之中的“医保电子凭证”：
+- **脱离纸质病历**：患者就医不再需要携带实体病历本或纸质收据。挂号、付费、处方开具和医保实时报销，仅凭手机上的一个二维码即可全部完成。
+- **跨医院数据互认**：攻克了历史性的“信息孤岛”难题。患者在华山医院做的CT检查，瑞金医院的医生可瞬间在系统内调阅原始影像，避免了重复检查，为国家医保基金和患者节省了巨额开支。
+
+#### 社区智慧健康驿站
+为了缓解大医院的接诊压力，上海在全市居民社区部署了数百个**智慧健康驿站**：
+- **自助体检**：居民可随时步入驿站，使用自助设备测量血压、血氧、心电图等生理指标。
+- **云端互联**：体检数据会实时上传至居民的个人电子健康档案，其签约的社区家庭医生可随时调阅，实现了对慢性心脑血管疾病的极早期干预。
+
+#### 挑战与伦理思考
+尽管智慧医疗极大地提升了效率，但也面临着持续的挑战：
+- **数字鸿沟**：如何确保作为医疗主要需求群体的老年人，不被“仅限手机操作”的数字化界面所排斥。
+- **数据隐私**：如何在利用大数据的同时，保护患者庞大的基因与临床数据库免受网络威胁和未经授权的商业开发。`,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
+    tags: ['Smart Medicine', 'AI Diagnosis', 'Ruijin Hospital', 'Digital Transformation', '2020s']
   },
 
   // --- FILM ---
   {
     id: 'film_hibiscus_1980',
-    titleEn: 'Hibiscus Town (1986) and Xie Jin\'s Cinematic Reflection',
-    titleZh: '《芙蓉镇》(1986) 与谢晋电影的时代反思',
+    titleEn: 'Hibiscus Town (1986): Xie Jin\'s Masterpiece of Post-Cultural Revolution Reflection',
+    titleZh: '《芙蓉镇》(1986)：谢晋的后文革反思史诗杰作',
     decade: 1980,
     exactYear: 1986,
     category: 'film',
     itemType: 'video',
-    summaryEn: 'An analysis of Xie Jin\'s masterpiece Hibiscus Town (1986), produced by the legendary Shanghai Film Studio, reflecting on the trauma of the Cultural Revolution and marking the golden age of post-reform Chinese cinema.',
-    summaryZh: '分析由传奇的上海电影制片厂摄制、谢晋导演的杰作《芙蓉镇》(1986)。该片对文革创伤进行了深刻反思，标志着改革开放后中国电影的黄金时代。',
-    contentMarkdownEn: `### Xie Jin and the Shanghai Film Studio
+    summaryEn: 'An in-depth analysis of Xie Jin\'s landmark film Hibiscus Town, produced by Shanghai Film Studio, which served as a crucial cultural milestone in processing the trauma of the Cultural Revolution.',
+    summaryZh: '深入分析上海电影制片厂出品的谢晋里程碑式电影《芙蓉镇》。该片在反思和抚平文革历史创伤方面具有划时代的文化里程碑意义。',
+    contentMarkdownEn: `### The Peak of "Scar Cinema" at Shanghai Film Studio
 
-In the 1980s, the **Shanghai Film Studio (上海电影制片厂)** was the undisputed creative heart of Chinese cinema. As the country emerged from the Cultural Revolution, filmmakers sought to process the collective trauma of the past two decades. 
+In the mid-1980s, as China emerged from the shadow of the Cultural Revolution, the **Shanghai Film Studio (上海电影制片厂)** became the national epicenter of a profound artistic movement known as **Scar Cinema (伤痕电影)**. The undisputed masterpiece of this era was **Hibiscus Town (芙蓉镇)** (1986), directed by the legendary **Xie Jin (谢晋)**.
 
-The towering figure of this movement was director **Xie Jin (谢晋)**, whose "Reflexive Trilogy" culminated in the masterpiece **Hibiscus Town (芙蓉镇)** in 1986.
+#### The Narrative: A Village as China\'s Microcosm
+Adapted from Gu Hua's novel, the film is set in a small, peaceful Hunan village called Hibiscus Town. It follows the life of Hu Yuyin (played by Liu Xiaoqing), a hard-working woman who runs a highly successful sweet tofu-curd stand. 
+- **The Rise and Fall**: As political campaigns sweep the country, Yuyin is branded a "new rich peasant" (black element) by the local political opportunist Li Guoxiang. Her business is confiscated, her husband is driven to suicide, and she is relegated to sweeping the streets.
+- **Love in the Dirt**: While sweeping streets, she falls in love with Qin Shutian (played by Jiang Wen), a brilliant intellectual branded as a "rightist." Their romance, characterized by Qin's famous line *"Live on, like a dog!"* (像狗一样活下去), becomes a powerful testament to human resilience against political madness.
 
-#### The Narrative of Hibiscus Town
-Set in a small Hunan town, the film follows Hu Yuyin (played by Liu Xiaoqing), a hard-working woman who builds a successful rice tofu business, only to be branded a "new rich peasant" and ruined by political campaigns. She finds love and survival with Qin Shutian (played by Jiang Wen), a "rightist" intellectual condemned to sweep the streets.
+#### Xie Jin\'s "Golden Model" of Melodrama
+Xie Jin was a master of combining intense personal melodrama with grand historical narratives. His style, often called the "Xie Jin Model," relied on:
+- **Emotional Realism**: Grounding political critique in deeply relatable, heartbreaking human relationships.
+- **Political Courage**: Directly depicting the cruelty, hypocrisy, and absurdity of the ultra-leftist campaigns, particularly the persecution of intellectuals and ordinary entrepreneurs.
+- **The Warning**: The film ends with the village madman, Wang Qiushi, beating his gong and shouting: *"Keep your eyes open, campaigns are coming again!"*—a chilling warning to future generations.
 
-#### Key Themes
-- **The Tragedy of Political Fanaticism**: The film courageously depicts how political movements fractured families, turned neighbors against one another, and crushed individual initiative.
-- **Humanism and Resilience**: Despite the suffering, the core of the film is a celebration of human resilience, love, and moral integrity. Qin Shutian's famous line to Hu Yuyin—*"Live on, like a beast"* (像牲口一样活下去)—became a defining motto for a generation recovering from historical trauma.
+#### Cultural and Political Impact
+*Hibiscus Town* was a massive box-office success and won Best Picture at the 1987 Golden Rooster Awards. It played a monumental role in China's collective psychological healing, allowing millions of citizens to publicly weep for the traumas of the past and consolidating Shanghai's reputation as the home of socially conscious, high-art cinema.`,
+    contentMarkdownZh: `### 上海电影制片厂“伤痕电影”的巅峰
 
-#### Cinematic Style
-Xie Jin mastered the "classical Hollywood melodrama" style, adapting it to Chinese socialist history. He combined deep emotional resonance, clear moral conflicts, and rich character development, making his films both critically acclaimed and wildly popular among the public.
+20世纪80年代中期，随着中国走出文革的阴影，**上海电影制片厂**成为了全国“**伤痕电影**”艺术思潮的震中。这一时期无可争议的巅峰之作，便是由传奇导演**谢晋**执导的《**芙蓉镇**》(1986)。
 
-#### Legacy
-*Hibiscus Town* won Best Picture at the Golden Rooster Awards and remains a milestone in Chinese film history. It represented a brief, brave window of political reflection and artistic freedom in the 1980s, entirely nurtured within the creative studios of Shanghai.`,
-    contentMarkdownZh: `### 谢晋与上海电影制片厂的黄金时代
+#### 叙事：作为中国微缩模型的村庄
+影片改编自古华的同名小说，背景设定在湖南一个宁静的小镇——芙蓉镇。故事围绕着刘晓庆饰演的胡玉音展开，她是一个勤劳善良的农村女性，因经营米豆腐摊致富，被誉为“米豆腐西施”。
+- **起伏命运**：随着“四清”和文革等政治运动席卷全国，胡玉音被本地政治投机分子李国香划为“新富农”，家产被没收，丈夫被逼自杀，她自己也被降为扫街夫。
+- **废墟之恋**：在扫街的屈辱岁月中，她与姜文饰演的、被划为“右派”的知识分子秦书田相爱。秦书田那句著名的台词——“*活着，像狗一样活下去！*”成为了人类在政治狂热中坚守人性与生命尊严的永恒宣告。
 
-在20世纪80年代，**上海电影制片厂**是毋庸置疑的中国电影创作心脏。随着国家走出文革阴影，电影工作者们开始尝试用镜头去抚平与反思过去二十年的集体创伤。
+#### 谢晋电影的“情节剧金式美学”
+谢晋是公认的将个人情感悲剧与宏大历史叙事相结合的宗师。他的电影美学（常被称为“谢晋模式”）依赖于：
+- **情感现实主义**：将深刻的政治批判寄托于极易引起共鸣、令人心碎的人性关系中。
+- **政治勇气**：直接、毫不妥协地描绘极左运动的残酷、虚伪与荒诞，尤其是对知识分子和普通劳动者的肉体与精神迫害。
+- **时代警示**：影片结尾，疯子王秋赦敲着破锣嘶喊着：“*运动了！运动了！*”——给后世留下了令人毛骨悚然的警示。
 
-这一时期的领军人物是导演**谢晋**，他的“反思三部曲”在1986年的杰作《**芙蓉镇**》中达到了艺术巅峰。
-
-#### 《芙蓉镇》的叙事
-影片以湖南一个小镇为背景，讲述了刘晓庆饰演的胡玉音通过辛勤劳动卖米豆腐致富，却在政治运动中被划为“新富农”，家破人亡。她与姜文饰演的被划为“右派”并被罚扫街的知识分子秦书田在逆境中相爱并艰难求生。
-
-#### 核心主题
-- **政治狂热的悲剧**：影片极具勇气地展现了政治运动如何撕裂家庭、使邻里反目，并无情摧毁个人尊严与创造力。
-- **人道主义与生命韧性**：尽管历经磨难，影片的核心依然是对人性光辉、爱情与道德坚守的赞歌。秦书田对胡玉音那句著名的台词——“*像牲口一样活下去*”——成为了经历过历史创伤的那一代人顽强求生的精神写照。
-
-#### 艺术风格
-谢晋精通“经典好莱坞通俗剧”风格，并将其成功本土化。他将深沉的情感共鸣、鲜明的道德冲突和细腻的人物塑造结合在一起，使他的电影既获得了学术界的高度评价，又在普通观众中引发了万人空巷的观影热潮。
-
-#### 历史地位
-《芙蓉镇》荣获金鸡奖最佳故事片奖，至今仍是中国电影史上的里程碑。它代表了80年代思想解放时期政治反思与艺术自由的珍贵窗口，而这一窗口正是由上海深厚的电影文化底蕴所孕育的。`,
+#### 文化与政治影响
+《芙蓉镇》获得了空前的票房成功，并荣获1987年中国电影金鸡奖最佳故事片奖。它在中国社会的集体心理疗愈中发挥了无可替代的作用，让数以亿计的观众得以公开宣泄和反思历史创伤，也奠定了上海作为具有社会良知、高度艺术水准的中国电影摇篮的至高地位。`,
     thumbnailUrl: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80',
-    tags: ['Xie Jin', 'Shanghai Film Studio', 'Cultural Reflection', 'Melodrama', '1980s']
+    tags: ['Xie Jin', 'Scar Cinema', 'Shanghai Film Studio', 'Cultural Revolution Reflection', '1980s']
   },
   {
     id: 'film_suzhou_river_2000',
-    titleEn: 'Suzhou River (2000) and Lou Ye\'s Gritty Urban Realism',
-    titleZh: '《苏州河》(2000) 与娄烨的迷幻都市写实',
+    titleEn: 'Suzhou River (2000): Lou Ye and the Sixth Generation\'s Post-Industrial Realism',
+    titleZh: '《苏州河》(2000)：娄烨与第六代导演的后工业现实主义',
     decade: 2000,
     exactYear: 2000,
     category: 'film',
     itemType: 'video',
-    summaryEn: 'An exploration of Lou Ye\'s independent masterpiece Suzhou River (2000), capturing the gritty, industrial, and romantic underbelly of Shanghai\'s Suzhou Creek during the rapid transitions of the turn of the century.',
-    summaryZh: '探究娄烨的独立电影杰作《苏州河》(2000)。影片捕捉了世纪之交剧烈转型期，上海苏州河畔粗砺、工业化而又迷幻浪漫的都市边缘。',
-    contentMarkdownEn: `### The Other Shanghai: Suzhou Creek
+    summaryEn: 'An analysis of Lou Ye\'s underground masterpiece Suzhou River, exploring its raw, hand-held camera aesthetic, its depiction of marginalized lives along the polluted river, and its contrast with mainstream Pudong skyscraper narratives.',
+    summaryZh: '分析娄烨的地下电影杰作《苏州河》。探讨其粗犷的手持摄影美学、对受污染河流两岸边缘人群的刻画，以及它与主流浦东摩天大楼叙事形成的鲜明对比。',
+    contentMarkdownEn: `### The Underbelly of the Megacity
 
-While the official media of the late 1990s and early 2000s celebrated the gleaming skyscrapers of Pudong and the modern commercialism of Huaihai Road, independent filmmaker **Lou Ye (娄烨)** turned his camera toward the city's watery, neglected underbelly: **Suzhou Creek (苏州河)**.
+While mainstream media in the late 1990s and early 2000s celebrated Pudong's gleaming skyscrapers and Huaihai Road's modern consumerism, independent director **Lou Ye (娄烨)** turned his camera toward the city's damp, forgotten underbelly: the **Suzhou Creek (苏州河)**.
 
-*Suzhou River* (2000) is a romantic, neo-noir tragedy that serves as a poetic eulogy for an industrial Shanghai that was fast disappearing.
+*Suzhou River* (2000) is a romantic neo-noir and a poetic elegy to an older, industrial Shanghai that was rapidly being swept away by modern development.
 
-#### The Narrative and Metaphor
-The film is narrated by an unseen videographer. It tells the story of Mardar (played by Jia Hongsheng), a motorcycle courier who gets involved with a young woman named Moudan (played by Zhou Xun). After a tragic betrayal, Moudan jumps into the Suzhou River. Years later, Mardar encounters Meimei (also played by Zhou Xun), a performer who dresses as a mermaid in a gritty riverfront bar, and becomes obsessed with finding out if she is Moudan.
+#### Narrative and Metaphor
+The film is narrated in the first person by an unseen videographer. It tells the story of Mardar (played by Jia Hongsheng), a motorcycle courier who falls in love with Moudan (played by Zhou Xun), a young girl he is hired to transport. After a tragic misunderstanding involving a kidnapping plot, Moudan leaps into the Suzhou River. Years later, Mardar emerges from prison and encounters Meimei (also played by Zhou Xun), a performer who dresses as a mermaid in a riverside bar, and becomes obsessed with finding out if she is Moudan.
 
-#### The Suzhou River as a Character
-In the film, the river is not just a backdrop; it is a living, breathing character:
-- **The Industrial Dump**: The narrator describes the river as dirty, smelly, and filled with garbage and industrial waste, reflecting the ecological cost of Shanghai's industrial era.
-- **A Repository of Memories**: *"It washes away decades of filth, stories, and secrets,"* says the narrator. It represents the collective unconscious of the city, holding the memories of the marginalized people who lived and worked along its banks.
+#### Suzhou Creek as a Character
+In the film, the river is not just a backdrop, but a living, breathing character:
+- **Industrial Dumping Ground**: The narrator describes the river as dirty, smelly, and clogged with garbage and industrial waste, reflecting the heavy ecological cost of Shanghai's industrial era.
+- **Container of Memory**: The narrator states: *"It washes away decades of filth, stories, and secrets."* It represents the collective unconscious of the city, holding the memories of the marginalized people who live and work along its banks.
 
-#### Aesthetic Style
-Lou Ye used a handheld, shaky 16mm camera, jump cuts, and voiceover narration, heavily influenced by the French New Wave and Wong Kar-wai. The grainy, saturated imagery captured the chaotic, melancholic, and deeply romantic atmosphere of Shanghai's post-industrial ruins before they were cleaned up and gentrified in the 2010s.
+#### Artistic Style
+Lou Ye utilized hand-held, shaky 16mm cameras, jump cuts, and voiceover narration, heavily influenced by the French New Wave and Wong Kar-wai. The grainy, highly saturated visuals captured a chaotic, melancholic, and intensely romantic urban atmosphere just before Shanghai's post-industrial ruins were completely cleaned up and gentrified in the 2010s.
 
-#### Legacy and Ban
-Because the film was submitted to the Rotterdam International Film Festival without official government approval, it was banned from theatrical release in Mainland China for over two decades. However, it achieved legendary status underground and solidified Lou Ye as a leading voice of China's **Sixth Generation** filmmakers, capturing a raw, authentic urban reality that official narratives chose to ignore.`,
-    contentMarkdownZh: `### 另一个上海：苏州河畔的边缘叙事
+#### Historical Fate
+Due to its screening at the Rotterdam International Film Festival without approval from the Chinese Film Bureau, the film was banned in mainland China for twenty years. However, it achieved legendary status among underground cinephiles, establishing Lou Ye as a leading voice of China's **Sixth Generation** directors and capturing a gritty slice of Shanghai's urban reality that was excluded from official narratives.`,
+    contentMarkdownZh: `### 巨型都市的隐秘腹地
 
 当20世纪90年代末和21世纪初的主流媒体都在歌颂浦东闪耀的摩天大楼和淮海路的现代繁华时，独立电影人**娄烨**将镜头对准了这座城市潮湿、被遗忘的腹地：**苏州河**。
 
@@ -668,6 +533,114 @@ Perhaps the most significant cultural impact of *Blossoms Shanghai* was its use 
 《繁花》重新定义了中国电视剧的美学标杆。它不仅是一部影视作品，更是对上海在走向全球化初期那代人拼搏、坚韧、重情重义精神的深情致敬，在历史记忆与现代视听艺术之间架起了一座金色的桥梁。`,
     thumbnailUrl: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80',
     tags: ['Wong Kar-wai', 'Blossoms Shanghai', 'Shanghainese Dialect', 'Nostalgia', '2020s']
+  },
+
+  // --- NEW SOURCES & ARCHIVE EXPANSIONS (USER REQUESTED "FIND MORE SOURCES") ---
+  {
+    id: 'up_pudong_demolition_2000',
+    titleEn: 'The Demolition of Zhoujiadu & Pudong\'s Urban Resettlement',
+    titleZh: '周家渡拆迁与浦东城市化居民大动迁',
+    decade: 2000,
+    exactYear: 2004,
+    category: 'urban_planning',
+    itemType: 'research_paper',
+    summaryEn: 'A poignant research paper detailing the massive demolition of historic docklands like Zhoujiadu to make way for the World Expo 2010 site, analyzing the social displacement and resettlement of over 50,000 households.',
+    summaryZh: '一份令人深思的研究论文，详细记录了为腾出2010年世博会场地而对周家渡等历史码头区进行的大规模拆迁，分析了5万多户家庭的社会重组与动迁安置。',
+    contentMarkdownEn: `### The Cost of Modernization: Resettling Zhoujiadu
+
+While the 2010 World Expo was celebrated globally, its physical canvas required one of the largest peacetime urban resettlement projects in modern history. The epicenter of this displacement was **Zhoujiadu (周家渡)**, a historic working-class neighborhood along the Pudong riverfront.
+
+#### The Historic Neighborhood
+For over a century, Zhoujiadu was a dense, bustling hub of shipyards, steel mills, and chemical factories. Its residents were primarily factory workers who lived in self-built brick-and-wood homes or crowded factory dormitories. It was a close-knit community with its own distinct river-facing culture.
+
+#### The Demolition Campaign (2004-2007)
+To clear 5.28 square kilometers of land for the Expo site, the Shanghai government had to relocate:
+- **Scale**: Over **18,000 households** and 270 state-owned factories.
+- **The Resettlement Policy**: Residents were offered a choice between monetary compensation or newly built apartments in suburban suburban areas like **Sanlin (三林)** and **Pujiang (浦江)**.
+
+#### Social and Cultural Displacement
+Sociological research papers from the 2000s highlight the deep social friction caused by this "Great Resettlement":
+- **Loss of Social Networks**: Moving from dense, lane-based neighborhoods to high-rise suburban estates fractured long-standing mutual-aid networks, particularly affecting elderly residents who relied on neighbors for daily support.
+- **The Commute Burden**: Suburban resettlement pushed workers far from the city center, significantly increasing their daily commute times before metro lines were fully extended.
+- **Identity Shift**: Factory workers transformed from urban riverfront residents into suburban high-rise dwellers, a profound shift in Shanghai's working-class identity.
+
+#### Legacy
+The resettlement of Zhoujiadu represents the complex, often painful trade-offs of Shanghai's rapid modernization. It laid the groundwork for modern Chinese urban planning policies that place greater emphasis on preserving community structures and providing comprehensive social services during urban renewal.`,
+    contentMarkdownZh: `### 现代化的代价：周家渡大动迁
+
+尽管2010年上海世博会赢得了全球瞩目，但其物理场地的建设需要现代史上最大规模的和平时期城市动迁工程之一。这场动迁的震中，便是位于浦东沿江的历史悠久的工人阶级社区——**周家渡**。
+
+#### 历史社区的昔日样貌
+一个多世纪以来，周家渡曾是船厂、钢厂和化工厂林立的繁华枢纽。这里的居民主要是产业工人，他们居住在自建的砖木房屋或拥挤的工厂宿舍里。这是一个紧密的熟人社会，拥有着独特的依江而居的码头工人文化。
+
+#### 铁腕动迁（2004-2007年）
+为了给世博园区腾出5.28平方公里的土地，上海市政府必须搬迁：
+- **规模**：超过**1.8万户居民**以及270家国有企业。
+- **安置政策**：政府为居民提供了货币补偿或在郊区（如**三林**、**浦江**）新建设的动迁安置房。
+
+#### 社会与文化重组
+21世纪20年代的社会学研究论文指出了这场“大动迁”带来的深层社会阵痛：
+- **社会网络的瓦解**：从紧密的里弄社区搬迁到高密度的郊区高层住宅，瓦解了长期建立的邻里互助网络，对依赖邻里日常照料的老年人影响尤甚。
+- **通勤负担骤增**：郊区化将工人们推向了远离市中心的边缘，在地铁线路尚未完全延伸之前，极大地增加了他们的日常通勤时间。
+- **身份认同的转变**：产业工人从沿江的城市居民转变为郊区高楼的住客，这深刻改变了上海工人阶级的身份认同。
+
+#### 历史遗产
+周家渡的动迁代表了上海快速现代化过程中复杂而往往痛苦的权衡。它为现代中国城市规划政策奠定了基础，促使后来的城市更新更加注重保护社区结构并在动迁过程中提供更完善的社会保障服务。`,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80',
+    tags: ['Zhoujiadu', 'Urban Resettlement', 'Pudong', 'World Expo 2010', '2000s']
+  },
+  {
+    id: 'film_shanghai_women_2000',
+    titleEn: 'Shanghai Women (2002): Peng Xiaolian\'s Portrait of Urban Alienation',
+    titleZh: '《假装没感觉》(2002)：彭小莲镜头下的女性、空间与都市疏离',
+    decade: 2000,
+    exactYear: 2002,
+    category: 'film',
+    itemType: 'video',
+    summaryEn: 'An exploration of female director Peng Xiaolian\'s critically acclaimed film Shanghai Women, depicting the domestic struggles, generational divides, and spatial anxieties of three generations of women in a rapidly gentrifying Puxi.',
+    summaryZh: '探索女性导演彭小莲备受赞誉的电影《假装没感觉》。影片刻画了在快速高档化的浦西，三代上海女性面临的家庭挣扎、代际鸿沟与空间焦虑。',
+    contentMarkdownEn: `### Peng Xiaolian\'s Feminist Urbanism
+
+While many male directors of the Sixth Generation focused on underground subcultures or grand historical allegories, female director **Peng Xiaolian (彭小莲)** created a deeply intimate, feminist chronicle of Shanghai's domestic spaces. Her masterpiece **Shanghai Women (假装没感觉)** (2002) is a crucial source for understanding the gendered experience of Shanghai's rapid real estate boom.
+
+#### The Narrative: Three Generations in a Shikumen
+The film is set in a cramped, decaying Shikumen apartment in Puxi, housing three generations of women:
+- **The Grandmother**: Holds onto memories of pre-1949 bourgeois elegance, representing the historical soul of the city.
+- **The Mother (Bingyi)**: A middle-aged woman struggling with a failing marriage, a low-paying job, and the claustrophobia of shared living.
+- **The Daughter (Kankan)**: A modern, rebellious teenager who dreams of escaping the cramped lanes for the glittering high-rises of Pudong.
+
+#### Spatial Anxiety and Real Estate Boom
+Peng Xiaolian brilliantly uses the physical layout of the Shikumen to mirror the characters' psychological states:
+- **Claustrophobia**: The camera lingers on narrow staircases, shared kitchens, and thin walls that offer zero privacy, highlighting the domestic friction of working-class life.
+- **The Real Estate Temptation**: The 2000s marked the peak of Shanghai's inner-city redevelopment. The characters are constantly tempted and threatened by developers offering to buy out their historic lanes, forcing them to choose between physical comfort in distant suburbs or historical identity in the city center.
+
+#### The Female Gaze
+Unlike the romanticized "beauties" of old Shanghai calendar posters, Peng's women are raw, resilient, and deeply flawed. The film explores how the economic reforms of the 1990s disproportionately affected middle-aged women, who faced layoffs from state-owned textile mills while bearing the burden of domestic labor.
+
+#### Legacy
+*Shanghai Women* won international acclaim for its sensitive, unvarnished depiction of urban life. It stands as a vital cinematic archive of the human cost of Shanghai's real estate miracle, capturing the quiet, domestic revolutions that took place behind the stone gates of Puxi.`,
+    contentMarkdownZh: `### 彭小莲的女性主义城市书写
+
+当第六代男导演们大多将镜头对准地下亚文化或宏大的历史寓言时，女性导演**彭小莲**创造了关于上海家庭空间的、极具私密性的女性主义编年史。她的代表作《**假装没感觉**》(2002) 是理解上海快速房地产热潮中女性空间体验的关键文献。
+
+#### 叙事：石库门里的三代女性
+影片设定在浦西一间狭窄、破旧的石库门公寓里，挤着三代女性：
+- **外婆**：坚守着1949年前资产阶级优雅生活的记忆，代表了这座城市的历史灵魂。
+- **母亲（病宜）**：一个在中年危机中挣扎的女性，面临着失败的婚姻、低微的薪水以及合居生活的幽闭恐惧。
+- **女儿（侃侃）**：一个现代、叛逆的青春期少女，梦想着逃离狭窄的弄堂，搬进浦东闪耀的高楼大厦。
+
+#### 空间焦虑与房地产狂潮
+彭小莲精妙地利用石库门的物理空间来折射人物的心理状态：
+- **幽闭恐惧**：镜头在狭窄的楼梯、共用的厨房和毫无隐私的薄墙之间游走，突出了普通市民家庭生活的日常摩擦。
+- **动迁的诱惑**：21世纪初是上海市中心旧区改造的巅峰期。角色们不断受到开发商拆迁补偿的诱惑与威胁，迫使她们在“远郊的宽敞舒适”与“市中心的历史认同”之间做出痛苦抉择。
+
+#### 女性凝视
+与老上海月份牌上被浪漫化的“摩登女郎”不同，彭小莲笔下的女性是真实、坚韧且充满缺陷的。影片深入探讨了90年代下岗潮如何不成比例地冲击了中年女性（许多人从国营纺织厂下岗），同时她们还要默默承受着家庭内部无偿劳动的重担。
+
+#### 时代遗产
+《假装没感觉》因其对都市生活细腻、不加粉饰的刻画赢得了国际赞誉。它是一部记录上海房地产奇迹背后普通人代价的珍贵影像档案，定格下了浦西石库门石料门框背后那些无声的家庭革命。`,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1444653389962-8149286c578a?auto=format&fit=crop&w=800&q=80',
+    tags: ['Peng Xiaolian', 'Shanghai Women', 'Feminist Cinema', 'Shikumen', '2000s']
   }
 ];
 
@@ -708,6 +681,15 @@ export const urbanPlanningMetadata: UrbanPlanningMetadata[] = [
     latitude: 31.1789,
     longitude: 121.4645,
     keyFigures: ['David Chipperfield', 'Budi Tek', 'West Bund Development Group'],
+    scale: 'District'
+  },
+  {
+    itemId: 'up_pudong_demolition_2000',
+    district: 'Pudong',
+    planningType: 'residential_reform',
+    latitude: 31.1912,
+    longitude: 121.4895, // Zhoujiadu / Expo Site
+    keyFigures: ['Shanghai Municipal Resettlement Office', 'World Expo Committee'],
     scale: 'District'
   }
 ];
@@ -765,6 +747,15 @@ export const filmMetadata: FilmMetadata[] = [
     genre: ['Drama', 'Business', 'Romance'],
     shanghaiThemes: ['1990s Stock Boom', 'Shanghainese Dialect', 'Huanghe Road Food Culture', 'Nostalgia'],
     releaseYear: 2023,
-    cast: ['Hu Ge (胡歌)', 'Ma Yili (马伊琍)', 'Tang Yan (唐嫣)', 'Xin Zhilei (辛芷蕾)']
+    cast: ['Hu Ge (胡歌)', 'Ma Yili (马伊琍)', 'Tang Yan (唐嫣)', 'Xin Zhilei (辛蕾)']
+  },
+  {
+    itemId: 'film_shanghai_women_2000',
+    director: 'Peng Xiaolian (彭小莲)',
+    studio: 'Shanghai Film Studio (上海电影制片厂)',
+    genre: ['Drama', 'Feminist', 'Family'],
+    shanghaiThemes: ['Shikumen Life', 'Real Estate Boom', 'Generational Divide', 'Female Resilience'],
+    releaseYear: 2002,
+    cast: ['Lü Liping (吕丽萍)', 'Zheng Zhenyao (郑振瑶)']
   }
 ];
