@@ -1,6 +1,10 @@
 import type { ArchiveItem, UrbanPlanningMetadata, HealthcareMetadata, FilmMetadata } from './types';
+import { demographicsItems } from './items/demographicsItems';
+import { urbanPlanningExtraItems, urbanPlanningExtraMetadata } from './items/urbanPlanningExtra';
+import { healthcareExtraItems, healthcareExtraMetadata } from './items/healthcareExtra';
+import { filmExtraItems, filmExtraMetadata } from './items/filmExtra';
 
-export const archiveItems: ArchiveItem[] = [
+const baseArchiveItems: ArchiveItem[] = [
   // --- URBAN PLANNING ---
   {
     id: 'up_shikumen_1970',
@@ -644,9 +648,17 @@ Unlike the romanticized "beauties" of old Shanghai calendar posters, Peng's wome
   }
 ];
 
+export const archiveItems: ArchiveItem[] = [
+  ...baseArchiveItems,
+  ...demographicsItems,
+  ...urbanPlanningExtraItems,
+  ...healthcareExtraItems,
+  ...filmExtraItems,
+];
+
 // --- RELATIONALLY MAPPED METADATA ---
 
-export const urbanPlanningMetadata: UrbanPlanningMetadata[] = [
+const baseUrbanPlanningMetadata: UrbanPlanningMetadata[] = [
   {
     itemId: 'up_shikumen_1970',
     district: 'Huangpu',
@@ -694,7 +706,12 @@ export const urbanPlanningMetadata: UrbanPlanningMetadata[] = [
   }
 ];
 
-export const healthcareMetadata: HealthcareMetadata[] = [
+export const urbanPlanningMetadata: UrbanPlanningMetadata[] = [
+  ...baseUrbanPlanningMetadata,
+  ...urbanPlanningExtraMetadata,
+];
+
+const baseHealthcareMetadata: HealthcareMetadata[] = [
   {
     itemId: 'health_barefoot_1970',
     eraType: 'barefoot_doctors',
@@ -721,7 +738,12 @@ export const healthcareMetadata: HealthcareMetadata[] = [
   }
 ];
 
-export const filmMetadata: FilmMetadata[] = [
+export const healthcareMetadata: HealthcareMetadata[] = [
+  ...baseHealthcareMetadata,
+  ...healthcareExtraMetadata,
+];
+
+const baseFilmMetadata: FilmMetadata[] = [
   {
     itemId: 'film_hibiscus_1980',
     director: 'Xie Jin (谢晋)',
@@ -747,7 +769,7 @@ export const filmMetadata: FilmMetadata[] = [
     genre: ['Drama', 'Business', 'Romance'],
     shanghaiThemes: ['1990s Stock Boom', 'Shanghainese Dialect', 'Huanghe Road Food Culture', 'Nostalgia'],
     releaseYear: 2023,
-    cast: ['Hu Ge (胡歌)', 'Ma Yili (马伊琍)', 'Tang Yan (唐嫣)', 'Xin Zhilei (辛蕾)']
+    cast: ['Hu Ge (胡歌)', 'Ma Yili (马伊琍)', 'Tang Yan (唐嫣)', 'Xin Zhilei (辛芷蕾)']
   },
   {
     itemId: 'film_shanghai_women_2000',
@@ -758,4 +780,9 @@ export const filmMetadata: FilmMetadata[] = [
     releaseYear: 2002,
     cast: ['Lü Liping (吕丽萍)', 'Zheng Zhenyao (郑振瑶)']
   }
+];
+
+export const filmMetadata: FilmMetadata[] = [
+  ...baseFilmMetadata,
+  ...filmExtraMetadata,
 ];
