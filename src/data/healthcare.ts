@@ -1,0 +1,33 @@
+import type { HealthcareDataPoint } from './types';
+
+export const healthcareData: HealthcareDataPoint[] = [
+  { year: 1970, lifeExpectancy: 71.2, hospitalCount: 142, infantMortalityRate: 26.5, maternalMortalityRate: 48.2 },
+  { year: 1972, lifeExpectancy: 71.6, hospitalCount: 148, infantMortalityRate: 24.1, maternalMortalityRate: 44.5 },
+  { year: 1974, lifeExpectancy: 72.0, hospitalCount: 155, infantMortalityRate: 22.0, maternalMortalityRate: 41.0 },
+  { year: 1976, lifeExpectancy: 72.4, hospitalCount: 161, infantMortalityRate: 20.2, maternalMortalityRate: 38.1 },
+  { year: 1978, lifeExpectancy: 72.8, hospitalCount: 170, infantMortalityRate: 18.5, maternalMortalityRate: 34.8 },
+  { year: 1980, lifeExpectancy: 73.1, hospitalCount: 182, infantMortalityRate: 16.9, maternalMortalityRate: 31.5 },
+  { year: 1982, lifeExpectancy: 73.6, hospitalCount: 191, infantMortalityRate: 15.1, maternalMortalityRate: 28.2 },
+  { year: 1984, lifeExpectancy: 74.1, hospitalCount: 202, infantMortalityRate: 13.8, maternalMortalityRate: 25.4 },
+  { year: 1986, lifeExpectancy: 74.7, hospitalCount: 211, infantMortalityRate: 12.4, maternalMortalityRate: 23.1 },
+  { year: 1988, lifeExpectancy: 75.2, hospitalCount: 223, infantMortalityRate: 11.2, maternalMortalityRate: 21.0 },
+  { year: 1990, lifeExpectancy: 75.8, hospitalCount: 235, infantMortalityRate: 10.1, maternalMortalityRate: 19.2 },
+  { year: 1992, lifeExpectancy: 76.4, hospitalCount: 246, infantMortalityRate: 9.1, maternalMortalityRate: 17.5 },
+  { year: 1994, lifeExpectancy: 77.0, hospitalCount: 258, infantMortalityRate: 8.2, maternalMortalityRate: 15.8 },
+  { year: 1996, lifeExpectancy: 77.6, hospitalCount: 271, infantMortalityRate: 7.3, maternalMortalityRate: 14.1 },
+  { year: 1998, lifeExpectancy: 78.2, hospitalCount: 284, infantMortalityRate: 6.5, maternalMortalityRate: 12.5 },
+  { year: 2000, lifeExpectancy: 78.8, hospitalCount: 298, infantMortalityRate: 5.8, maternalMortalityRate: 11.1 },
+  { year: 2002, lifeExpectancy: 79.5, hospitalCount: 310, infantMortalityRate: 5.1, maternalMortalityRate: 9.8 },
+  { year: 2004, lifeExpectancy: 80.1, hospitalCount: 322, infantMortalityRate: 4.5, maternalMortalityRate: 8.5 },
+  { year: 2006, lifeExpectancy: 80.8, hospitalCount: 335, infantMortalityRate: 3.9, maternalMortalityRate: 7.4 },
+  { year: 2008, lifeExpectancy: 81.4, hospitalCount: 348, infantMortalityRate: 3.4, maternalMortalityRate: 6.5 },
+  { year: 2010, lifeExpectancy: 82.1, hospitalCount: 362, infantMortalityRate: 3.0, maternalMortalityRate: 5.7 },
+  { year: 2012, lifeExpectancy: 82.4, hospitalCount: 375, infantMortalityRate: 2.7, maternalMortalityRate: 5.1 },
+  { year: 2014, lifeExpectancy: 82.8, hospitalCount: 388, infantMortalityRate: 2.4, maternalMortalityRate: 4.5 },
+  { year: 2016, lifeExpectancy: 83.2, hospitalCount: 402, infantMortalityRate: 2.2, maternalMortalityRate: 4.0 },
+  { year: 2018, lifeExpectancy: 83.6, hospitalCount: 415, infantMortalityRate: 2.0, maternalMortalityRate: 3.5 },
+  { year: 2020, lifeExpectancy: 84.1, hospitalCount: 428, infantMortalityRate: 1.8, maternalMortalityRate: 3.1 },
+  { year: 2022, lifeExpectancy: 84.3, hospitalCount: 440, infantMortalityRate: 1.7, maternalMortalityRate: 2.8 },
+  { year: 2024, lifeExpectancy: 84.5, hospitalCount: 452, infantMortalityRate: 1.6, maternalMortalityRate: 2.5 },
+  { year: 2026, lifeExpectancy: 84.8, hospitalCount: 465, infantMortalityRate: 1.5, maternalMortalityRate: 2.3 }
+];

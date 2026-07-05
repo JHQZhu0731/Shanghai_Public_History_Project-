@@ -1,0 +1,33 @@
+import type { DemographicsDataPoint } from './types';
+
+export const demographicsData: DemographicsDataPoint[] = [
+  { year: 1970, totalPopulation: 10.82, registeredHukou: 10.75, floatingPopulation: 0.07, agingRate65Plus: 4.5, urbanizationRate: 58.0, birthRate: 11.2 },
+  { year: 1972, totalPopulation: 10.91, registeredHukou: 10.81, floatingPopulation: 0.10, agingRate65Plus: 4.8, urbanizationRate: 58.5, birthRate: 10.8 },
+  { year: 1974, totalPopulation: 11.02, registeredHukou: 10.89, floatingPopulation: 0.13, agingRate65Plus: 5.1, urbanizationRate: 59.2, birthRate: 9.5 },
+  { year: 1976, totalPopulation: 11.15, registeredHukou: 10.96, floatingPopulation: 0.19, agingRate65Plus: 5.5, urbanizationRate: 60.1, birthRate: 8.9 },
+  { year: 1978, totalPopulation: 11.33, registeredHukou: 11.04, floatingPopulation: 0.29, agingRate65Plus: 6.0, urbanizationRate: 61.5, birthRate: 10.1 },
+  { year: 1980, totalPopulation: 11.52, registeredHukou: 11.12, floatingPopulation: 0.40, agingRate65Plus: 6.8, urbanizationRate: 63.0, birthRate: 13.6 },
+  { year: 1982, totalPopulation: 11.86, registeredHukou: 11.31, floatingPopulation: 0.55, agingRate65Plus: 7.4, urbanizationRate: 64.2, birthRate: 15.2 },
+  { year: 1984, totalPopulation: 12.17, registeredHukou: 11.50, floatingPopulation: 0.67, agingRate65Plus: 8.0, urbanizationRate: 65.5, birthRate: 12.4 },
+  { year: 1986, totalPopulation: 12.50, registeredHukou: 11.72, floatingPopulation: 0.78, agingRate65Plus: 8.5, urbanizationRate: 66.8, birthRate: 13.1 },
+  { year: 1988, totalPopulation: 12.92, registeredHukou: 11.95, floatingPopulation: 0.97, agingRate65Plus: 9.0, urbanizationRate: 68.1, birthRate: 11.8 },
+  { year: 1990, totalPopulation: 13.34, registeredHukou: 12.83, floatingPopulation: 1.05, agingRate65Plus: 9.4, urbanizationRate: 69.5, birthRate: 10.2 },
+  { year: 1992, totalPopulation: 13.81, registeredHukou: 12.87, floatingPopulation: 1.44, agingRate65Plus: 10.1, urbanizationRate: 71.0, birthRate: 7.8 },
+  { year: 1994, totalPopulation: 14.33, registeredHukou: 12.94, floatingPopulation: 2.05, agingRate65Plus: 10.7, urbanizationRate: 72.8, birthRate: 6.1 },
+  { year: 1996, totalPopulation: 14.92, registeredHukou: 13.01, floatingPopulation: 2.76, agingRate65Plus: 11.2, urbanizationRate: 74.5, birthRate: 5.6 },
+  { year: 1998, totalPopulation: 15.65, registeredHukou: 13.07, floatingPopulation: 3.48, agingRate65Plus: 11.5, urbanizationRate: 76.5, birthRate: 5.2 },
+  { year: 2000, totalPopulation: 16.74, registeredHukou: 13.22, floatingPopulation: 3.87, agingRate65Plus: 11.8, urbanizationRate: 78.3, birthRate: 5.3 },
+  { year: 2002, totalPopulation: 17.78, registeredHukou: 13.34, floatingPopulation: 4.79, agingRate65Plus: 12.2, urbanizationRate: 80.1, birthRate: 5.1 },
+  { year: 2004, totalPopulation: 18.90, registeredHukou: 13.52, floatingPopulation: 5.73, agingRate65Plus: 12.8, urbanizationRate: 82.0, birthRate: 6.0 },
+  { year: 2006, totalPopulation: 20.08, registeredHukou: 13.68, floatingPopulation: 6.75, agingRate65Plus: 13.4, urbanizationRate: 84.1, birthRate: 6.2 },
+  { year: 2008, totalPopulation: 21.41, registeredHukou: 13.91, floatingPopulation: 7.85, agingRate65Plus: 14.1, urbanizationRate: 86.0, birthRate: 7.0 },
+  { year: 2010, totalPopulation: 23.03, registeredHukou: 14.12, floatingPopulation: 8.91, agingRate65Plus: 15.1, urbanizationRate: 88.0, birthRate: 7.1 },
+  { year: 2012, totalPopulation: 23.80, registeredHukou: 14.20, floatingPopulation: 9.60, agingRate65Plus: 15.9, urbanizationRate: 88.5, birthRate: 8.2 },
+  { year: 2014, totalPopulation: 24.25, registeredHukou: 14.29, floatingPopulation: 9.96, agingRate65Plus: 16.8, urbanizationRate: 88.9, birthRate: 8.3 },
+  { year: 2016, totalPopulation: 24.19, registeredHukou: 14.39, floatingPopulation: 9.80, agingRate65Plus: 17.9, urbanizationRate: 89.1, birthRate: 9.0 },
+  { year: 2018, totalPopulation: 24.24, registeredHukou: 14.43, floatingPopulation: 9.81, agingRate65Plus: 19.2, urbanizationRate: 89.2, birthRate: 7.2 },
+  { year: 2020, totalPopulation: 24.87, registeredHukou: 14.44, floatingPopulation: 10.43, agingRate65Plus: 20.1, urbanizationRate: 89.3, birthRate: 4.7 },
+  { year: 2022, totalPopulation: 24.76, registeredHukou: 14.48, floatingPopulation: 10.28, agingRate65Plus: 21.0, urbanizationRate: 89.5, birthRate: 4.4 },
+  { year: 2024, totalPopulation: 24.87, registeredHukou: 14.52, floatingPopulation: 10.35, agingRate65Plus: 21.8, urbanizationRate: 89.6, birthRate: 4.1 },
+  { year: 2026, totalPopulation: 24.95, registeredHukou: 14.56, floatingPopulation: 10.39, agingRate65Plus: 22.5, urbanizationRate: 89.8, birthRate: 3.9 }
+];
