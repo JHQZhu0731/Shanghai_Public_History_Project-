@@ -32,6 +32,16 @@ html, body, pre, code, kbd, samp, input, select, button, textarea {
   image-rendering: auto; /* Keep map tiles smooth, but markers pixelated */
 }
 
+/* One marker layer — avoid stacked invisible hit targets */
+.leaflet-marker-pane .place-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-marker-icon.place-marker {
+  pointer-events: auto;
+}
+
 /* Custom scrollbar for retro pixel theme */
 ::-webkit-scrollbar {
   width: 12px;
