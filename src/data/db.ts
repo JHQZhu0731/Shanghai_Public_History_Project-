@@ -205,10 +205,11 @@ export function getPlaceClusters(cards: ArchiveCard[] = archiveCards): PlaceClus
   for (const card of mapped) {
     const key = card.landmarkEn.toLowerCase().trim();
     const list = byKey.get(key) ?? [];
-    list.push(card);
+    if (!list.some((c) => c.id === card.id)) list.push(card);
     byKey.set(key, list);
   }
 
+  const usedIds = new Set<string>();
   return [...byKey.values()]
     .map((group) => {
       const sorted = [...group].sort((a, b) => b.year - a.year);
@@ -217,8 +218,14 @@ export function getPlaceClusters(cards: ArchiveCard[] = archiveCards): PlaceClus
       const lng =
         sorted.reduce((s, c) => s + (c.longitude as number), 0) / sorted.length;
       const head = sorted[0];
+      let id = head.landmarkEn
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+      if (usedIds.has(id)) id = `${id}-${head.id.slice(0, 8)}`;
+      usedIds.add(id);
       return {
-        id: head.landmarkEn.toLowerCase().replace(/\s+/g, '-'),
+        id,
         landmarkEn: head.landmarkEn,
         landmarkZh: head.landmarkZh,
         districtEn: head.districtEn,
@@ -229,6 +236,40 @@ export function getPlaceClusters(cards: ArchiveCard[] = archiveCards): PlaceClus
       };
     })
     .sort((a, b) => b.cards.length - a.cards.length || a.landmarkEn.localeCompare(b.landmarkEn));
+}
+
+/** Pin layout on map — separate markers that would stack on the same spot. */
+export type MapPlacePin = PlaceCluster & { mapLat: number; mapLng: number };
+
+const MIN_PIN_GAP = 0.0032; // ~350m at Shanghai latitude
+
+export function layoutMapPlaces(places: PlaceCluster[]): MapPlacePin[] {
+  const pins: MapPlacePin[] = places.map((p) => ({
+    ...p,
+    mapLat: p.latitude,
+    mapLng: p.longitude,
+  }));
+
+  for (let i = 0; i < pins.length; i++) {
+    for (let attempt = 0; attempt < 24; attempt++) {
+      let collides = false;
+      for (let j = 0; j < i; j++) {
+        const dLat = pins[i].mapLat - pins[j].mapLat;
+        const dLng = pins[i].mapLng - pins[j].mapLng;
+        if (Math.hypot(dLat, dLng) < MIN_PIN_GAP) {
+          collides = true;
+          const angle = i * 2.399963 + attempt * 0.65;
+          const radius = MIN_PIN_GAP * (1 + attempt * 0.28);
+          pins[i].mapLat = pins[i].latitude + Math.sin(angle) * radius;
+          pins[i].mapLng = pins[i].longitude + Math.cos(angle) * radius;
+          break;
+        }
+      }
+      if (!collides) break;
+    }
+  }
+
+  return pins;
 }
 
 export function getPlaceById(

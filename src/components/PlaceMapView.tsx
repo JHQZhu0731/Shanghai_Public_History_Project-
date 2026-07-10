@@ -4,19 +4,28 @@ import L from 'leaflet';
 import { MapPin, Search } from 'lucide-react';
 import type { ArchiveGenre } from '../data/types';
 import { GENRE_META, GENRE_ORDER } from '../data/types';
-import { getAllCards, getPlaceClusters, type PlaceCluster } from '../data/db';
+import {
+  getAllCards,
+  getPlaceClusters,
+  layoutMapPlaces,
+  type PlaceCluster,
+} from '../data/db';
 import { ArchiveCardTile } from './ArchiveCardTile';
+
+const SHANGHAI_CENTER: [number, number] = [31.2304, 121.4737];
+const DEFAULT_ZOOM = 11;
+const FOCUS_ZOOM = 14;
 
 function MapController({
   center,
   zoom,
 }: {
-  center: [number, number];
+  center: [number, number] | null;
   zoom: number;
 }) {
   const map = useMap();
   useEffect(() => {
-    map.flyTo(center, zoom, { duration: 0.9 });
+    if (center) map.flyTo(center, zoom, { duration: 0.9 });
   }, [center, zoom, map]);
   return null;
 }
@@ -25,7 +34,7 @@ function placeIcon(count: number, active: boolean) {
   const bg = active ? '#f5c2e4' : '#89b4fa';
   const fg = '#11111b';
   const html = `
-    <div style="
+    <div class="place-marker-pin" style="
       min-width:28px;height:28px;padding:0 6px;
       display:flex;align-items:center;justify-content:center;
       background:${bg};color:${fg};
@@ -33,6 +42,7 @@ function placeIcon(count: number, active: boolean) {
       box-shadow:3px 3px 0 #313244;
       font-family:monospace;font-size:11px;font-weight:700;
       border-radius:2px;
+      pointer-events:auto;
     ">${count}</div>
   `;
   return L.divIcon({
@@ -78,20 +88,34 @@ export function PlaceMapView({
     return getPlaceClusters(cards);
   }, [genre, query]);
 
-  // Focus place from a record jump
+  const mapPins = useMemo(() => layoutMapPlaces(places), [places]);
+
   useEffect(() => {
     if (!focusCardId) return;
     const hit = places.find((p) => p.cards.some((c) => c.id === focusCardId));
     if (hit) setSelectedPlaceId(hit.id);
   }, [focusCardId, places]);
 
+  useEffect(() => {
+    if (selectedPlaceId && !places.some((p) => p.id === selectedPlaceId)) {
+      setSelectedPlaceId(null);
+    }
+  }, [places, selectedPlaceId]);
+
   const selected: PlaceCluster | null =
     places.find((p) => p.id === selectedPlaceId) ?? null;
 
-  const center: [number, number] = selected
-    ? [selected.latitude, selected.longitude]
-    : [31.2304, 121.4737];
-  const zoom = selected ? 14 : 11;
+  const selectedPin = selected
+    ? mapPins.find((p) => p.id === selected.id)
+    : null;
+
+  const flyTarget: [number, number] | null = selectedPin
+    ? [selectedPin.mapLat, selectedPin.mapLng]
+    : null;
+
+  const selectPlace = (placeId: string) => {
+    setSelectedPlaceId((prev) => (prev === placeId ? null : placeId));
+  };
 
   return (
     <div className="space-y-4">
@@ -101,12 +125,11 @@ export function PlaceMapView({
         </p>
         <h2 className="text-sm md:text-base font-bold text-[#e2e8f0] m-0">
           {isEn
-            ? 'Click a place to see related archive records'
-            : '点击地图上的地点，查看相关档案'}
+            ? 'One pin per place — click to list related records'
+            : '每个地点一个标记 — 点击查看相关档案'}
         </h2>
       </div>
 
-      {/* Simple filters only */}
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
@@ -152,19 +175,17 @@ export function PlaceMapView({
             setQuery(e.target.value);
             setSelectedPlaceId(null);
           }}
-          placeholder={
-            isEn ? 'Search place or title…' : '搜索地点或标题…'
-          }
+          placeholder={isEn ? 'Search place or title…' : '搜索地点或标题…'}
           className="nes-input w-full !pl-9 text-xs bg-[#11111b] text-[#e2e8f0]"
         />
       </div>
 
       <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-4 items-start">
-        {/* Real geographic map */}
         <div className="border-4 border-[#313244] h-[440px] md:h-[560px] overflow-hidden bg-[#11111b]">
           <MapContainer
-            center={center}
-            zoom={zoom}
+            key="shanghai-place-map"
+            center={SHANGHAI_CENTER}
+            zoom={DEFAULT_ZOOM}
             className="w-full h-full"
             scrollWheelZoom
           >
@@ -172,28 +193,46 @@ export function PlaceMapView({
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
               url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
             />
-            <MapController center={center} zoom={zoom} />
-            {places.map((place) => (
-              <Marker
-                key={place.id}
-                position={[place.latitude, place.longitude]}
-                icon={placeIcon(place.cards.length, place.id === selected?.id)}
-                eventHandlers={{
-                  click: () => setSelectedPlaceId(place.id),
-                }}
-              />
-            ))}
+            <MapController
+              center={flyTarget}
+              zoom={selected ? FOCUS_ZOOM : DEFAULT_ZOOM}
+            />
+            {mapPins.map((place) => {
+              const active = place.id === selected?.id;
+              return (
+                <Marker
+                  key={place.id}
+                  position={[place.mapLat, place.mapLng]}
+                  icon={placeIcon(place.cards.length, active)}
+                  zIndexOffset={active ? 1000 : 0}
+                  eventHandlers={{
+                    click: (e) => {
+                      L.DomEvent.stopPropagation(e);
+                      selectPlace(place.id);
+                    },
+                  }}
+                />
+              );
+            })}
           </MapContainer>
         </div>
 
-        {/* Place → related content list */}
         <div className="border-4 border-[#313244] bg-[#11111b] min-h-[440px] md:min-h-[560px] flex flex-col">
           {selected ? (
             <>
               <div className="border-b-4 border-[#313244] p-4 text-left space-y-2">
-                <p className="text-[9px] font-mono text-[#f9e2af] m-0 tracking-widest">
-                  {isEn ? 'SELECTED PLACE' : '当前地点'}
-                </p>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-[9px] font-mono text-[#f9e2af] m-0 tracking-widest">
+                    {isEn ? 'SELECTED PLACE' : '当前地点'}
+                  </p>
+                  <button
+                    type="button"
+                    className="text-[9px] font-mono text-[#585b70] underline"
+                    onClick={() => setSelectedPlaceId(null)}
+                  >
+                    {isEn ? 'Clear' : '清除'}
+                  </button>
+                </div>
                 <h3 className="text-sm font-bold text-[#e2e8f0] m-0 flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-[#89b4fa] shrink-0 mt-0.5" />
                   <span>{isEn ? selected.landmarkEn : selected.landmarkZh}</span>
@@ -201,8 +240,7 @@ export function PlaceMapView({
                 <p className="text-[10px] font-mono text-[#585b70] m-0 pl-6">
                   {isEn ? selected.districtEn : selected.districtZh}
                   {' · '}
-                  {selected.cards.length}{' '}
-                  {isEn ? 'records' : '条档案'}
+                  {selected.cards.length} {isEn ? 'records' : '条档案'}
                 </p>
               </div>
               <div className="flex-1 overflow-y-auto p-3 space-y-2">
@@ -224,15 +262,15 @@ export function PlaceMapView({
               </p>
               <p className="text-[11px] text-[#a6adc8] m-0 leading-relaxed">
                 {isEn
-                  ? 'Pick a numbered pin on the map, or choose a place below.'
-                  : '点击地图上的数字钉，或从下方选择地点。'}
+                  ? 'Each pin is one place. Pick on the map or from the list.'
+                  : '每个标记对应一个地点。在地图或列表中选择。'}
               </p>
               <div className="space-y-1.5 max-h-[420px] overflow-y-auto">
                 {places.map((place) => (
                   <button
                     key={place.id}
                     type="button"
-                    onClick={() => setSelectedPlaceId(place.id)}
+                    onClick={() => selectPlace(place.id)}
                     className="w-full text-left border-2 border-[#313244] hover:border-[#89b4fa] bg-[#0c0d14] px-3 py-2.5 flex items-center justify-between gap-2"
                   >
                     <span className="min-w-0">
