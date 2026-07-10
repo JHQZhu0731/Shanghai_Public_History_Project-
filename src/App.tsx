@@ -1,24 +1,15 @@
 import { useState } from 'react';
-import { AtlasView } from './components/AtlasView';
+import { PlaceMapView } from './components/PlaceMapView';
 import { IndexView } from './components/IndexView';
-import { MapExploreView } from './components/MapExploreView';
 import { RecordPanel } from './components/RecordPanel';
-import { GENRE_ORDER, type ArchiveFilters, type LanguageType } from './data/types';
-import { Compass, Map, Library, MapPinned, Languages, Globe } from 'lucide-react';
+import type { LanguageType } from './data/types';
+import { Compass, MapPinned, Library, Languages, Globe } from 'lucide-react';
 
-type TabType = 'atlas' | 'index' | 'map';
-
-const DEFAULT_FILTERS: ArchiveFilters = {
-  genres: [...GENRE_ORDER],
-  decade: 'all',
-  district: null,
-  query: '',
-};
+type TabType = 'map' | 'index';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('atlas');
+  const [activeTab, setActiveTab] = useState<TabType>('map');
   const [language, setLanguage] = useState<LanguageType>('zh');
-  const [filters, setFilters] = useState<ArchiveFilters>(DEFAULT_FILTERS);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
   const [mapFocusId, setMapFocusId] = useState<string | null>(null);
 
@@ -31,12 +22,6 @@ function App() {
     setActiveTab('map');
     setSelectedItemId(null);
   };
-
-  const tabs: { id: TabType; labelEn: string; labelZh: string; icon: typeof Map }[] = [
-    { id: 'atlas', labelEn: 'Atlas', labelZh: '图志', icon: Map },
-    { id: 'index', labelEn: 'Index', labelZh: '索引', icon: Library },
-    { id: 'map', labelEn: 'Geo Map', labelZh: '地理图', icon: MapPinned },
-  ];
 
   return (
     <div className="min-h-screen bg-[#0c0d14] text-[#e2e8f0] flex flex-col crt-monitor selection:bg-[#f5c2e4] selection:text-[#11111b]">
@@ -54,8 +39,8 @@ function App() {
               </h1>
               <p className="text-[9px] md:text-[10px] text-[#a6adc8] font-mono mt-0.5 tracking-widest m-0">
                 {isEn
-                  ? 'PLACE → EVENT → CONTENT → SOURCE'
-                  : '地点 → 事件 → 内容 → 来源'}
+                  ? 'CLICK A PLACE · READ THE RECORDS'
+                  : '点击地点 · 阅读档案'}
               </p>
             </div>
           </div>
@@ -85,72 +70,41 @@ function App() {
         </div>
       </header>
 
-      {/* Six genre gates as primary structure — no hero banner */}
-      <div className="bg-[#11111b] border-b-4 border-[#313244] px-4 md:px-8 py-2">
-        <div className="max-w-7xl mx-auto flex flex-wrap gap-x-3 gap-y-1 text-[9px] font-mono text-[#585b70]">
-          <span className="text-[#cba6f7]">Music</span>
-          <span className="text-[#f38ba8]">Movie</span>
-          <span className="text-[#a6e3a1]">Sports</span>
-          <span className="text-[#fab387]">Food</span>
-          <span className="text-[#89b4fa]">Social Study</span>
-          <span className="text-[#94e2d5]">Public Health</span>
-          <span className="text-[#45475a] hidden sm:inline">·</span>
-          <span className="text-[#a6adc8] hidden sm:inline">
-            {isEn
-              ? 'Six city-culture data gates · pixel atlas as narrative spine'
-              : '六大城市文化数据入口 · 像素图志为叙事骨架'}
-          </span>
-        </div>
-      </div>
-
-      <nav className="bg-[#0c0d14] border-b-4 border-[#313244] px-4 md:px-8 overflow-x-auto">
+      <nav className="bg-[#11111b] border-b-4 border-[#313244] px-4 md:px-8 overflow-x-auto">
         <div className="max-w-7xl mx-auto flex gap-2 md:gap-3 py-2.5">
-          {tabs.map((tab) => {
-            const Icon = tab.icon;
-            const on = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id)}
-                className={`nes-btn text-xs font-bold ${on ? 'is-primary' : ''}`}
-              >
-                <span className="flex items-center gap-1.5">
-                  <Icon className="w-3.5 h-3.5" />
-                  {isEn ? tab.labelEn : tab.labelZh}
-                </span>
-              </button>
-            );
-          })}
+          <button
+            type="button"
+            onClick={() => setActiveTab('map')}
+            className={`nes-btn text-xs font-bold ${activeTab === 'map' ? 'is-primary' : ''}`}
+          >
+            <span className="flex items-center gap-1.5">
+              <MapPinned className="w-3.5 h-3.5" />
+              {isEn ? 'Map' : '地图'}
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('index')}
+            className={`nes-btn text-xs font-bold ${activeTab === 'index' ? 'is-primary' : ''}`}
+          >
+            <span className="flex items-center gap-1.5">
+              <Library className="w-3.5 h-3.5" />
+              {isEn ? 'Index' : '索引'}
+            </span>
+          </button>
         </div>
       </nav>
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-6">
-        {activeTab === 'atlas' && (
-          <AtlasView
+        {activeTab === 'map' && (
+          <PlaceMapView
             language={language}
-            filters={filters}
-            onFiltersChange={setFilters}
             onSelectItem={openRecord}
             focusCardId={mapFocusId}
           />
         )}
         {activeTab === 'index' && (
-          <IndexView
-            language={language}
-            filters={filters}
-            onFiltersChange={setFilters}
-            onSelectItem={openRecord}
-          />
-        )}
-        {activeTab === 'map' && (
-          <MapExploreView
-            language={language}
-            filters={filters}
-            onFiltersChange={setFilters}
-            onSelectItem={openRecord}
-            focusCardId={mapFocusId}
-          />
+          <IndexView language={language} onSelectItem={openRecord} />
         )}
       </main>
 
@@ -159,8 +113,6 @@ function App() {
           <p className="m-0">
             © {new Date().getFullYear()}{' '}
             {isEn ? 'SHANGHAI PIXEL ARCHIVE' : '上海像素档案馆'}
-            {' · '}
-            {isEn ? 'Explorable · Searchable · Traceable' : '可探索 · 可检索 · 可追溯'}
           </p>
           <p className="flex items-center gap-2 m-0">
             <Globe className="w-3.5 h-3.5 text-[#f5c2e4]" />
