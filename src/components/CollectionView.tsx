@@ -35,31 +35,32 @@ export function CollectionView({ language, onSelectItem }: CollectionViewProps) 
 
   return (
     <div className="space-y-8">
-      {/* Intro + signature pixel map */}
-      <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 items-stretch">
-        <div className="nes-container is-dark with-title text-left space-y-4">
-          <p className="title text-xs text-[#f9e2af]">
-            {isEn ? 'COLLECTION' : '数字馆藏'}
-          </p>
-          <h2 className="text-base md:text-lg font-bold text-[#f5c2e4] m-0">
-            {isEn
-              ? 'Browse Shanghai as digestible archive cards'
-              : '用轻量卡片浏览上海档案'}
-          </h2>
-          <p className="text-xs text-[#a6adc8] leading-relaxed m-0">
-            {isEn
-              ? 'Music, Movie, Sports, Food, Social Study, and Public Health — each entry is a short card with a pixel avatar, landmark tag, source link, and map pin when place matters.'
-              : '音乐、电影、体育、美食、社会研究与公共卫生——每条档案都是一张短卡片：像素头像、地标标签、原始来源链接，以及相关地点的地图坐标。'}
-          </p>
+      {/* Signature creative pixel atlas */}
+      <div className="space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+          <div className="text-left">
+            <p className="text-[10px] font-mono text-[#f9e2af] m-0 tracking-widest">
+              {isEn ? 'SIGNATURE ATLAS' : '馆藏图志'}
+            </p>
+            <h2 className="text-sm md:text-base font-bold text-[#f5c2e4] m-0 mt-1">
+              {isEn ? 'Shanghai Pixel Map' : '上海像素地图'}
+            </h2>
+          </div>
           <div className="flex items-center gap-2 text-[10px] text-[#89b4fa] font-mono">
             <Compass className="w-3.5 h-3.5" />
             {cards.length} {isEn ? 'cards in view' : '张卡片在当前视图'}
           </div>
         </div>
 
-        <div className="border-4 border-[#313244] bg-[#0c0d14] p-2 shadow-[8px_8px_0px_0px_rgba(49,50,68,1)]">
-          <PixelShanghaiMap className="w-full h-auto" />
+        <div className="border-4 border-[#89b4fa] bg-[#0b1220] shadow-[8px_8px_0px_0px_rgba(49,50,68,1)] overflow-hidden">
+          <PixelShanghaiMap className="w-full" language={language} />
         </div>
+
+        <p className="text-[11px] text-[#a6adc8] leading-relaxed m-0 text-left max-w-3xl">
+          {isEn
+            ? 'A hand-illustrated pixel atlas of Shanghai — districts, the Huangpu ribbon, and landmark icons. Browse Music, Movie, Sports, Food, Social Study, and Public Health as short cards below.'
+            : '手绘风格的上海像素图志：区划色块、黄浦江光带与地标图标。下方以短卡片浏览音乐、电影、体育、美食、社会研究与公共卫生。'}
+        </p>
       </div>
 
       {/* Filters */}

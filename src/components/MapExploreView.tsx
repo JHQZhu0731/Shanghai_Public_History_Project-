@@ -167,10 +167,21 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
         </div>
 
         <div className="space-y-3 max-h-[520px] overflow-y-auto">
-          <div className="border-4 border-[#313244] bg-[#0c0d14] p-2 hidden lg:block">
+          <div className="border-4 border-[#89b4fa] bg-[#0b1220] overflow-hidden hidden lg:block">
             <PixelShanghaiMap
-              className="w-full h-auto"
+              className="w-full"
+              language={language}
               highlightDistrict={active ? (isEn ? active.districtEn : active.districtZh) : undefined}
+              onDistrictClick={(district) => {
+                const match = visible.find(
+                  (c) =>
+                    c.districtEn.includes(district) ||
+                    c.districtZh.includes(district) ||
+                    district.includes(c.districtEn.split(/[\/\s]/)[0]) ||
+                    district.includes(c.districtZh.split(/[\/\s]/)[0])
+                );
+                if (match) setActiveId(match.id);
+              }}
             />
           </div>
 
