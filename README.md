@@ -28,8 +28,8 @@ Every archive entry is a short, scannable card with:
 - **Genre label**
 - **Landmark + district**
 - **Custom pixel avatar** (unique per entry, genre-colored)
-- **Source link** to the original article / encyclopedia page
-- **Work link** to the film, venue, club, or primary reference when available
+- **Source link** to a research article, interview, documentary, or primary report (not Wikipedia)
+- **Work link** to a second learning path: film essay, journal PDF, live documentary, official archive, etc.
 - **Map coordinates** when the story is place-based
 
 ### Example model
