@@ -98,3 +98,14 @@ html, body, pre, code, kbd, samp, input, select, button, textarea {
 .crt-monitor {
   animation: crt-flicker 0.15s infinite;
 }
+
+@keyframes pixel-map-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.06); }
+}
+
+.pixel-map-pulse {
+  animation: pixel-map-pulse 1.6s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}

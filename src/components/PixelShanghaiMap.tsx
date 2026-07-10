@@ -1,137 +1,205 @@
+import { useState } from 'react';
+import mapArt from '../assets/pixel-scenes/shanghai-pixel-map.webp';
+
 /**
- * Signature pixel-style map of Shanghai — districts, river, and landmark pins.
- * Used as a collectible archival visual (not a GIS basemap).
+ * Signature creative pixel map of Shanghai.
+ * Illustrated atlas + soft hotspots + optional event pins.
  */
+interface EventPin {
+  id: string;
+  x: number;
+  y: number;
+  color: string;
+  active?: boolean;
+}
+
 interface PixelShanghaiMapProps {
   className?: string;
   highlightDistrict?: string;
   onDistrictClick?: (district: string) => void;
+  language?: 'en' | 'zh';
+  eventPins?: EventPin[];
+  onEventClick?: (id: string) => void;
 }
 
 const DISTRICTS: {
   id: string;
-  label: string;
-  path: string;
+  labelZh: string;
+  labelEn: string;
   cx: number;
   cy: number;
+  rx: number;
+  ry: number;
 }[] = [
-  { id: 'Huangpu', label: '黄浦', path: 'M148,118 L168,110 L178,128 L170,148 L150,152 L140,136 Z', cx: 158, cy: 130 },
-  { id: "Jing'an", label: '静安', path: 'M118,108 L148,118 L140,136 L120,140 L108,124 Z', cx: 128, cy: 124 },
-  { id: 'Xuhui', label: '徐汇', path: 'M108,140 L140,136 L150,152 L138,172 L112,168 L100,152 Z', cx: 124, cy: 154 },
-  { id: 'Hongkou', label: '虹口', path: 'M168,78 L190,72 L198,96 L178,110 L168,110 L160,92 Z', cx: 178, cy: 90 },
-  { id: 'Yangpu', label: '杨浦', path: 'M198,70 L230,66 L238,98 L210,112 L198,96 Z', cx: 218, cy: 88 },
-  { id: 'Pudong', label: '浦东', path: 'M178,128 L210,112 L250,120 L258,170 L220,190 L178,168 L170,148 Z', cx: 214, cy: 150 },
-  { id: 'Changning', label: '长宁', path: 'M78,118 L118,108 L108,124 L100,152 L72,148 L68,128 Z', cx: 90, cy: 130 },
-  { id: 'Jiading', label: '嘉定', path: 'M40,40 L100,36 L110,70 L78,88 L42,78 Z', cx: 72, cy: 58 },
-  { id: 'Qingpu', label: '青浦', path: 'M20,100 L68,90 L72,130 L48,150 L18,138 Z', cx: 44, cy: 118 },
+  { id: 'Jiading', labelZh: '嘉定', labelEn: 'Jiading', cx: 20, cy: 20, rx: 11, ry: 10 },
+  { id: 'Qingpu', labelZh: '青浦', labelEn: 'Qingpu', cx: 14, cy: 46, rx: 10, ry: 11 },
+  { id: 'Changning', labelZh: '长宁', labelEn: 'Changning', cx: 30, cy: 50, rx: 8, ry: 8 },
+  { id: "Jing'an", labelZh: '静安', labelEn: "Jing'an", cx: 40, cy: 46, rx: 7, ry: 7 },
+  { id: 'Xuhui', labelZh: '徐汇', labelEn: 'Xuhui', cx: 38, cy: 66, rx: 9, ry: 9 },
+  { id: 'Huangpu', labelZh: '黄浦', labelEn: 'Huangpu', cx: 50, cy: 54, rx: 7, ry: 8 },
+  { id: 'Hongkou', labelZh: '虹口', labelEn: 'Hongkou', cx: 56, cy: 34, rx: 8, ry: 7 },
+  { id: 'Yangpu', labelZh: '杨浦', labelEn: 'Yangpu', cx: 68, cy: 28, rx: 9, ry: 8 },
+  { id: 'Pudong', labelZh: '浦东', labelEn: 'Pudong', cx: 78, cy: 56, rx: 13, ry: 16 },
+  { id: 'Chongming', labelZh: '崇明', labelEn: 'Chongming', cx: 86, cy: 12, rx: 10, ry: 7 },
 ];
 
-const LANDMARKS = [
-  { name: '外滩', x: 172, y: 122 },
-  { name: '陆家嘴', x: 198, y: 136 },
-  { name: '豫园', x: 160, y: 142 },
-  { name: '虹口球场', x: 182, y: 86 },
-  { name: '徐家汇', x: 122, y: 158 },
-  { name: '赛车场', x: 70, y: 52 },
-  { name: '南翔', x: 78, y: 62 },
-];
+function matchDistrict(highlight: string | undefined, d: (typeof DISTRICTS)[0]) {
+  if (!highlight) return false;
+  const h = highlight.toLowerCase();
+  return (
+    h.includes(d.id.toLowerCase()) ||
+    highlight.includes(d.labelZh) ||
+    h.includes(d.labelEn.toLowerCase())
+  );
+}
 
 export function PixelShanghaiMap({
   className = '',
   highlightDistrict,
   onDistrictClick,
+  language = 'zh',
+  eventPins = [],
+  onEventClick,
 }: PixelShanghaiMapProps) {
+  const isEn = language === 'en';
+  const interactive = Boolean(onDistrictClick);
+  const [hovered, setHovered] = useState<string | null>(null);
+
   return (
-    <svg
-      viewBox="0 0 280 220"
-      className={className}
-      style={{ imageRendering: 'pixelated' }}
-      role="img"
-      aria-label="Pixel map of Shanghai"
-    >
-      <defs>
-        <pattern id="pixelGrid" width="4" height="4" patternUnits="userSpaceOnUse">
-          <rect width="4" height="4" fill="#11111b" />
-          <rect width="1" height="1" fill="#1e1e2e" />
-        </pattern>
-      </defs>
-
-      {/* Water / bay backdrop */}
-      <rect width="280" height="220" fill="url(#pixelGrid)" />
-      <rect x="0" y="180" width="280" height="40" fill="#1a3a4a" />
-      <rect x="200" y="160" width="80" height="60" fill="#1a3a4a" />
-
-      {/* Huangpu River — pixel ribbon */}
-      <path
-        d="M165,40 L172,80 L168,110 L175,140 L168,175 L175,200"
-        fill="none"
-        stroke="#89dceb"
-        strokeWidth="6"
-        strokeLinecap="square"
-      />
-      <path
-        d="M165,40 L172,80 L168,110 L175,140 L168,175 L175,200"
-        fill="none"
-        stroke="#74c7ec"
-        strokeWidth="2"
-        strokeLinecap="square"
+    <div className={`relative overflow-hidden bg-[#0b1220] ${className}`}>
+      <img
+        src={mapArt}
+        alt={isEn ? 'Creative pixel map of Shanghai' : '上海创意像素地图'}
+        className="block w-full h-auto select-none"
+        style={{ imageRendering: 'pixelated' }}
+        draggable={false}
       />
 
-      {/* Districts */}
-      {DISTRICTS.map((d) => {
-        const active =
-          highlightDistrict &&
-          (highlightDistrict.includes(d.id) ||
-            highlightDistrict.includes(d.label) ||
-            d.id.includes(highlightDistrict));
-        return (
-          <g
-            key={d.id}
-            onClick={() => onDistrictClick?.(d.id)}
-            style={{ cursor: onDistrictClick ? 'pointer' : 'default' }}
-          >
-            <path
-              d={d.path}
-              fill={active ? '#f9e2af' : '#313244'}
-              stroke="#11111b"
-              strokeWidth="2"
-            />
-            <text
-              x={d.cx}
-              y={d.cy}
-              textAnchor="middle"
-              fill={active ? '#11111b' : '#a6adc8'}
-              fontSize="7"
-              fontFamily="monospace"
-              style={{ pointerEvents: 'none' }}
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-label={isEn ? 'District hotspots and event pins' : '区划热点与事件点位'}
+      >
+        <defs>
+          <radialGradient id="pixelMapGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#f9e2af" stopOpacity="0.5" />
+            <stop offset="70%" stopColor="#89b4fa" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#89b4fa" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {DISTRICTS.map((d) => {
+          const active = matchDistrict(highlightDistrict, d);
+          const isHover = hovered === d.id;
+          const lit = active || isHover;
+
+          return (
+            <g
+              key={d.id}
+              onClick={() => onDistrictClick?.(d.id)}
+              onMouseEnter={() => interactive && setHovered(d.id)}
+              onMouseLeave={() => setHovered(null)}
+              style={{ cursor: interactive ? 'pointer' : 'default' }}
+              role={interactive ? 'button' : undefined}
+              tabIndex={interactive ? 0 : undefined}
+              onKeyDown={
+                interactive
+                  ? (e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onDistrictClick?.(d.id);
+                      }
+                    }
+                  : undefined
+              }
             >
-              {d.label}
-            </text>
-          </g>
-        );
-      })}
+              {lit && (
+                <ellipse
+                  cx={d.cx}
+                  cy={d.cy}
+                  rx={d.rx + 2.5}
+                  ry={d.ry + 2.5}
+                  fill="url(#pixelMapGlow)"
+                  className={active ? 'pixel-map-pulse' : undefined}
+                  style={{ pointerEvents: 'none' }}
+                />
+              )}
+              <ellipse
+                cx={d.cx}
+                cy={d.cy}
+                rx={d.rx}
+                ry={d.ry}
+                fill={
+                  lit
+                    ? 'rgba(249,226,175,0.18)'
+                    : interactive
+                      ? 'rgba(137,180,250,0.04)'
+                      : 'transparent'
+                }
+                stroke={
+                  lit
+                    ? '#f9e2af'
+                    : interactive
+                      ? 'rgba(205,214,244,0.2)'
+                      : 'transparent'
+                }
+                strokeWidth={lit ? 0.55 : 0.3}
+              >
+                <title>{isEn ? d.labelEn : d.labelZh}</title>
+              </ellipse>
+            </g>
+          );
+        })}
 
-      {/* Landmark pins */}
-      {LANDMARKS.map((lm) => (
-        <g key={lm.name}>
-          <rect x={lm.x - 2} y={lm.y - 2} width="4" height="4" fill="#f38ba8" stroke="#11111b" strokeWidth="1" />
-          <text
-            x={lm.x + 5}
-            y={lm.y + 2}
-            fill="#f5c2e4"
-            fontSize="5"
-            fontFamily="monospace"
+        {/* Event dots — archive data points by genre color */}
+        {eventPins.map((pin) => (
+          <g
+            key={pin.id}
+            onClick={(e) => {
+              e.stopPropagation();
+              onEventClick?.(pin.id);
+            }}
+            style={{ cursor: onEventClick ? 'pointer' : 'default' }}
           >
-            {lm.name}
-          </text>
-        </g>
-      ))}
+            {pin.active && (
+              <circle
+                cx={pin.x}
+                cy={pin.y}
+                r={2.8}
+                fill="none"
+                stroke="#f5c2e4"
+                strokeWidth={0.45}
+                className="pixel-map-pulse"
+              />
+            )}
+            <rect
+              x={pin.x - 0.9}
+              y={pin.y - 0.9}
+              width={1.8}
+              height={1.8}
+              fill={pin.color}
+              stroke="#11111b"
+              strokeWidth={0.25}
+            />
+          </g>
+        ))}
+      </svg>
 
-      {/* Title plate */}
-      <rect x="8" y="8" width="92" height="22" fill="#11111b" stroke="#f5c2e4" strokeWidth="2" />
-      <text x="14" y="22" fill="#f5c2e4" fontSize="8" fontFamily="monospace">
-        SHANGHAI PIXEL MAP
-      </text>
-    </svg>
+      {(hovered || highlightDistrict) && (
+        <div className="absolute top-2 right-2 bg-[#11111b]/92 border-2 border-[#f9e2af] px-2 py-1 pointer-events-none">
+          <p className="text-[9px] font-mono text-[#f9e2af] m-0 tracking-wide">
+            {(() => {
+              const id =
+                hovered ??
+                DISTRICTS.find((d) => matchDistrict(highlightDistrict, d))?.id;
+              const d = DISTRICTS.find((x) => x.id === id);
+              if (!d) return isEn ? 'District' : '区划';
+              return isEn ? d.labelEn.toUpperCase() : d.labelZh;
+            })()}
+          </p>
+        </div>
+      )}
+    </div>
   );
 }
