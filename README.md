@@ -1,110 +1,93 @@
-# Shanghai Public History Archive (上海公共历史数字档案馆)
+# Shanghai Pixel Archive (上海像素档案馆)
 
-An interactive, relational digital history platform dedicated to archiving and visualizing the modern evolution of Shanghai since the 1970s. This project explores the city's history through four intersecting thematic lenses: **Urban Planning**, **Demographics**, **Healthcare**, and **Film & Cinema**.
+A visually engaging, easy-to-browse digital archive of Shanghai — organized as **digestible content cards** with collectible pixel avatars, landmark tags, and an interactive city map.
 
-👉 **Live Site:** [https://JHQZhu0731.github.io/Shanghai_Public_History_Project-/](https://JHQZhu0731.github.io/Shanghai_Public_History_Project-/) (Deployed automatically via GitHub Actions)
-
----
-
-## 🗺️ Core Modules & Features
-
-### 1. ⏳ Decadal Timeline (年代纪事轴)
-Explore Shanghai decade-by-decade from the 1970s to the 2020s. Selecting a decade displays a unified historical summary of how all four thematic areas intersected during that era. For example, selecting the **1990s** shows:
-- **Urban Planning**: The opening of Pudong New Area (1990) and the construction of Puxi's elevated highways.
-- **Demographics**: The massive influx of migrant workers following Deng Xiaoping's 1992 Southern Tour.
-- **Healthcare**: The rapid modernization of medical institutions.
-- **Film**: Cinematic representations of old neighborhood demolitions and the bittersweet displacement of residents.
-
-### 2. 📍 Interactive Spatial Map (城市规划地图)
-An interactive dark-themed map of Shanghai powered by **Leaflet.js** and **React-Leaflet**:
-- **Time Slider**: Slide through the decades (1970s–2020s) to see the physical growth of Shanghai's urban boundaries and infrastructure.
-- **Pulsing Markers**: Custom SVG pulsing markers represent major urban planning landmarks (e.g., Shikumen neighborhoods in Huangpu, Lujiazui skyscrapers, Xuhui West Bund regeneration).
-- **Fly-to Animations**: Click landmarks in the sidebar to smoothly fly the map to their exact coordinates.
-
-### 3. 📈 Social & Healthcare Data Dashboard (社会卫生数据)
-Interactive, responsive charts powered by **Recharts** visualizing Shanghai's long-term statistical transitions from 1970 to 2026:
-- **Demographics Tab**:
-  - *Population Structure*: Compare the registered Hukou population against the dramatic rise of the "Floating Population" (外来流动人口).
-  - *Demographic Squeeze*: Track the climbing aging rate (65+ population) alongside the declining birth rate.
-- **Healthcare Tab**:
-  - *Life Expectancy vs. Capacity*: Correlate the rise in average life expectancy (surpassing 84 years) with the expansion of major hospitals.
-  - *Mortality Rates*: View the plummeting infant and maternal mortality rates, which now rank among the lowest in the world.
-
-### 4. 🎬 Cinematic Shanghai (光影历史画廊)
-A curated video and research gallery exploring Shanghai through the lens of cinema:
-- Search and filter films by release year, director, and urban themes (e.g., *Nostalgia*, *Industrial Decay*, *Cultural Reflection*).
-- Read detailed academic research essays analyzing films like Xie Jin's *Hibiscus Town* (1986), Lou Ye's *Suzhou River* (2000), and Wong Kar-wai's *Blossoms Shanghai* (2023).
+👉 **Live Site:** [https://JHQZhu0731.github.io/Shanghai_Public_History_Project-/](https://JHQZhu0731.github.io/Shanghai_Public_History_Project-/)
 
 ---
 
-## 🗄️ Relational Database Schema
+## Genres
 
-The platform is powered by a structured, relational client-side database layer defined in TypeScript (`src/data/`):
-
-```
-                     ┌───────────────────────┐
-                     │     archive_items     │ (Master Catalog)
-                     └───────────┬───────────┘
-                                 │
-         ┌───────────────────────┼───────────────────────┐
-         ▼                       ▼                       ▼
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│ urban_planning  │     │   healthcare    │     │      film       │ (Theme Metadata)
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-```
-
-- **`archive_items`**: Holds master records for every historical entry (English/Chinese titles, summaries, decade, exact year, category, media URLs, tags, and full Markdown content).
-- **`urban_planning_metadata`**: Extends planning items with spatial coordinates (`latitude`, `longitude`), `district`, `scale`, and `key_figures`.
-- **`healthcare_records`**: Maps healthcare items to specific historical eras (`barefoot_doctors`, `marketization`, etc.), life expectancy, and hospital counts.
-- **`film_metadata`**: Maps cinematic items to `director`, `studio`, `genre`, `cast`, and urban themes.
+| Genre | 中文 |
+|-------|------|
+| Music | 音乐 |
+| Movie | 电影 |
+| Sports | 体育 |
+| Food | 美食 |
+| Social Study | 社会研究 |
+| Public Health | 公共卫生 |
 
 ---
 
-## 🛠️ Technology Stack
+## What each card includes
 
-- **Frontend Framework**: React 19 + Vite 8 + TypeScript 6
-- **Styling**: Tailwind CSS v4 (using `@tailwindcss/vite` plugin)
-- **Icons**: Lucide React
-- **Mapping**: Leaflet.js + React-Leaflet
-- **Data Visualization**: Recharts
-- **Deployment**: GitHub Actions + GitHub Pages
+Every archive entry is a short, scannable card with:
+
+- **Title** + year / era
+- **Short summary** (one or two sentences)
+- **Genre label**
+- **Landmark + district**
+- **Custom pixel avatar** (unique per entry, genre-colored)
+- **Source link** to the original article / encyclopedia page
+- **Work link** to the film, venue, club, or primary reference when available
+- **Map coordinates** when the story is place-based
+
+### Example model
+
+**《芙蓉镇》(1986)：谢晋的后文革反思史诗杰作**
+
+- Director: Xie Jin (谢晋)
+- Studio: Shanghai Film Studio (上海电影制片厂)
+- Landmark: Shanghai Film Studio · Xuhui
+- Links: film encyclopedia + IMDb
 
 ---
 
-## 🚀 Local Development
+## Core experiences
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (version 22 or higher) and `npm` installed.
+### 1. Collection (馆藏卡片)
+Browse and filter cards by genre, decade, or search. The signature **pixel map of Shanghai** sits beside the collection intro as a collectible archival visual.
 
-### 1. Install Dependencies
+### 2. Landmark Map (地标地图)
+An interactive Leaflet map with **pixel-avatar markers** pinned to real Shanghai sites. Click a pin or sidebar site to fly to the landmark, then open the full archive card.
+
+---
+
+## Design direction
+
+- Archival clarity without dense academic walls of text
+- Editorial, fast browsing
+- Retro pixel-art charm (avatars + signature district map)
+- Map-centered exploration of cultural and historical places
+
+---
+
+## Tech stack
+
+- React 19 + Vite + TypeScript
+- Tailwind CSS v4 + NES.css
+- Leaflet / React-Leaflet
+- GitHub Pages via GitHub Actions
+
+---
+
+## Local development
+
 ```bash
 npm install --legacy-peer-deps
-```
-
-### 2. Run Development Server
-```bash
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in your browser to view the app.
 
-### 3. Build for Production
+Build:
+
 ```bash
 npm run build
 ```
-This compiles and bundles the application into highly optimized static assets in the `dist/` directory.
 
 ---
 
-## 📦 Deployment
+## Data
 
-The project is configured with a modern **GitHub Actions** workflow (`.github/workflows/deploy.yml`). 
+Cards live in `src/data/archiveCards.ts`. Types and genre metadata are in `src/data/types.ts`. Query helpers are in `src/data/db.ts`.
 
-Whenever you push changes to the `main` branch, the workflow will automatically:
-1. Checkout the repository.
-2. Install dependencies.
-3. Build the production-ready static assets.
-4. Securely upload and deploy the assets directly to **GitHub Pages**.
-
-To enable this, make sure to go to your GitHub Repository Settings:
-1. Navigate to **Settings** > **Pages**.
-2. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+Pixel avatars are generated deterministically from each card’s `avatarSeed` + genre in `src/components/PixelAvatar.tsx`.

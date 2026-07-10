@@ -1,118 +1,52 @@
-import type { 
-  ArchiveItem, 
-  JoinedUrbanPlanningItem, 
-  JoinedHealthcareItem, 
-  JoinedFilmItem,
-  ArchiveCategory
-} from './types';
-import { 
-  archiveItems, 
-  urbanPlanningMetadata, 
-  healthcareMetadata, 
-  filmMetadata 
-} from './archiveItems';
+import type { ArchiveCard, ArchiveGenre } from './types';
+import { archiveCards } from './archiveCards';
 
-/**
- * Get all archive items
- */
-export function getAllItems(): ArchiveItem[] {
-  return archiveItems;
+export function getAllCards(): ArchiveCard[] {
+  return archiveCards;
 }
 
-/**
- * Get a single archive item by ID, with its relationally joined metadata
- */
-export function getItemById(id: string): any {
-  const item = archiveItems.find(i => i.id === id);
-  if (!item) return null;
-
-  if (item.category === 'urban_planning') {
-    const planning = urbanPlanningMetadata.find(m => m.itemId === id);
-    return { ...item, planning } as JoinedUrbanPlanningItem;
-  }
-
-  if (item.category === 'healthcare') {
-    const healthcare = healthcareMetadata.find(m => m.itemId === id);
-    return { ...item, healthcare } as JoinedHealthcareItem;
-  }
-
-  if (item.category === 'film') {
-    const film = filmMetadata.find(m => m.itemId === id);
-    return { ...item, film } as JoinedFilmItem;
-  }
-
-  return item;
+export function getCardById(id: string): ArchiveCard | undefined {
+  return archiveCards.find((c) => c.id === id);
 }
 
-/**
- * Get all urban planning items joined with their spatial planning metadata
- */
-export function getJoinedUrbanPlanningItems(): JoinedUrbanPlanningItem[] {
-  return archiveItems
-    .filter(item => item.category === 'urban_planning')
-    .map(item => {
-      const planning = urbanPlanningMetadata.find(m => m.itemId === item.id)!;
-      return { ...item, planning };
-    });
+export function getMappedCards(): ArchiveCard[] {
+  return archiveCards.filter(
+    (c) => typeof c.latitude === 'number' && typeof c.longitude === 'number'
+  );
 }
 
-/**
- * Get all healthcare items joined with their healthcare metadata
- */
-export function getJoinedHealthcareItems(): JoinedHealthcareItem[] {
-  return archiveItems
-    .filter(item => item.category === 'healthcare')
-    .map(item => {
-      const healthcare = healthcareMetadata.find(m => m.itemId === item.id)!;
-      return { ...item, healthcare };
-    });
-}
-
-/**
- * Get all film items joined with their film metadata
- */
-export function getJoinedFilmItems(): JoinedFilmItem[] {
-  return archiveItems
-    .filter(item => item.category === 'film')
-    .map(item => {
-      const film = filmMetadata.find(m => m.itemId === item.id)!;
-      return { ...item, film };
-    });
-}
-
-/**
- * Search and filter archive items
- */
-export function searchItems(
-  query: string, 
-  category?: ArchiveCategory | 'all', 
+export function searchCards(
+  query: string,
+  genre?: ArchiveGenre | 'all',
   decade?: number | 'all'
-): ArchiveItem[] {
-  let filtered = [...archiveItems];
+): ArchiveCard[] {
+  let filtered = [...archiveCards];
 
-  // Apply category filter
-  if (category && category !== 'all') {
-    filtered = filtered.filter(item => item.category === category);
+  if (genre && genre !== 'all') {
+    filtered = filtered.filter((c) => c.genre === genre);
   }
 
-  // Apply decade filter
   if (decade && decade !== 'all') {
-    filtered = filtered.filter(item => item.decade === Number(decade));
+    filtered = filtered.filter((c) => c.decade === Number(decade));
   }
 
-  // Apply text search query
   if (query.trim()) {
-    const lowerQuery = query.toLowerCase();
-    filtered = filtered.filter(item => {
-      return (
-        item.titleEn.toLowerCase().includes(lowerQuery) ||
-        item.titleZh.includes(lowerQuery) ||
-        item.summaryEn.toLowerCase().includes(lowerQuery) ||
-        item.summaryZh.includes(lowerQuery) ||
-        item.tags.some(tag => tag.toLowerCase().includes(lowerQuery))
-      );
-    });
+    const q = query.toLowerCase();
+    filtered = filtered.filter(
+      (c) =>
+        c.titleEn.toLowerCase().includes(q) ||
+        c.titleZh.includes(q) ||
+        c.summaryEn.toLowerCase().includes(q) ||
+        c.summaryZh.includes(q) ||
+        c.landmarkEn.toLowerCase().includes(q) ||
+        c.landmarkZh.includes(q) ||
+        c.tags.some((t) => t.toLowerCase().includes(q))
+    );
   }
 
-  return filtered;
+  return filtered.sort((a, b) => b.year - a.year);
+}
+
+export function getDecades(): number[] {
+  return [...new Set(archiveCards.map((c) => c.decade))].sort((a, b) => a - b);
 }

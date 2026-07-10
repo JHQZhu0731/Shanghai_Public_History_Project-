@@ -1,81 +1,105 @@
-export type ArchiveCategory = 'urban_planning' | 'demographics' | 'healthcare' | 'film';
-export type ArchiveItemType = 'video' | 'text' | 'research_paper' | 'oral_history' | 'photograph';
+export type ArchiveGenre =
+  | 'music'
+  | 'movie'
+  | 'sports'
+  | 'food'
+  | 'social_study'
+  | 'public_health';
 
-export interface ArchiveItem {
+export type LanguageType = 'en' | 'zh';
+
+/** Digestible archive card — designed for fast browsing, not dense academic essays. */
+export interface ArchiveCard {
   id: string;
+  /** Genre / collection shelf */
+  genre: ArchiveGenre;
   titleEn: string;
   titleZh: string;
-  decade: number; // e.g., 1970, 1980, 1990, 2000, 2010, 2020
-  exactYear: number;
-  category: ArchiveCategory;
-  itemType: ArchiveItemType;
+  /** One short sentence for the card face */
   summaryEn: string;
   summaryZh: string;
-  contentMarkdownEn: string;
-  contentMarkdownZh: string;
-  thumbnailUrl: string;
-  mediaUrl?: string; // Video URL, PDF URL, or high-res image URL
+  /** Slightly longer context for the detail panel (still concise) */
+  contextEn: string;
+  contextZh: string;
+  year: number;
+  decade: number;
+  /** Landmark / place label shown on cards and map */
+  landmarkEn: string;
+  landmarkZh: string;
+  districtEn: string;
+  districtZh: string;
+  /** Map coordinates — omit only if truly city-wide / non-spatial */
+  latitude?: number;
+  longitude?: number;
+  /** Link to original article / encyclopedia / archive page */
+  sourceUrl: string;
+  sourceLabelEn: string;
+  sourceLabelZh: string;
+  /** Link to film, album, match, recipe archive, etc. when available */
+  workUrl?: string;
+  workLabelEn?: string;
+  workLabelZh?: string;
+  /** Extra credits shown on movie/music cards */
+  credits?: {
+    director?: string;
+    studio?: string;
+    artist?: string;
+    venue?: string;
+  };
   tags: string[];
+  /** Seed for unique pixel avatar generation */
+  avatarSeed: string;
 }
 
-export interface UrbanPlanningMetadata {
-  itemId: string;
-  district: string; // e.g., 'Pudong', 'Huangpu', 'Xuhui', 'Jing\'an', 'Yangpu', 'All'
-  planningType: 'infrastructure' | 'residential_reform' | 'skyscrapers' | 'heritage_preservation' | 'transportation';
-  latitude: number;
-  longitude: number;
-  keyFigures?: string[];
-  scale?: string; // e.g., 'District', 'City-wide', 'Neighborhood'
+export interface GenreMeta {
+  id: ArchiveGenre;
+  labelEn: string;
+  labelZh: string;
+  color: string;
+  accent: string;
 }
 
-export interface HealthcareMetadata {
-  itemId: string;
-  eraType: 'barefoot_doctors' | 'marketization' | 'universal_insurance' | 'modern_digital';
-  keyDiseases?: string[];
-  lifeExpectancy?: number;
-  hospitalCount?: number;
-  innovationType?: string; // e.g., 'Traditional Chinese Medicine', 'Surgical Innovation', 'Public Health Policy'
-}
-
-export interface FilmMetadata {
-  itemId: string;
-  director: string;
-  studio: string; // e.g., 'Shanghai Film Studio (上海电影制片厂)', 'Independent', 'Sino-Foreign Joint'
-  genre: string[];
-  shanghaiThemes: string[]; // e.g., 'Lilong Life', 'Pudong Demolition', 'Migrant Workers', 'Nostalgia'
-  releaseYear: number;
-  cast?: string[];
-}
-
-// Relational joined types
-export interface JoinedUrbanPlanningItem extends ArchiveItem {
-  planning: UrbanPlanningMetadata;
-}
-
-export interface JoinedHealthcareItem extends ArchiveItem {
-  healthcare: HealthcareMetadata;
-}
-
-export interface JoinedFilmItem extends ArchiveItem {
-  film: FilmMetadata;
-}
-
-// Time-series demographics data point
-export interface DemographicsDataPoint {
-  year: number;
-  totalPopulation: number; // in millions
-  registeredHukou: number; // in millions
-  floatingPopulation: number; // in millions
-  agingRate65Plus: number; // percentage of population aged 65+
-  urbanizationRate: number; // percentage
-  birthRate: number; // per 1,000 people
-}
-
-// Time-series healthcare data point
-export interface HealthcareDataPoint {
-  year: number;
-  lifeExpectancy: number; // years
-  hospitalCount: number; // number of major hospitals
-  infantMortalityRate: number; // per 1,000 live births
-  maternalMortalityRate: number; // per 100,000 live births
-}
+export const GENRE_META: Record<ArchiveGenre, GenreMeta> = {
+  music: {
+    id: 'music',
+    labelEn: 'Music',
+    labelZh: '音乐',
+    color: '#cba6f7',
+    accent: '#1e1e2e',
+  },
+  movie: {
+    id: 'movie',
+    labelEn: 'Movie',
+    labelZh: '电影',
+    color: '#f38ba8',
+    accent: '#1e1e2e',
+  },
+  sports: {
+    id: 'sports',
+    labelEn: 'Sports',
+    labelZh: '体育',
+    color: '#a6e3a1',
+    accent: '#1e1e2e',
+  },
+  food: {
+    id: 'food',
+    labelEn: 'Food',
+    labelZh: '美食',
+    color: '#fab387',
+    accent: '#1e1e2e',
+  },
+  social_study: {
+    id: 'social_study',
+    labelEn: 'Social Study',
+    labelZh: '社会研究',
+    color: '#89b4fa',
+    accent: '#1e1e2e',
+  },
+  public_health: {
+    id: 'public_health',
+    labelEn: 'Public Health',
+    labelZh: '公共卫生',
+    color: '#94e2d5',
+    accent: '#1e1e2e',
+  },
+};
