@@ -3,16 +3,25 @@ import mapArt from '../assets/pixel-scenes/shanghai-pixel-map.webp';
 
 /**
  * Signature creative pixel map of Shanghai.
- * The illustrated atlas is the visual; SVG only adds soft interactive hotspots.
+ * Illustrated atlas + soft hotspots + optional event pins.
  */
+interface EventPin {
+  id: string;
+  x: number;
+  y: number;
+  color: string;
+  active?: boolean;
+}
+
 interface PixelShanghaiMapProps {
   className?: string;
   highlightDistrict?: string;
   onDistrictClick?: (district: string) => void;
   language?: 'en' | 'zh';
+  eventPins?: EventPin[];
+  onEventClick?: (id: string) => void;
 }
 
-/** Hotspot regions aligned to the illustrated 1200×800 atlas (percent coords). */
 const DISTRICTS: {
   id: string;
   labelZh: string;
@@ -49,6 +58,8 @@ export function PixelShanghaiMap({
   highlightDistrict,
   onDistrictClick,
   language = 'zh',
+  eventPins = [],
+  onEventClick,
 }: PixelShanghaiMapProps) {
   const isEn = language === 'en';
   const interactive = Boolean(onDistrictClick);
@@ -64,12 +75,11 @@ export function PixelShanghaiMap({
         draggable={false}
       />
 
-      {/* Soft interactive layer — no duplicate labels; art already has cartography chrome */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
-        aria-label={isEn ? 'District hotspots' : '区划热点'}
+        aria-label={isEn ? 'District hotspots and event pins' : '区划热点与事件点位'}
       >
         <defs>
           <radialGradient id="pixelMapGlow" cx="50%" cy="50%" r="50%">
@@ -141,14 +151,48 @@ export function PixelShanghaiMap({
             </g>
           );
         })}
+
+        {/* Event dots — archive data points by genre color */}
+        {eventPins.map((pin) => (
+          <g
+            key={pin.id}
+            onClick={(e) => {
+              e.stopPropagation();
+              onEventClick?.(pin.id);
+            }}
+            style={{ cursor: onEventClick ? 'pointer' : 'default' }}
+          >
+            {pin.active && (
+              <circle
+                cx={pin.x}
+                cy={pin.y}
+                r={2.8}
+                fill="none"
+                stroke="#f5c2e4"
+                strokeWidth={0.45}
+                className="pixel-map-pulse"
+              />
+            )}
+            <rect
+              x={pin.x - 0.9}
+              y={pin.y - 0.9}
+              width={1.8}
+              height={1.8}
+              fill={pin.color}
+              stroke="#11111b"
+              strokeWidth={0.25}
+            />
+          </g>
+        ))}
       </svg>
 
-      {/* Hover / highlight chip — floats above art without covering the legend */}
       {(hovered || highlightDistrict) && (
         <div className="absolute top-2 right-2 bg-[#11111b]/92 border-2 border-[#f9e2af] px-2 py-1 pointer-events-none">
           <p className="text-[9px] font-mono text-[#f9e2af] m-0 tracking-wide">
             {(() => {
-              const id = hovered ?? DISTRICTS.find((d) => matchDistrict(highlightDistrict, d))?.id;
+              const id =
+                hovered ??
+                DISTRICTS.find((d) => matchDistrict(highlightDistrict, d))?.id;
               const d = DISTRICTS.find((x) => x.id === id);
               if (!d) return isEn ? 'District' : '区划';
               return isEn ? d.labelEn.toUpperCase() : d.labelZh;

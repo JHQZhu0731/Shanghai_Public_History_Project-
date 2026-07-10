@@ -2,10 +2,15 @@ import { useMemo, useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MapPin, Eye, Navigation } from 'lucide-react';
-import { getMappedCards } from '../data/db';
-import { GENRE_META, type ArchiveGenre } from '../data/types';
+import type { ArchiveFilters, ArchiveGenre } from '../data/types';
+import { GENRE_META } from '../data/types';
+import { filterCards, primaryDistrict } from '../data/db';
 import { PixelAvatar, buildAvatarPixels } from './PixelAvatar';
 import { PixelShanghaiMap } from './PixelShanghaiMap';
+import { GenreLayerBar } from './GenreLayerBar';
+import { TimelineBand } from './TimelineBand';
+import { countByDecade, countByGenre } from '../data/db';
+import { GENRE_ORDER } from '../data/types';
 
 function MapController({ center, zoom }: { center: [number, number]; zoom: number }) {
   const map = useMap();
@@ -15,8 +20,8 @@ function MapController({ center, zoom }: { center: [number, number]; zoom: numbe
   return null;
 }
 
-function avatarIcon(seed: string, genre: ArchiveGenre, active: boolean) {
-  const grid = buildAvatarPixels(seed, genre);
+function avatarIcon(seed: string, genre: ArchiveGenre, decade: number, active: boolean) {
+  const grid = buildAvatarPixels(seed, genre, decade);
   const cells = grid
     .map((row, y) =>
       row
@@ -41,22 +46,37 @@ function avatarIcon(seed: string, genre: ArchiveGenre, active: boolean) {
 
 interface MapExploreViewProps {
   language: 'en' | 'zh';
+  filters: ArchiveFilters;
+  onFiltersChange: (next: ArchiveFilters) => void;
   onSelectItem: (id: string) => void;
+  focusCardId?: string | null;
 }
 
-export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) {
+export function MapExploreView({
+  language,
+  filters,
+  onFiltersChange,
+  onSelectItem,
+  focusCardId,
+}: MapExploreViewProps) {
   const isEn = language === 'en';
-  const mapped = useMemo(() => getMappedCards(), []);
-  const [genreFilter, setGenreFilter] = useState<ArchiveGenre | 'all'>('all');
-  const [activeId, setActiveId] = useState<string | null>(mapped[0]?.id ?? null);
+  const visible = useMemo(
+    () =>
+      filterCards(filters).filter(
+        (c) => typeof c.latitude === 'number' && typeof c.longitude === 'number'
+      ),
+    [filters]
+  );
+
+  const [activeId, setActiveId] = useState<string | null>(
+    focusCardId ?? visible[0]?.id ?? null
+  );
   const [center, setCenter] = useState<[number, number]>([31.2304, 121.4737]);
   const [zoom, setZoom] = useState(12);
 
-  const visible = useMemo(
-    () =>
-      mapped.filter((c) => genreFilter === 'all' || c.genre === genreFilter),
-    [mapped, genreFilter]
-  );
+  useEffect(() => {
+    if (focusCardId) setActiveId(focusCardId);
+  }, [focusCardId]);
 
   const active = visible.find((c) => c.id === activeId) ?? visible[0] ?? null;
 
@@ -67,63 +87,44 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
     }
   }, [active?.id]);
 
-  const genres: Array<ArchiveGenre | 'all'> = [
-    'all',
-    'music',
-    'movie',
-    'sports',
-    'food',
-    'social_study',
-    'public_health',
-  ];
+  const genreCounts = useMemo(
+    () => countByGenre(filterCards({ ...filters, genres: [...GENRE_ORDER] })),
+    [filters.decade, filters.district, filters.query]
+  );
+  const decadeCounts = useMemo(
+    () => countByDecade(filterCards({ ...filters, decade: 'all' })),
+    [filters.genres, filters.district, filters.query]
+  );
 
   return (
-    <div className="space-y-6">
-      <div className="nes-container is-dark with-title text-left">
-        <p className="title text-xs text-[#a6e3a1]">
-          {isEn ? 'LANDMARK MAP' : '地标地图'}
+    <div className="space-y-5">
+      <div className="text-left space-y-1">
+        <p className="text-[10px] font-mono text-[#a6e3a1] m-0 tracking-widest">
+          {isEn ? 'GEO MAP · LANDMARK PINS' : '地理地图 · 地标钉'}
         </p>
         <p className="text-xs text-[#a6adc8] m-0 leading-relaxed">
           {isEn
-            ? 'Explore archive cards pinned to Shanghai landmarks. Click a pixel avatar on the map or pick a site from the list.'
-            : '在上海地标上浏览档案卡片。点击地图上的像素头像，或从列表选择地点。'}
+            ? 'OSM basemap with pixel-avatar event pins. Filters stay synced with Atlas and Index.'
+            : 'OpenStreetMap 底图 + 像素头像事件钉。筛选与图志、索引保持同步。'}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {genres.map((g) => {
-          const label =
-            g === 'all'
-              ? isEn
-                ? 'All'
-                : '全部'
-              : isEn
-                ? GENRE_META[g].labelEn
-                : GENRE_META[g].labelZh;
-          const activeBtn = genreFilter === g;
-          const color = g === 'all' ? '#cdd6f4' : GENRE_META[g].color;
-          return (
-            <button
-              key={g}
-              type="button"
-              onClick={() => {
-                setGenreFilter(g);
-                setActiveId(null);
-              }}
-              className="text-[10px] font-bold px-3 py-1.5 border-2 border-[#11111b]"
-              style={{
-                backgroundColor: activeBtn ? color : '#313244',
-                color: activeBtn ? '#11111b' : '#cdd6f4',
-              }}
-            >
-              {label}
-            </button>
-          );
-        })}
-      </div>
+      <GenreLayerBar
+        language={language}
+        active={filters.genres}
+        counts={genreCounts}
+        onChange={(genres) => onFiltersChange({ ...filters, genres })}
+      />
 
-      <div className="grid lg:grid-cols-[1fr_320px] gap-4">
-        <div className="border-4 border-[#313244] h-[420px] md:h-[520px] relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(49,50,68,1)]">
+      <TimelineBand
+        language={language}
+        decade={filters.decade}
+        counts={decadeCounts}
+        onChange={(decade) => onFiltersChange({ ...filters, decade })}
+      />
+
+      <div className="grid lg:grid-cols-[1fr_300px] gap-4">
+        <div className="border-4 border-[#313244] h-[420px] md:h-[520px] relative overflow-hidden">
           <MapContainer
             center={center}
             zoom={zoom}
@@ -140,7 +141,12 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
                 <Marker
                   key={card.id}
                   position={[card.latitude, card.longitude]}
-                  icon={avatarIcon(card.avatarSeed, card.genre, card.id === active?.id)}
+                  icon={avatarIcon(
+                    card.avatarSeed,
+                    card.genre,
+                    card.decade,
+                    card.id === active?.id
+                  )}
                   eventHandlers={{
                     click: () => setActiveId(card.id),
                   }}
@@ -156,7 +162,7 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
                         className="underline text-[10px]"
                         onClick={() => onSelectItem(card.id)}
                       >
-                        {isEn ? 'Open card' : '打开卡片'}
+                        {isEn ? 'Open record' : '打开档案'}
                       </button>
                     </div>
                   </Popup>
@@ -171,14 +177,15 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
             <PixelShanghaiMap
               className="w-full"
               language={language}
-              highlightDistrict={active ? (isEn ? active.districtEn : active.districtZh) : undefined}
+              highlightDistrict={
+                active
+                  ? primaryDistrict(active) ??
+                    (isEn ? active.districtEn : active.districtZh)
+                  : filters.district ?? undefined
+              }
               onDistrictClick={(district) => {
-                const match = visible.find(
-                  (c) =>
-                    c.districtEn.includes(district) ||
-                    c.districtZh.includes(district) ||
-                    district.includes(c.districtEn.split(/[\/\s]/)[0]) ||
-                    district.includes(c.districtZh.split(/[\/\s]/)[0])
+                const match = visible.find((c) =>
+                  (primaryDistrict(c) ?? '').includes(district)
                 );
                 if (match) setActiveId(match.id);
               }}
@@ -198,17 +205,30 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
                     : 'border-[#313244] bg-[#11111b] hover:border-[#585b70]'
                 }`}
               >
-                <PixelAvatar seed={card.avatarSeed} genre={card.genre} size={40} />
+                <PixelAvatar
+                  seed={card.avatarSeed}
+                  genre={card.genre}
+                  decade={card.decade}
+                  size={40}
+                />
                 <div className="min-w-0 flex-1">
-                  <div className="text-[9px] font-bold" style={{ color: GENRE_META[card.genre].color }}>
-                    {isEn ? GENRE_META[card.genre].labelEn : GENRE_META[card.genre].labelZh} · {card.year}
+                  <div
+                    className="text-[9px] font-bold"
+                    style={{ color: GENRE_META[card.genre].color }}
+                  >
+                    {isEn
+                      ? GENRE_META[card.genre].labelEn
+                      : GENRE_META[card.genre].labelZh}{' '}
+                    · {card.year}
                   </div>
                   <div className="text-[11px] font-bold text-[#e2e8f0] line-clamp-2">
                     {isEn ? card.titleEn : card.titleZh}
                   </div>
                   <div className="text-[10px] text-[#89b4fa] flex items-center gap-1 mt-1">
                     <MapPin className="w-3 h-3" />
-                    <span className="truncate">{isEn ? card.landmarkEn : card.landmarkZh}</span>
+                    <span className="truncate">
+                      {isEn ? card.landmarkEn : card.landmarkZh}
+                    </span>
                   </div>
                 </div>
               </button>
@@ -218,10 +238,14 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
       </div>
 
       {active && (
-        <div className="nes-container is-dark with-title text-left flex flex-col md:flex-row md:items-center gap-4 justify-between">
+        <div className="border-4 border-[#313244] bg-[#11111b] p-4 flex flex-col md:flex-row md:items-center gap-4 justify-between text-left">
           <div className="space-y-1">
-            <p className="title text-xs text-[#f9e2af]">{isEn ? 'SELECTED SITE' : '当前地点'}</p>
-            <h3 className="text-sm font-bold m-0">{isEn ? active.titleEn : active.titleZh}</h3>
+            <p className="text-[9px] font-mono text-[#f9e2af] m-0 tracking-widest">
+              {isEn ? 'SELECTED SITE' : '当前地点'}
+            </p>
+            <h3 className="text-sm font-bold m-0">
+              {isEn ? active.titleEn : active.titleZh}
+            </h3>
             <p className="text-[11px] text-[#a6adc8] m-0 flex items-center gap-1">
               <Navigation className="w-3 h-3" />
               {isEn ? active.landmarkEn : active.landmarkZh}
@@ -233,7 +257,7 @@ export function MapExploreView({ language, onSelectItem }: MapExploreViewProps) 
             onClick={() => onSelectItem(active.id)}
           >
             <Eye className="w-4 h-4" />
-            {isEn ? 'Open archive card' : '打开档案卡片'}
+            {isEn ? 'Open record' : '打开档案'}
           </button>
         </div>
       )}

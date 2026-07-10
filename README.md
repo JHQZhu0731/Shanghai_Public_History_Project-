@@ -1,64 +1,59 @@
 # Shanghai Pixel Archive (上海像素档案馆)
 
-A visually engaging, easy-to-browse digital archive of Shanghai — organized as **digestible content cards** with collectible pixel avatars, landmark tags, and an interactive city map.
+An explorable digital archive of Shanghai culture — **pixel atlas as narrative spine**, six city-culture data gates, digestible records, and a mandatory provenance chain:
+
+**Place → Event → Content → Source**
 
 👉 **Live Site:** [https://JHQZhu0731.github.io/Shanghai_Public_History_Project-/](https://JHQZhu0731.github.io/Shanghai_Public_History_Project-/)
 
 ---
 
-## Genres
+## Six genre gates (一级结构)
 
-| Genre | 中文 |
-|-------|------|
-| Music | 音乐 |
-| Movie | 电影 |
-| Sports | 体育 |
-| Food | 美食 |
-| Social Study | 社会研究 |
-| Public Health | 公共卫生 |
+| Genre | 中文 | City role |
+|-------|------|-----------|
+| Music | 音乐 | Sound & stage |
+| Movie | 电影 | Image & studio |
+| Sports | 体育 | Arena & body |
+| Food | 美食 | Taste & daily life |
+| Social Study | 社会研究 | Structure & people |
+| Public Health | 公共卫生 | Body & institution |
 
----
-
-## What each card includes
-
-Every archive entry is a short, scannable card with:
-
-- **Title** + year / era
-- **Short summary** (one or two sentences)
-- **Genre label**
-- **Landmark + district**
-- **Custom pixel avatar** (unique per entry, genre-colored)
-- **Source link** to a research article, interview, documentary, or primary report (not Wikipedia)
-- **Work link** to a second learning path: film essay, journal PDF, live documentary, official archive, etc.
-- **Map coordinates** when the story is place-based
-
-### Example model
-
-**《芙蓉镇》(1986)：谢晋的后文革反思史诗杰作**
-
-- Director: Xie Jin (谢晋)
-- Studio: Shanghai Film Studio (上海电影制片厂)
-- Landmark: Shanghai Film Studio · Xuhui
-- Links: film encyclopedia + IMDb
+These are **city-culture data layers**, not blog tags. Toggling a genre filters Atlas pins, Index cards, and Geo Map together.
 
 ---
 
-## Core experiences
+## Interfaces
 
-### 1. Collection (馆藏卡片)
-Browse and filter cards by genre, decade, or search. The signature **pixel map of Shanghai** sits beside the collection intro as a collectible archival visual.
-
-### 2. Landmark Map (地标地图)
-An interactive Leaflet map with **pixel-avatar markers** pinned to real Shanghai sites. Click a pin or sidebar site to fly to the landmark, then open the full archive card.
+| Screen | Role |
+|--------|------|
+| **Atlas（图志）** | Default home — illustrated pixel Shanghai map, genre layers, decade band, district density strip, index drawer |
+| **Index（索引）** | Digestible card wall synced to the same filters |
+| **Geo Map（地理图）** | Leaflet + pixel-avatar landmark pins |
+| **Record（档案）** | Full trace: place → event → content → **Provenance Block** + related trails |
 
 ---
 
-## Design direction
+## Every record must include
 
-- Archival clarity without dense academic walls of text
-- Editorial, fast browsing
-- Retro pixel-art charm (avatars + signature district map)
-- Map-centered exploration of cultural and historical places
+- Title + one-line summary + short context
+- Genre · year · decade
+- Landmark · district · map coordinates (when place-based)
+- **Pixel avatar** (deterministic from seed × genre × decade)
+- **`sourceUrl`** — original article / interview / primary report (required)
+- **`workUrl`** — film, research, documentary, or media link when applicable
+- Credits (director / studio / artist / venue) when relevant
+
+No source → not publishable.
+
+---
+
+## Design principles
+
+- Atlas-first (no hero-banner + waterfall as the main pattern)
+- Visual language from **point density, district clusters, decade layers, genre color**
+- Retro pixel aesthetics with archival seriousness
+- Bilingual EN / 中文
 
 ---
 
@@ -83,11 +78,3 @@ Build:
 ```bash
 npm run build
 ```
-
----
-
-## Data
-
-Cards live in `src/data/archiveCards.ts`. Types and genre metadata are in `src/data/types.ts`. Query helpers are in `src/data/db.ts`.
-
-Pixel avatars are generated deterministically from each card’s `avatarSeed` + genre in `src/components/PixelAvatar.tsx`.
