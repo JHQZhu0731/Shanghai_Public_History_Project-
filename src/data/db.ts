@@ -182,3 +182,58 @@ export function countByDecade(
     .map(([decade, count]) => ({ decade, count }))
     .sort((a, b) => a.decade - b.decade);
 }
+
+/** A real map place: one landmark pin with all related archive cards. */
+export interface PlaceCluster {
+  id: string;
+  landmarkEn: string;
+  landmarkZh: string;
+  districtEn: string;
+  districtZh: string;
+  latitude: number;
+  longitude: number;
+  cards: ArchiveCard[];
+}
+
+/** Group mapped cards by landmark so clicking a place lists related content. */
+export function getPlaceClusters(cards: ArchiveCard[] = archiveCards): PlaceCluster[] {
+  const mapped = cards.filter(
+    (c) => typeof c.latitude === 'number' && typeof c.longitude === 'number'
+  );
+  const byKey = new Map<string, ArchiveCard[]>();
+
+  for (const card of mapped) {
+    const key = card.landmarkEn.toLowerCase().trim();
+    const list = byKey.get(key) ?? [];
+    list.push(card);
+    byKey.set(key, list);
+  }
+
+  return [...byKey.values()]
+    .map((group) => {
+      const sorted = [...group].sort((a, b) => b.year - a.year);
+      const lat =
+        sorted.reduce((s, c) => s + (c.latitude as number), 0) / sorted.length;
+      const lng =
+        sorted.reduce((s, c) => s + (c.longitude as number), 0) / sorted.length;
+      const head = sorted[0];
+      return {
+        id: head.landmarkEn.toLowerCase().replace(/\s+/g, '-'),
+        landmarkEn: head.landmarkEn,
+        landmarkZh: head.landmarkZh,
+        districtEn: head.districtEn,
+        districtZh: head.districtZh,
+        latitude: lat,
+        longitude: lng,
+        cards: sorted,
+      };
+    })
+    .sort((a, b) => b.cards.length - a.cards.length || a.landmarkEn.localeCompare(b.landmarkEn));
+}
+
+export function getPlaceById(
+  placeId: string,
+  cards?: ArchiveCard[]
+): PlaceCluster | undefined {
+  return getPlaceClusters(cards).find((p) => p.id === placeId);
+}
