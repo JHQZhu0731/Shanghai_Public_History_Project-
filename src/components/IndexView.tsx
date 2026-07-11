@@ -1,38 +1,28 @@
-import { useMemo, useState } from 'react';
-import { Search } from 'lucide-react';
-import type { ArchiveGenre } from '../data/types';
-import { GENRE_META, GENRE_ORDER } from '../data/types';
-import { getAllCards } from '../data/db';
+import { useMemo } from 'react';
+import type { BrowseFilters } from '../data/browseFilters';
+import { browseCards, getAllCards } from '../data/db';
 import { ArchiveCardTile } from './ArchiveCardTile';
+import { FilterBar } from './FilterBar';
 
 interface IndexViewProps {
   language: 'en' | 'zh';
+  filters: BrowseFilters;
+  onFiltersChange: (next: BrowseFilters) => void;
   onSelectItem: (id: string) => void;
 }
 
-export function IndexView({ language, onSelectItem }: IndexViewProps) {
+export function IndexView({
+  language,
+  filters,
+  onFiltersChange,
+  onSelectItem,
+}: IndexViewProps) {
   const isEn = language === 'en';
-  const [genre, setGenre] = useState<ArchiveGenre | 'all'>('all');
-  const [query, setQuery] = useState('');
 
-  const cards = useMemo(() => {
-    let list = getAllCards();
-    if (genre !== 'all') list = list.filter((c) => c.genre === genre);
-    if (query.trim()) {
-      const q = query.toLowerCase();
-      list = list.filter(
-        (c) =>
-          c.titleEn.toLowerCase().includes(q) ||
-          c.titleZh.includes(q) ||
-          c.summaryEn.toLowerCase().includes(q) ||
-          c.summaryZh.includes(q) ||
-          c.landmarkEn.toLowerCase().includes(q) ||
-          c.landmarkZh.includes(q) ||
-          c.tags.some((t) => t.toLowerCase().includes(q))
-      );
-    }
-    return [...list].sort((a, b) => b.year - a.year);
-  }, [genre, query]);
+  const cards = useMemo(
+    () => browseCards(getAllCards(), filters),
+    [filters]
+  );
 
   return (
     <div className="space-y-5">
@@ -45,48 +35,11 @@ export function IndexView({ language, onSelectItem }: IndexViewProps) {
         </h2>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => setGenre('all')}
-          className="text-[10px] font-bold px-3 py-1.5 border-2 border-[#11111b]"
-          style={{
-            backgroundColor: genre === 'all' ? '#cdd6f4' : '#313244',
-            color: genre === 'all' ? '#11111b' : '#cdd6f4',
-          }}
-        >
-          {isEn ? 'All' : '全部'}
-        </button>
-        {GENRE_ORDER.map((g) => {
-          const on = genre === g;
-          return (
-            <button
-              key={g}
-              type="button"
-              onClick={() => setGenre(g)}
-              className="text-[10px] font-bold px-3 py-1.5 border-2 border-[#11111b]"
-              style={{
-                backgroundColor: on ? GENRE_META[g].color : '#313244',
-                color: on ? '#11111b' : '#cdd6f4',
-              }}
-            >
-              {isEn ? GENRE_META[g].labelEn : GENRE_META[g].labelZh}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#585b70]" />
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={
-            isEn ? 'Search title, landmark, tag…' : '搜索标题、地标、标签…'
-          }
-          className="nes-input w-full !pl-10 text-xs bg-[#11111b] text-[#e2e8f0]"
-        />
-      </div>
+      <FilterBar
+        language={language}
+        filters={filters}
+        onChange={onFiltersChange}
+      />
 
       <p className="text-[10px] font-mono text-[#89b4fa] m-0">
         {cards.length} {isEn ? 'cards' : '张卡片'}
@@ -102,6 +55,12 @@ export function IndexView({ language, onSelectItem }: IndexViewProps) {
           />
         ))}
       </div>
+
+      {cards.length === 0 && (
+        <p className="text-xs text-[#585b70] font-mono text-center py-8 m-0">
+          {isEn ? 'No records match your filters.' : '没有匹配的档案。'}
+        </p>
+      )}
     </div>
   );
 }

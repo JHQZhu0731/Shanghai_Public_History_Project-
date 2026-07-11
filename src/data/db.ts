@@ -4,7 +4,7 @@ import type {
   ArchiveGenre,
   DistrictKey,
 } from './types';
-import { DISTRICT_KEYS, GENRE_ORDER } from './types';
+import { DISTRICT_KEYS, GENRE_META, GENRE_ORDER } from './types';
 import { archiveCards } from './archiveCards';
 
 export function getAllCards(): ArchiveCard[] {
@@ -277,4 +277,55 @@ export function getPlaceById(
   cards?: ArchiveCard[]
 ): PlaceCluster | undefined {
   return getPlaceClusters(cards).find((p) => p.id === placeId);
+}
+
+/** Filter cards for map/index browsing */
+export function browseCards(
+  cards: ArchiveCard[],
+  filters: { genre: ArchiveGenre | 'all'; decade: number | 'all'; query: string }
+): ArchiveCard[] {
+  let list = [...cards];
+  if (filters.genre !== 'all') {
+    list = list.filter((c) => c.genre === filters.genre);
+  }
+  if (filters.decade !== 'all') {
+    list = list.filter((c) => c.decade === filters.decade);
+  }
+  if (filters.query.trim()) {
+    const q = filters.query.toLowerCase();
+    list = list.filter(
+      (c) =>
+        c.titleEn.toLowerCase().includes(q) ||
+        c.titleZh.includes(q) ||
+        c.summaryEn.toLowerCase().includes(q) ||
+        c.summaryZh.includes(q) ||
+        c.landmarkEn.toLowerCase().includes(q) ||
+        c.landmarkZh.includes(q) ||
+        c.districtEn.toLowerCase().includes(q) ||
+        c.districtZh.includes(q) ||
+        c.tags.some((t) => t.toLowerCase().includes(q)) ||
+        c.credits?.director?.toLowerCase().includes(q) ||
+        c.credits?.artist?.toLowerCase().includes(q)
+    );
+  }
+  return list.sort((a, b) => b.year - a.year);
+}
+
+/** Dominant genre for a place cluster pin color */
+export function placePinColor(cards: ArchiveCard[]): string {
+  if (cards.length === 0) return '#89b4fa';
+  const counts = new Map<ArchiveGenre, number>();
+  for (const c of cards) counts.set(c.genre, (counts.get(c.genre) ?? 0) + 1);
+  let best: ArchiveGenre = cards[0].genre;
+  let max = 0;
+  for (const [g, n] of counts) {
+    if (n > max) {
+      max = n;
+      best = g;
+    }
+  }
+  if (counts.size > 1 && max < cards.length) {
+    return '#f9e2af';
+  }
+  return GENRE_META[best].color;
 }

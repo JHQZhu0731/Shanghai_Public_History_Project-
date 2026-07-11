@@ -1,27 +1,99 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { PlaceMapView } from './components/PlaceMapView';
 import { IndexView } from './components/IndexView';
 import { RecordPanel } from './components/RecordPanel';
+import { ArchiveStats } from './components/ArchiveStats';
+import {
+  DEFAULT_BROWSE_FILTERS,
+  type BrowseFilters,
+} from './data/browseFilters';
 import type { LanguageType } from './data/types';
 import { Compass, MapPinned, Library, Languages, Globe } from 'lucide-react';
 
 type TabType = 'map' | 'index';
 
+function parseHash():
+  | { kind: 'record'; id: string }
+  | { kind: 'place'; id: string }
+  | null {
+  const raw = window.location.hash.replace(/^#/, '');
+  if (raw.startsWith('record/')) return { kind: 'record', id: raw.slice(7) };
+  if (raw.startsWith('place/')) return { kind: 'place', id: raw.slice(6) };
+  return null;
+}
+
+function setHash(kind: 'record' | 'place' | null, id?: string) {
+  if (!kind || !id) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    return;
+  }
+  history.replaceState(null, '', `#${kind}/${id}`);
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState<TabType>('map');
   const [language, setLanguage] = useState<LanguageType>('zh');
+  const [filters, setFilters] = useState<BrowseFilters>(DEFAULT_BROWSE_FILTERS);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
   const [mapFocusId, setMapFocusId] = useState<string | null>(null);
 
   const isEn = language === 'en';
 
-  const openRecord = (id: string) => setSelectedItemId(id);
+  const openRecord = useCallback((id: string) => {
+    setSelectedItemId(id);
+    setHash('record', id);
+  }, []);
 
-  const jumpToMap = (id: string) => {
+  const closeRecord = useCallback(() => {
+    setSelectedItemId(null);
+    if (selectedPlaceId) setHash('place', selectedPlaceId);
+    else setHash(null);
+  }, [selectedPlaceId]);
+
+  const selectPlace = useCallback((placeId: string | null) => {
+    setSelectedPlaceId(placeId);
+    if (placeId) setHash('place', placeId);
+    else setHash(null);
+  }, []);
+
+  const jumpToMap = useCallback((id: string) => {
     setMapFocusId(id);
     setActiveTab('map');
     setSelectedItemId(null);
-  };
+  }, []);
+
+  // Deep link from URL hash
+  useEffect(() => {
+    const apply = () => {
+      const h = parseHash();
+      if (!h) return;
+      if (h.kind === 'record') {
+        setSelectedItemId(h.id);
+        setActiveTab('map');
+      } else if (h.kind === 'place') {
+        setSelectedPlaceId(h.id);
+        setActiveTab('map');
+      }
+    };
+    apply();
+    window.addEventListener('hashchange', apply);
+    return () => window.removeEventListener('hashchange', apply);
+  }, []);
+
+  // Escape closes record panel
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedItemId) closeRecord();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedItemId, closeRecord]);
+
+  const tabs: { id: TabType; labelEn: string; labelZh: string; icon: typeof MapPinned }[] = [
+    { id: 'map', labelEn: 'Map', labelZh: '地图', icon: MapPinned },
+    { id: 'index', labelEn: 'Index', labelZh: '索引', icon: Library },
+  ];
 
   return (
     <div className="min-h-screen bg-[#0c0d14] text-[#e2e8f0] flex flex-col crt-monitor selection:bg-[#f5c2e4] selection:text-[#11111b]">
@@ -37,11 +109,7 @@ function App() {
               <h1 className="text-base md:text-xl font-black text-[#f5c2e4] tracking-wider m-0 uppercase">
                 {isEn ? 'SHANGHAI PIXEL ARCHIVE' : '上海像素档案馆'}
               </h1>
-              <p className="text-[9px] md:text-[10px] text-[#a6adc8] font-mono mt-0.5 tracking-widest m-0">
-                {isEn
-                  ? 'CLICK A PLACE · READ THE RECORDS'
-                  : '点击地点 · 阅读档案'}
-              </p>
+              <ArchiveStats language={language} />
             </div>
           </div>
 
@@ -70,28 +138,25 @@ function App() {
         </div>
       </header>
 
-      <nav className="bg-[#11111b] border-b-4 border-[#313244] px-4 md:px-8 overflow-x-auto">
+      <nav className="bg-[#0c0d14] border-b-4 border-[#313244] px-4 md:px-8 overflow-x-auto">
         <div className="max-w-7xl mx-auto flex gap-2 md:gap-3 py-2.5">
-          <button
-            type="button"
-            onClick={() => setActiveTab('map')}
-            className={`nes-btn text-xs font-bold ${activeTab === 'map' ? 'is-primary' : ''}`}
-          >
-            <span className="flex items-center gap-1.5">
-              <MapPinned className="w-3.5 h-3.5" />
-              {isEn ? 'Map' : '地图'}
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('index')}
-            className={`nes-btn text-xs font-bold ${activeTab === 'index' ? 'is-primary' : ''}`}
-          >
-            <span className="flex items-center gap-1.5">
-              <Library className="w-3.5 h-3.5" />
-              {isEn ? 'Index' : '索引'}
-            </span>
-          </button>
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            const on = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id)}
+                className={`nes-btn text-xs font-bold ${on ? 'is-primary' : ''}`}
+              >
+                <span className="flex items-center gap-1.5">
+                  <Icon className="w-3.5 h-3.5" />
+                  {isEn ? tab.labelEn : tab.labelZh}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </nav>
 
@@ -99,12 +164,21 @@ function App() {
         {activeTab === 'map' && (
           <PlaceMapView
             language={language}
+            filters={filters}
+            onFiltersChange={setFilters}
             onSelectItem={openRecord}
+            selectedPlaceId={selectedPlaceId}
+            onSelectPlace={selectPlace}
             focusCardId={mapFocusId}
           />
         )}
         {activeTab === 'index' && (
-          <IndexView language={language} onSelectItem={openRecord} />
+          <IndexView
+            language={language}
+            filters={filters}
+            onFiltersChange={setFilters}
+            onSelectItem={openRecord}
+          />
         )}
       </main>
 
@@ -113,6 +187,8 @@ function App() {
           <p className="m-0">
             © {new Date().getFullYear()}{' '}
             {isEn ? 'SHANGHAI PIXEL ARCHIVE' : '上海像素档案馆'}
+            {' · '}
+            {isEn ? 'Place → Content → Source' : '地点 → 内容 → 来源'}
           </p>
           <p className="flex items-center gap-2 m-0">
             <Globe className="w-3.5 h-3.5 text-[#f5c2e4]" />
@@ -125,7 +201,7 @@ function App() {
         <RecordPanel
           itemId={selectedItemId}
           language={language}
-          onClose={() => setSelectedItemId(null)}
+          onClose={closeRecord}
           onSelectRelated={openRecord}
           onJumpToMap={jumpToMap}
         />
